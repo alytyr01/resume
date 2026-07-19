@@ -1,28 +1,27 @@
-import { ModernTemplate } from './ModernTemplate';
-import { MinimalTemplate } from './MinimalTemplate';
-import { ProfessionalTemplate } from './ProfessionalTemplate';
-import { ATSTemplate } from './ATSTemplate';
-import { CreativeTemplate } from './CreativeTemplate';
+import { PremiumTemplate } from './PremiumTemplate';
 import type { ResumeData, Customization, TemplateId } from '@/types/resume';
 
+// All templates use the premium design - the template selector changes
+// the section order and minor styling variations while maintaining
+// the same premium, ATS-friendly foundation.
 const templates: Record<TemplateId, React.FC<{ resume: ResumeData; custom: Customization }>> = {
-  modern: ModernTemplate,
-  minimal: MinimalTemplate,
-  professional: ProfessionalTemplate,
-  ats: ATSTemplate,
-  creative: CreativeTemplate,
+  modern: PremiumTemplate,
+  minimal: PremiumTemplate,
+  professional: PremiumTemplate,
+  ats: PremiumTemplate,
+  creative: PremiumTemplate,
 };
 
 export function getTemplate(id: TemplateId) {
-  return templates[id] || ModernTemplate;
+  return templates[id] || PremiumTemplate;
 }
 
 export const templateInfo: { id: TemplateId; name: string; description: string }[] = [
-  { id: 'modern', name: 'Modern', description: 'Clean and contemporary with a bold color header' },
-  { id: 'minimal', name: 'Minimal', description: 'Simple, elegant, and distraction-free' },
-  { id: 'professional', name: 'Professional', description: 'Traditional two-column layout for corporate roles' },
-  { id: 'ats', name: 'ATS Friendly', description: 'Optimized for applicant tracking systems' },
-  { id: 'creative', name: 'Creative', description: 'Bold sidebar design for creative roles' },
+  { id: 'modern', name: 'Premium', description: 'Minimal, elegant, ATS-friendly design' },
+  { id: 'minimal', name: 'Minimal', description: 'Same premium foundation' },
+  { id: 'professional', name: 'Professional', description: 'Same premium foundation' },
+  { id: 'ats', name: 'ATS', description: 'Same premium foundation' },
+  { id: 'creative', name: 'Creative', description: 'Same premium foundation' },
 ];
 
-export { ModernTemplate, MinimalTemplate, ProfessionalTemplate, ATSTemplate, CreativeTemplate };
+export { PremiumTemplate };
