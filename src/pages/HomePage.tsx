@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui';
-import { FileText, ArrowRight, Sparkles, Shield, Download, Eye, Star, BarChart3, ChevronDown } from 'lucide-react';
+import { FileText, ArrowRight, Sparkles, Shield, Download, Eye, Star, BarChart3, ChevronDown, Flag } from 'lucide-react';
 import { getTemplate } from '@/components/templates';
 import { createPlaceholderResume } from '@/data/placeholderResume';
 import type { Customization } from '@/types/resume';
@@ -44,14 +44,14 @@ function ResumeCard({ templateId, width, height }: { templateId: string; width: 
       style={{
         width,
         height,
-        borderRadius: 20,
-        background: 'rgba(255, 255, 255, 0.25)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.4)',
+        borderRadius: 24,
+        background: 'rgba(255, 255, 255, 0.35)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        border: '1px solid rgba(255, 255, 255, 0.5)',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-        overflow: 'hidden',
-        padding: 0,
+        overflow: 'visible',
+        padding: 16,
         boxSizing: 'border-box',
         position: 'relative',
         cursor: 'pointer',
@@ -65,11 +65,34 @@ function ResumeCard({ templateId, width, height }: { templateId: string; width: 
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
-          borderRadius: 20,
+          objectFit: 'contain',
+          borderRadius: 16,
           display: 'block',
         }}
       />
+
+        {templateId === 'modern' && (
+          <div style={{
+            position: 'absolute',
+            top: 12,
+            right: -48,
+            background: '#334155',
+            color: '#fff',
+            padding: '8px 14px',
+            borderRadius: 8,
+            fontSize: 13,
+            fontWeight: 600,
+            animation: 'fadeSlideIn 0.5s ease-out, bounce 2s ease-in-out infinite',
+            zIndex: 10,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+          }}>
+            <Flag style={{ width: 14, height: 14 }} />
+            Accepted
+          </div>
+        )}
 
       {showTooltip && (
         <div style={{
@@ -145,6 +168,24 @@ export function HomePage() {
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeSlideIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
   }, []);
 
   return (
