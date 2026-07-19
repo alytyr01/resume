@@ -14,7 +14,7 @@ function ExperienceItem({ id, index }: { id: string; index: number }) {
   const style = { transform: CSS.Transform.toString(transform), transition };
 
   return (
-    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50 ${isDragging ? 'opacity-50 shadow-lg' : ''}`}>
+    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50 ${isDragging ? 'opacity-50 shadow-md' : ''}`}>
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <button {...attributes} {...listeners} className="cursor-grab text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">

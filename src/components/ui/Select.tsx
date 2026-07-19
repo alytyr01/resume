@@ -25,16 +25,17 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           </label>
         )}
         <div className="relative">
-          <select
-            id={selectId}
-            className={cn(
-              'flex h-10 w-full appearance-none rounded-lg border border-slate-200 bg-white px-3 py-2 pr-10 text-sm text-slate-900 shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100',
-              error && 'border-red-400 focus:ring-red-400',
-              className
-            )}
-            ref={ref}
-            {...props}
-          >
+           <select
+             id={selectId}
+             style={{ boxShadow: 'none' }}
+             className={cn(
+               'flex h-10 w-full appearance-none rounded-lg border border-slate-200 bg-white px-3 py-2 pr-10 text-sm text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100',
+               error && 'border-red-400 focus:ring-red-400',
+               className
+             )}
+             ref={ref}
+             {...props}
+           >
             {placeholder && <option value="">{placeholder}</option>}
             {options.map((opt) => (
               <option key={opt.value} value={opt.value}>

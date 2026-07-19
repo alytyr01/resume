@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui';
-import { FileText, ArrowRight, Sparkles, Shield, Download, Eye, Star, BarChart3, ChevronDown, Flag, Layout, Briefcase, Target, Palette, Crown } from 'lucide-react';
+import { FileText, ArrowRight, Sparkles, Shield, Download, Eye, Star, BarChart3, ChevronDown, Flag } from 'lucide-react';
 import { getTemplate } from '@/components/templates';
 import { createPlaceholderResume } from '@/data/placeholderResume';
 import type { Customization } from '@/types/resume';
@@ -197,79 +197,42 @@ export function HomePage() {
               <img
                 src="/images/logo.png"
                 alt="ResumeForge"
-                style={{ width: 64, height: 64, borderRadius: 16, objectFit: 'contain' }}
+                style={{ width: 64, height: 64, borderRadius: 12, objectFit: 'contain' }}
               />
             </div>
             <div style={{ width: 1, height: 24, background: '#E2E8F0' }} />
             <div
               style={{ position: 'relative' }}
               onMouseEnter={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'block')}
-              onMouseLeave={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'none')}
+              onMouseLeave={() => setTimeout(() => { if (!document.getElementById('templates-dropdown')?.matches(':hover')) { document.getElementById('templates-dropdown')!.style.display = 'none'; } }, 100)}
             >
               <a href="/templates" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
                 Resume Templates <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
                 id="templates-dropdown"
-                onMouseEnter={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'block')}
-                onMouseLeave={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'none')}
                 style={{
                   display: 'none',
                   position: 'absolute',
                   top: '100%',
                   left: '-20px',
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: 16,
-                  padding: 20,
-                  minWidth: 900,
-                  width: 900,
+                  background: '#fff',
+                  border: '1px solid #E2E8F0',
+                  borderRadius: 12,
+                  padding: '12px 0',
+                  minWidth: 200,
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                   zIndex: 1000,
                 }}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Layout style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Modern</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Clean, modern design</div></div></a>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><FileText style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Minimal</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Simple, elegant layout</div></div></a>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Briefcase style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Professional</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Corporate, formal style</div></div></a>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Target style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>ATS</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Optimized for screening</div></div></a>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Palette style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Creative</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Bold, eye-catching look</div></div></a>
-                  <a href="/templates" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Crown style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Premium</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Most popular choice</div></div></a>
-                </div>
+                <a href="/templates" style={{ textDecoration: 'none', color: '#1e293b', padding: '8px 20px', display: 'block', fontSize: 15, fontWeight: 500 }} onMouseEnter={() => { document.getElementById('templates-dropdown')!.style.display = 'block'; }} onMouseLeave={() => { document.getElementById('templates-dropdown')!.style.display = 'none'; }}>Modern Template</a>
+                <a href="/templates" style={{ textDecoration: 'none', color: '#1e293b', padding: '8px 20px', display: 'block', fontSize: 15, fontWeight: 500 }} onMouseEnter={() => { document.getElementById('templates-dropdown')!.style.display = 'block'; }} onMouseLeave={() => { document.getElementById('templates-dropdown')!.style.display = 'none'; }}>Minimal Template</a>
+                <a href="/templates" style={{ textDecoration: 'none', color: '#1e293b', padding: '8px 20px', display: 'block', fontSize: 15, fontWeight: 500 }} onMouseEnter={() => { document.getElementById('templates-dropdown')!.style.display = 'block'; }} onMouseLeave={() => { document.getElementById('templates-dropdown')!.style.display = 'none'; }}>Professional Template</a>
+                <a href="/templates" style={{ textDecoration: 'none', color: '#1e293b', padding: '8px 20px', display: 'block', fontSize: 15, fontWeight: 500 }} onMouseEnter={() => { document.getElementById('templates-dropdown')!.style.display = 'block'; }} onMouseLeave={() => { document.getElementById('templates-dropdown')!.style.display = 'none'; }}>ATS Template</a>
+                <a href="/templates" style={{ textDecoration: 'none', color: '#1e293b', padding: '8px 20px', display: 'block', fontSize: 15, fontWeight: 500 }} onMouseEnter={() => { document.getElementById('templates-dropdown')!.style.display = 'block'; }} onMouseLeave={() => { document.getElementById('templates-dropdown')!.style.display = 'none'; }}>Creative Template</a>
               </div>
             </div>
-            <div
-              style={{ position: 'relative' }}
-              onMouseEnter={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'block')}
-              onMouseLeave={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'none')}
-            >
-              <a href="/examples" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
-                Resume Examples <ChevronDown style={{ width: 18, height: 18 }} />
-              </a>
-              <div
-                id="examples-dropdown"
-                onMouseEnter={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'block')}
-                onMouseLeave={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'none')}
-                style={{
-                  display: 'none',
-                  position: 'absolute',
-                  top: '100%',
-                  left: '-20px',
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: 16,
-                  padding: 20,
-                  minWidth: 900,
-                  width: 900,
-                  zIndex: 1000,
-                }}
-              >
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
-                  <a href="/examples" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Layout style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Entry Level</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Recent graduates</div></div></a>
-                  <a href="/examples" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Briefcase style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Mid Career</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>5+ years experience</div></div></a>
-                  <a href="/examples" style={{ textDecoration: 'none', color: '#0f172a', padding: '14px 10px', fontSize: 24, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 16, textAlign: 'left' }}><Star style={{ width: 32, height: 32, color: '#64748b' }} /><div><div style={{fontSize:20,fontWeight:700, lineHeight: 1.4, textAlign: 'left'}}>Executive</div><div style={{fontSize:15,fontWeight:400,color:'#94a3b8', lineHeight: 1.4, textAlign: 'left', whiteSpace: 'nowrap'}}>Senior leadership</div></div></a>
-                </div>
-              </div>
-            </div>
+            <a href="/examples" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>Resume Examples <ChevronDown style={{ width: 18, height: 18 }} /></a>
             <a href="/faq" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>FAQ <ChevronDown style={{ width: 18, height: 18 }} /></a>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

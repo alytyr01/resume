@@ -9,7 +9,7 @@ const customizations: Customization[] = [
   { templateId: 'professional', primaryColor: '#1E40AF', accentColor: '#1E40AF', fontFamily: 'Georgia', fontSize: 15, lineSpacing: 1.7, sectionSpacing: 40 },
   { templateId: 'ats', primaryColor: '#6D28D9', accentColor: '#6D28D9', fontFamily: 'Arial', fontSize: 14, lineSpacing: 1.6, sectionSpacing: 32 },
   { templateId: 'creative', primaryColor: '#DC2626', accentColor: '#DC2626', fontFamily: 'Inter', fontSize: 15, lineSpacing: 1.65, sectionSpacing: 36 },
-];
+];eo makt 
 
 interface CardData {
   resume: ResumeData;
@@ -191,10 +191,10 @@ export function CardSwiper() {
 
       <style>{`
         .center-card {
-          box-shadow: 0 8px 32px rgba(79, 70, 229, 0.2) !important;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15) !important;
         }
         .card {
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         .little-card:nth-child(1) {
           transform: translate(200%, -160%) rotate(-15deg);
