@@ -294,9 +294,9 @@ export function TemplatePage() {
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
-          { href: '/career-levels', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-          { href: '/career-levels', icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
-          { href: '/career-levels', icon: <Star style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
+          { href: '/career-levels/entry', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+          { href: '/career-levels/mid', icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+          { href: '/career-levels/executive', icon: <Star style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />
       
@@ -311,8 +311,6 @@ export function TemplatePage() {
           display: 'flex',
           gap: 60,
           alignItems: 'flex-start',
-          maxWidth: 1400,
-          margin: '0 auto',
         }}>
           {/* Left side - Text content */}
             <div style={{ flex: 1, paddingRight: 20 }}>
@@ -329,19 +327,19 @@ export function TemplatePage() {
             
             <p style={{
               fontSize: 18,
-              lineHeight: 1.6,
+              lineHeight: 2,
               color: '#475569',
               margin: '0 0 32px',
-              maxWidth: 700,
+              maxWidth: 800,
             }}>
               {heroDescription1}
             </p>
             <p style={{
               fontSize: 18,
-              lineHeight: 1.6,
+              lineHeight: 2,
               color: '#475569',
               margin: '0 0 40px',
-              maxWidth: 700,
+              maxWidth: 800,
             }}>
               {heroDescription2}
             </p>
@@ -361,8 +359,8 @@ export function TemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '16px 32px',
-                    fontSize: 17,
+                    padding: '20px 40px',
+                    fontSize: 18,
                     fontWeight: 600,
                     color: '#fff',
                     background: '#0f172a',
@@ -380,8 +378,8 @@ export function TemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '16px 32px',
-                    fontSize: 17,
+                    padding: '20px 40px',
+                    fontSize: 18,
                     fontWeight: 500,
                     color: '#0f172a',
                     background: '#fff',
@@ -424,7 +422,7 @@ export function TemplatePage() {
 
           {/* Right side - Image */}
           <div style={{
-            flex: '0 0 300px',
+            flex: '0 0 400px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
             position: 'relative',

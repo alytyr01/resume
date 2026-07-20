@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { HomePage } from '@/pages/HomePage';
 import { BuilderPage } from '@/pages/BuilderPage';
@@ -9,7 +9,6 @@ import { ProfessionalTemplatePage } from '@/pages/templates/ProfessionalTemplate
 import { ATSTemplatePage } from '@/pages/templates/ATSTemplatePage';
 import { CreativeTemplatePage } from '@/pages/templates/CreativeTemplatePage';
 import { PremiumTemplatePage } from '@/pages/templates/PremiumTemplatePage';
-import { CareerLevelsPage } from '@/pages/CareerLevelsPage';
 import { EntryLevelPage } from '@/pages/EntryLevelPage';
 import { MidCareerPage } from '@/pages/MidCareerPage';
 import { ExecutivePage } from '@/pages/ExecutivePage';
@@ -36,7 +35,7 @@ export default function App() {
           <Route path="/templates/premium" element={<PremiumTemplatePage />} />
           <Route path="/templates/:templateId" element={<TemplatePage />} />
           <Route path="/builder" element={<BuilderPage />} />
-          <Route path="/career-levels" element={<CareerLevelsPage />} />
+          <Route path="/career-levels" element={<Navigate to="/career-levels/entry" replace />} />
           <Route path="/career-levels/entry" element={<EntryLevelPage />} />
           <Route path="/career-levels/mid" element={<MidCareerPage />} />
           <Route path="/career-levels/executive" element={<ExecutivePage />} />

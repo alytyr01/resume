@@ -101,9 +101,9 @@ export function ATSTemplatePage() {
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
-          { href: '/career-levels', icon: <User style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-          { href: '/career-levels', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
-          { href: '/career-levels', icon: <Award style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
+          { href: '/career-levels/entry', icon: <User style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+          { href: '/career-levels/mid', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+          { href: '/career-levels/executive', icon: <Award style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />
       
@@ -118,8 +118,6 @@ export function ATSTemplatePage() {
           display: 'flex',
           gap: 60,
           alignItems: 'flex-start',
-          maxWidth: 1400,
-          margin: '0 auto',
         }}>
           <div style={{ flex: 1, paddingRight: 20 }}>
             <h1 style={{
@@ -134,19 +132,19 @@ export function ATSTemplatePage() {
             </h1>
             <p style={{
               fontSize: 18,
-              lineHeight: 1.6,
+              lineHeight: 2,
               color: '#475569',
               margin: '0 0 32px',
-              maxWidth: 700,
+              maxWidth: 800,
             }}>
               {heroDescription1}
             </p>
             <p style={{
               fontSize: 18,
-              lineHeight: 1.6,
+              lineHeight: 2,
               color: '#475569',
               margin: '0 0 40px',
-              maxWidth: 700,
+              maxWidth: 800,
             }}>
               {heroDescription2}
             </p>
@@ -166,8 +164,8 @@ export function ATSTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '16px 32px',
-                    fontSize: 17,
+                    padding: '20px 40px',
+                    fontSize: 18,
                     fontWeight: 600,
                     color: '#fff',
                     background: '#0f172a',
@@ -185,8 +183,8 @@ export function ATSTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '16px 32px',
-                    fontSize: 17,
+                    padding: '20px 40px',
+                    fontSize: 18,
                     fontWeight: 500,
                     color: '#0f172a',
                     background: '#fff',
@@ -228,11 +226,25 @@ export function ATSTemplatePage() {
           </div>
 
           <div style={{
-            flex: '0 0 300px',
+            flex: '0 0 400px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
             position: 'relative',
           }}>
+            <img
+              src="/images/resume1.webp"
+              alt=""
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '60px',
+                left: '-60px',
+                width: '110%',
+                height: 'auto',
+                opacity: 0.5,
+                zIndex: 0,
+              }}
+            />
             <img
               src="/images/ats-resume.webp"
               alt="ATS Resume Template"
@@ -240,6 +252,8 @@ export function ATSTemplatePage() {
                 width: '100%',
                 height: 'auto',
                 display: 'block',
+                position: 'relative',
+                zIndex: 1,
               }}
             />
             <div style={{
