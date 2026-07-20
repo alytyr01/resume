@@ -473,6 +473,23 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
           </ul>
         </div>
       </div>
+
+      {/* Bottom Navigation */}
+      <div style={{
+        padding: '0 96px 40px',
+      }}>
+        <div style={{
+          fontSize: 14,
+          color: '#64748b',
+          borderBottom: '2px solid #64748b',
+          paddingBottom: 10,
+          display: 'inline-block',
+        }}>
+          <a href="/" style={{ color: '#64748b', textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>Home</a>
+          <span style={{ margin: '0 8px', textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>/</span>
+          <span style={{ textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>Modern Resume Examples</span>
+        </div>
+      </div>
     </div>
   );
 }
