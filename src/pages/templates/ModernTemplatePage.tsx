@@ -327,12 +327,12 @@ export function ModernTemplatePage() {
         }}>
           {features.map((feature, index) => {
             const icons = [
-              <Layout key="layout" style={{ width: 28, height: 28, color: '#0f172a' }} />,
-              <Layout key="layout1" style={{ width: 28, height: 28, color: '#0f172a' }} />,
-              <Layout key="layout2" style={{ width: 28, height: 28, color: '#0f172a' }} />,
-              <Layout key="layout3" style={{ width: 28, height: 28, color: '#0f172a' }} />,
-              <Layout key="layout4" style={{ width: 28, height: 28, color: '#0f172a' }} />,
-              <Layout key="layout5" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Sparkles key="icon1" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Layout key="icon2" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Palette key="icon3" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Briefcase key="icon4" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <FileText key="icon5" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Crown key="icon6" style={{ width: 28, height: 28, color: '#0f172a' }} />,
             ];
             return (
               <div key={index} style={{

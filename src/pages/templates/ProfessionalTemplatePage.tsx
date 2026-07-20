@@ -335,7 +335,12 @@ export function ProfessionalTemplatePage() {
                 justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />
+                {index === 0 && <Sparkles style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 1 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 2 && <Palette style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 3 && <Briefcase style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 4 && <FileText style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 5 && <Crown style={{ width: 28, height: 28, color: '#0f172a' }} />}
               </div>
               <div>
                 <div style={{

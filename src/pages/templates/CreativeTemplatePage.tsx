@@ -335,7 +335,12 @@ export function CreativeTemplatePage() {
                 justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                <Layout style={{ width: 28, height: 28, color: '#7C3AED' }} />
+                {index === 0 && <Sparkles style={{ width: 28, height: 28, color: '#7C3AED' }} />}
+                {index === 1 && <Layout style={{ width: 28, height: 28, color: '#7C3AED' }} />}
+                {index === 2 && <Palette style={{ width: 28, height: 28, color: '#7C3AED' }} />}
+                {index === 3 && <Briefcase style={{ width: 28, height: 28, color: '#7C3AED' }} />}
+                {index === 4 && <FileText style={{ width: 28, height: 28, color: '#7C3AED' }} />}
+                {index === 5 && <Crown style={{ width: 28, height: 28, color: '#7C3AED' }} />}
               </div>
               <div>
                 <div style={{
