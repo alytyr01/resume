@@ -109,7 +109,7 @@ export function CreativeTemplatePage() {
       
       {/* Hero Section */}
       <div style={{
-        background: 'linear-gradient(135deg, #F3E8FF 0%, #FCE7F3 100%)',
+        background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
         padding: '80px 96px',
         marginBottom: 0,
         position: 'relative',
