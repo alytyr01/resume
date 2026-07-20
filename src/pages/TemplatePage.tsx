@@ -1,7 +1,7 @@
 import { Navbar } from '@/components/home';
 import { ModernTemplate } from '@/components/templates/ModernTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, FileText, Briefcase, Target, Palette, Crown, Star } from 'lucide-react';
+import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, Zap, Sparkles } from 'lucide-react';
 
 interface TemplatePageProps {
   title: string;
@@ -14,6 +14,15 @@ interface TemplatePageProps {
 
 export function TemplatePage({ title, description, features, useCases, tips, image }: TemplatePageProps) {
   const sampleResume = createPlaceholderResume();
+  const sampleCustom = {
+    templateId: 'modern',
+    primaryColor: '#2563EB',
+    accentColor: '#2563EB',
+    fontFamily: 'Inter',
+    fontSize: 14,
+    lineSpacing: 1.5,
+    sectionSpacing: 28,
+  } as const;
 
   return (
     <div style={{
@@ -223,7 +232,7 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
 
       {/* About Modern Resume Section */}
       <div style={{
-        padding: '60px 96px',
+        padding: '60px 96px 0',
       }}>
         <h2 style={{
           fontSize: 40,
@@ -233,38 +242,30 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
         }}>
           About Modern Resume Templates
         </h2>
-        <div style={{
-          background: '#fff',
-          padding: 40,
-          borderRadius: 16,
-          border: '1px solid #E2E8F0',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          color: '#334155',
+          margin: '0 0 20px',
         }}>
-          <p style={{
-            fontSize: 18,
-            lineHeight: 1.8,
-            color: '#334155',
-            margin: '0 0 20px',
-          }}>
-            Modern resume templates are designed with contemporary design principles that emphasize clean lines, strategic use of white space, and a focus on content hierarchy. These templates are perfect for today's job market where recruiters spend an average of just 7-8 seconds scanning each resume.
-          </p>
-          <p style={{
-            fontSize: 18,
-            lineHeight: 1.8,
-            color: '#334155',
-            margin: '0 0 20px',
-          }}>
-            The modern template style prioritizes readability and scannability while maintaining a professional appearance. Key elements include bold section headers, clear visual hierarchy, and strategic use of accent colors to draw attention to important information. This design philosophy ensures your resume not only looks great but also effectively communicates your value to potential employers.
-          </p>
-          <p style={{
-            fontSize: 18,
-            lineHeight: 1.8,
-            color: '#334155',
-            margin: 0,
-          }}>
-            Modern templates are particularly effective for roles in technology, design, marketing, and other creative industries where a contemporary aesthetic is valued. They also work well for traditional roles, as the clean design conveys professionalism while the modern touches help your application stand out from more conventional resumes.
-          </p>
-        </div>
+          Modern resume templates are designed with contemporary design principles that emphasize clean lines, strategic use of white space, and a focus on content hierarchy. These templates are perfect for today's job market where recruiters spend an average of just 7-8 seconds scanning each resume.
+        </p>
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          color: '#334155',
+          margin: '0 0 20px',
+        }}>
+          The modern template style prioritizes readability and scannability while maintaining a professional appearance. Key elements include bold section headers, clear visual hierarchy, and strategic use of accent colors to draw attention to important information. This design philosophy ensures your resume not only looks great but also effectively communicates your value to potential employers.
+        </p>
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          color: '#334155',
+          margin: '0 0 60px',
+        }}>
+          Modern templates are particularly effective for roles in technology, design, marketing, and other creative industries where a contemporary aesthetic is valued. They also work well for traditional roles, as the clean design conveys professionalism while the modern touches help your application stand out from more conventional resumes.
+        </p>
       </div>
 
       {/* Features Section */}
@@ -284,30 +285,57 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
         }}>
-          {features.map((feature, index) => (
-            <div key={index} style={{
-              background: '#fff',
-              padding: 32,
-              borderRadius: 16,
-              border: '1px solid #E2E8F0',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
-            }}>
-              <div style={{
-                fontSize: 22,
-                fontWeight: 700,
-                color: '#0f172a',
-                marginBottom: 16,
-              }}>{feature}</div>
-              <p style={{
-                fontSize: 16,
-                lineHeight: 1.7,
-                color: '#475569',
-                margin: 0,
+          {features.map((feature, index) => {
+            const icons = [
+              <Layout key="layout" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+              <Target key="target" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+              <Briefcase key="briefcase" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+              <FileText key="filetext" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+              <Palette key="palette" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+              <Sparkles key="sparkles" style={{ width: 28, height: 28, color: '#4f46e5' }} />,
+            ];
+            return (
+              <div key={index} style={{
+                background: '#fff',
+                padding: 32,
+                borderRadius: 16,
+                border: '1px solid #E2E8F0',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 20,
               }}>
-                This feature helps you create a professional and polished resume that stands out to recruiters and hiring managers in today's competitive job market.
-              </p>
-            </div>
-          ))}
+                <div style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: 14,
+                  background: '#EEF2FF',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}>
+                  {icons[index % icons.length]}
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: 22,
+                    fontWeight: 700,
+                    color: '#0f172a',
+                    marginBottom: 16,
+                  }}>{feature}</div>
+                  <p style={{
+                    fontSize: 16,
+                    lineHeight: 1.7,
+                    color: '#475569',
+                    margin: 0,
+                  }}>
+                    This feature helps you create a professional and polished resume that stands out to recruiters and hiring managers in today's competitive job market.
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -329,33 +357,32 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
           gap: 30,
         }}>
           {[1, 2, 3, 4].map((num) => (
-            <div key={num} style={{
-              background: '#fff',
-              padding: 20,
-              borderRadius: 16,
-              border: '1px solid #E2E8F0',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
-            }}>
+            <div key={num}>
               <div style={{
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: '#fff',
                 borderRadius: 12,
                 overflow: 'hidden',
-                marginBottom: 16,
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                aspectRatio: '8.5/11',
+                position: 'relative',
+                height: 500,
               }}>
-                <img
-                  src={image}
-                  alt={`${title} Sample ${num}`}
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    display: 'block',
-                  }}
-                />
+                <div style={{
+                  transform: 'scale(0.48)',
+                  transformOrigin: 'top left',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '208%',
+                  height: '208%',
+                }}>
+                  <ModernTemplate resume={sampleResume} custom={sampleCustom} />
+                </div>
               </div>
               <h3 style={{
                 fontSize: 20,
                 fontWeight: 700,
-                margin: '0 0 10px',
+                margin: '16px 0 10px',
                 color: '#0f172a',
               }}>
                 Example {num}
