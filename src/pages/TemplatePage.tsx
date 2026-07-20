@@ -1,4 +1,4 @@
-import { Navbar } from '@/components/home';
+import { Navbar, Footer } from '@/components/home';
 import { ModernTemplate } from '@/components/templates/ModernTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
 import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, Zap, Sparkles } from 'lucide-react';
@@ -62,15 +62,6 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
         }}>
           {/* Left side - Text content */}
             <div style={{ flex: 1, paddingRight: 20 }}>
-              <div style={{
-                fontSize: 14,
-                color: '#64748b',
-                marginBottom: 12,
-              }}>
-                <a href="/" style={{ color: '#64748b', textDecoration: 'none' }}>Home</a>
-                <span style={{ margin: '0 8px' }}>/</span>
-                <span>Modern Resume Examples</span>
-              </div>
             <h1 style={{
               fontSize: 64,
               fontWeight: 800,
@@ -488,7 +479,7 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
 
       {/* FAQ Section */}
       <div style={{
-        padding: '0 96px 80px',
+        padding: '0 96px 60px',
       }}>
         <h2 style={{
           fontSize: 40,
@@ -581,22 +572,7 @@ export function TemplatePage({ title, description, features, useCases, tips, ima
         </div>
       </div>
 
-      {/* Bottom Navigation */}
-      <div style={{
-        padding: '0 96px 40px',
-      }}>
-        <div style={{
-          fontSize: 14,
-          color: '#64748b',
-          borderBottom: '2px solid #64748b',
-          paddingBottom: 10,
-          display: 'inline-block',
-        }}>
-          <a href="/" style={{ color: '#64748b', textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>Home</a>
-          <span style={{ margin: '0 8px', textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>/</span>
-          <span style={{ textDecoration: 'underline', textDecorationThickness: '2px', textUnderlineOffset: '3px' }}>Modern Resume Examples</span>
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 }
