@@ -275,24 +275,6 @@ export function PremiumTemplatePage() {
             }}>
               premium
             </div>
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: -12,
-              background: '#0f172a',
-              color: '#fff',
-              padding: '10px 16px',
-              borderTopRightRadius: 0,
-              borderBottomRightRadius: 12,
-              borderTopLeftRadius: 12,
-              borderBottomLeftRadius: 0,
-              fontSize: 14,
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              animation: 'bounce 2s ease-in-out infinite',
-            }}>
-              premium
-            </div>
           </div>
         </div>
       </div>

@@ -271,6 +271,7 @@ export function ProfessionalTemplatePage() {
               fontWeight: 700,
               letterSpacing: '-0.02em',
               animation: 'bounce 2s ease-in-out infinite',
+              zIndex: 2,
             }}>
               professional
             </div>

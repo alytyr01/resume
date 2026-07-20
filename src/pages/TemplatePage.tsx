@@ -428,12 +428,28 @@ export function TemplatePage() {
             position: 'relative',
           }}>
             <img
+              src="/images/resume1.webp"
+              alt=""
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '60px',
+                left: '-60px',
+                width: '110%',
+                height: 'auto',
+                opacity: 0.5,
+                zIndex: 0,
+              }}
+            />
+            <img
               src="/images/modern-resume.png"
               alt="Modern Resume Template"
               style={{
                 width: '100%',
                 height: 'auto',
                 display: 'block',
+                position: 'relative',
+                zIndex: 1,
               }}
             />
             <div style={{
