@@ -9,6 +9,10 @@ import { ProfessionalTemplatePage } from '@/pages/templates/ProfessionalTemplate
 import { ATSTemplatePage } from '@/pages/templates/ATSTemplatePage';
 import { CreativeTemplatePage } from '@/pages/templates/CreativeTemplatePage';
 import { PremiumTemplatePage } from '@/pages/templates/PremiumTemplatePage';
+import { CareerLevelsPage } from '@/pages/CareerLevelsPage';
+import { EntryLevelPage } from '@/pages/EntryLevelPage';
+import { MidCareerPage } from '@/pages/MidCareerPage';
+import { ExecutivePage } from '@/pages/ExecutivePage';
 import { useThemeStore } from '@/store/themeStore';
 
 function ThemeInitializer({ children }: { children: React.ReactNode }) {
@@ -32,6 +36,10 @@ export default function App() {
           <Route path="/templates/premium" element={<PremiumTemplatePage />} />
           <Route path="/templates/:templateId" element={<TemplatePage />} />
           <Route path="/builder" element={<BuilderPage />} />
+          <Route path="/career-levels" element={<CareerLevelsPage />} />
+          <Route path="/career-levels/entry" element={<EntryLevelPage />} />
+          <Route path="/career-levels/mid" element={<MidCareerPage />} />
+          <Route path="/career-levels/executive" element={<ExecutivePage />} />
         </Routes>
       </ThemeInitializer>
     </BrowserRouter>

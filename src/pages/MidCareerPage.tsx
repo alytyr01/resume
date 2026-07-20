@@ -1,88 +1,66 @@
 import { Navbar, Footer } from '@/components/home';
-import { ModernTemplate } from '@/components/templates/ModernTemplate';
-import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, Star, Sparkles, Palette, Briefcase, FileText, Crown, User, TrendingUp, Award } from 'lucide-react';
+import { Briefcase, ArrowRight, CheckCircle, Star, Sparkles, Layout, Palette, FileText, Crown, GraduationCap } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export function ModernTemplatePage() {
+export function MidCareerPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const sampleResumes = [
-    createPlaceholderResume(),
-    createPlaceholderResume(),
-    createPlaceholderResume(),
-    createPlaceholderResume()
-  ];
-  const sampleCustoms = [
-    { templateId: 'modern', primaryColor: '#60A5FA', accentColor: '#60A5FA', fontFamily: 'Inter', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'modern', primaryColor: '#34D399', accentColor: '#34D399', fontFamily: 'Inter', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'modern', primaryColor: '#F87171', accentColor: '#F87171', fontFamily: 'Inter', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'modern', primaryColor: '#A78BFA', accentColor: '#A78BFA', fontFamily: 'Inter', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-  ];
+  const navigate = useNavigate();
 
-  const aboutSection = {
-    heading: 'About Modern Resume Templates',
-    paragraphs: [
-      'Modern resume templates are designed with contemporary design principles that emphasize clean lines, strategic use of white space, and a focus on content hierarchy. These templates are perfect for today\'s job market where recruiters spend an average of just 7-8 seconds scanning each resume.',
-      'The modern template style prioritizes readability and scannability while maintaining a professional appearance. Key elements include bold section headers, clear visual hierarchy, and strategic use of accent colors to draw attention to important information. This design philosophy ensures your resume not only looks great but also effectively communicates your value to potential employers.',
-      'Modern templates are particularly effective for roles in technology, design, marketing, and other creative industries where a contemporary aesthetic is valued. They also work well for traditional roles, as the clean design conveys professionalism while the modern touches help your application stand out from more conventional resumes.'
-    ]
-  };
-
-  const heroDescription1 = 'Clean, modern design with a focus on readability and contemporary aesthetics. Perfect for tech professionals and creative roles.';
-  const heroDescription2 = 'Featuring bold section headers, clear visual hierarchy, and strategic accent colors, this template helps your resume stand out while maintaining a professional appearance that recruiters love.';
+  const heroDescription1 = 'Showcase your growing expertise and professional achievements with our mid-career templates. Designed to highlight your career progression and demonstrate your value to potential employers.';
+  const heroDescription2 = 'With 5+ years of experience, your resume needs to emphasize accomplishments, leadership, and measurable impact. This template helps you stand out as a seasoned professional ready for the next level.';
 
   const faqs = [
     {
-      question: 'What is a modern resume template?',
-      answer: 'A modern resume template features clean lines, contemporary typography, and strategic use of accent colors. It emphasizes readability and visual hierarchy while maintaining a professional appearance that stands out to recruiters.'
+      question: 'What should a mid-career resume emphasize?',
+      answer: 'A mid-career resume should emphasize professional achievements, quantifiable results, career progression, leadership experiences, and specialized skills. Focus on impact and outcomes rather than just listing responsibilities.'
     },
     {
-      question: 'Are modern resume templates customizable?',
-      answer: 'Yes! Our modern templates are highly customizable. You can adjust accent colors, fonts, spacing, and layout to match your personal style while maintaining the modern aesthetic that helps you stand out.'
+      question: 'How long should a mid-career resume be?',
+      answer: 'Two pages is standard for mid-career professionals. You have enough experience to warrant the extra space, but keep it concise and relevant. Focus on the last 10-15 years of experience unless earlier roles are particularly relevant.'
     },
     {
-      question: 'What colors work best for a modern resume?',
-      answer: 'Modern resumes typically use one or two accent colors strategically. Common choices include navy blue, teal, purple, or deep green. The key is to use color sparingly to highlight important elements without overwhelming the reader.'
+      question: 'How do I show career progression on my mid-career resume?',
+      answer: 'List positions in reverse chronological order, highlight promotions and increasing responsibility, use metrics to show growth, and emphasize leadership roles. Consider adding a Career Highlights section at the top for quick visibility.'
     },
     {
-      question: 'How long should a modern resume be?',
-      answer: 'Ideally one page for early-career professionals and two pages maximum for those with extensive experience. Modern templates are designed to make efficient use of space while maintaining readability.'
+      question: 'Should I include all my jobs on a mid-career resume?',
+      answer: 'Focus on relevant positions from the last 10-15 years. Earlier roles can be condensed or omitted unless they provide relevant experience or demonstrate important career transitions.'
     },
     {
-      question: 'Should I include a photo on my modern resume?',
-      answer: 'In most countries, no. Unless you\'re applying for a role where appearance is relevant (modeling, acting, etc.), it\'s best to focus on content and let your skills and experience speak for themselves.'
+      question: 'How can I quantify achievements on my mid-career resume?',
+      answer: 'Use numbers, percentages, and monetary values. For example: "Increased sales by 30%," "Managed a team of 12," "Reduced costs by $50K," "Led a project that delivered $2M in revenue."'
     },
     {
-      question: 'What fonts are best for modern resumes?',
-      answer: 'Sans-serif fonts like Inter, Roboto, or Open Sans work best for modern resumes. They provide excellent readability on both screen and print while maintaining a clean, contemporary look.'
+      question: 'Should I include certifications on my mid-career resume?',
+      answer: 'Yes, include relevant certifications, professional development courses, and continuing education. They demonstrate commitment to growth and can differentiate you from other candidates with similar experience.'
     },
   ];
 
   const features = [
-    'Clean and minimal layout with modern typography',
-    'Emphasis on skills and achievements',
-    'Perfect for tech, design, and marketing roles',
-    'Contemporary visual design with accent colors',
-    'Customizable color schemes',
-    'Professional yet creative appearance',
+    'Expand work experience section with achievements',
+    'Highlight key accomplishments with metrics',
+    'Include relevant certifications and training',
+    'Demonstrate clear career progression',
+    'Emphasize leadership and project management',
+    'Balance experience with skills sections',
   ];
 
   const useCases = [
-    'Software engineers and developers',
-    'Digital marketers and SEO specialists',
-    'UX/UI designers and product managers',
-    'Startup employees and tech entrepreneurs',
-    'Creative professionals and agencies',
-    'Remote workers and digital nomads',
+    'Professionals with 5-15 years of experience',
+    'Team leads and senior individual contributors',
+    'Career advancement seekers',
+    'Industry specialists and experts',
+    'Professionals transitioning to new roles',
   ];
 
   const tips = [
-    'Use a professional email address that includes your name',
-    'Quantify achievements with metrics and numbers whenever possible',
-    'Keep the resume to 1-2 pages maximum for optimal readability',
-    'Use action verbs to describe your accomplishments',
-    'Tailor your skills section to match the job requirements',
-    'Include relevant projects that demonstrate your capabilities',
+    'Quantify achievements with numbers and percentages',
+    'Show career progression and increasing responsibility',
+    'Highlight leadership experiences and team management',
+    'Include relevant certifications and professional development',
+    'Focus on results and business impact',
+    'Keep resume to 2 pages maximum',
   ];
 
   return (
@@ -102,15 +80,15 @@ export function ModernTemplatePage() {
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
-          { href: '/career-levels', icon: <User style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-          { href: '/career-levels', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
-          { href: '/career-levels', icon: <Award style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
+          { href: '/career-levels/entry', icon: <GraduationCap style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+          { href: '/career-levels/mid', icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+          { href: '/career-levels/executive', icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />
-      
-      {/* Hero Section for Template */}
+
+      {/* Hero Section */}
       <div style={{
-        background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
+        background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
         padding: '80px 96px',
         marginBottom: 0,
         position: 'relative',
@@ -122,7 +100,6 @@ export function ModernTemplatePage() {
           maxWidth: 1400,
           margin: '0 auto',
         }}>
-          {/* Left side - Text content */}
           <div style={{ flex: 1, paddingRight: 20 }}>
             <h1 style={{
               fontSize: 64,
@@ -132,9 +109,8 @@ export function ModernTemplatePage() {
               margin: '0 0 24px',
               color: '#0f172a',
             }}>
-              Modern Resume Template
+              Mid Career Resume Template
             </h1>
-            
             <p style={{
               fontSize: 18,
               lineHeight: 1.6,
@@ -183,7 +159,7 @@ export function ModernTemplatePage() {
                   Use This Template
                 </a>
                 <a
-                  href="/templates"
+                  href="/career-levels"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',
@@ -199,7 +175,7 @@ export function ModernTemplatePage() {
                     fontFamily: 'sans-serif',
                   }}
                 >
-                  Back to Templates
+                  Back to Career Levels
                 </a>
               </div>
               <div style={{
@@ -230,22 +206,23 @@ export function ModernTemplatePage() {
             </div>
           </div>
 
-          {/* Right side - Image */}
           <div style={{
             flex: '0 0 300px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
             position: 'relative',
           }}>
-            <img
-              src="/images/modern-resume.png"
-              alt="Modern Resume Template"
-              style={{
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-              }}
-            />
+            <div style={{
+              width: '100%',
+              height: 400,
+              background: '#F8F9FA',
+              borderRadius: 14,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <Briefcase size={120} color="#10B981" />
+            </div>
             <div style={{
               position: 'absolute',
               bottom: 0,
@@ -260,9 +237,8 @@ export function ModernTemplatePage() {
               fontSize: 14,
               fontWeight: 700,
               letterSpacing: '-0.02em',
-              animation: 'bounce 2s ease-in-out infinite',
             }}>
-              modern
+              mid career
             </div>
           </div>
         </div>
@@ -283,7 +259,6 @@ export function ModernTemplatePage() {
         }
       `}</style>
 
-
       {/* About Section */}
       <div style={{
         padding: '60px 96px 0',
@@ -294,21 +269,29 @@ export function ModernTemplatePage() {
           margin: '0 0 32px',
           color: '#0f172a',
         }}>
-          {aboutSection.heading}
+          About Mid Career Resumes
         </h2>
-        {aboutSection.paragraphs.map((para, index) => (
-          <p key={index} style={{
-            fontSize: 18,
-            lineHeight: 1.8,
-            color: '#334155',
-            margin: index < 2 ? '0 0 20px' : '0 0 60px',
-          }}>
-            {para}
-          </p>
-        ))}
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          color: '#334155',
+          margin: '0 0 20px',
+          maxWidth: 900,
+        }}>
+          {heroDescription1}
+        </p>
+        <p style={{
+          fontSize: 18,
+          lineHeight: 1.8,
+          color: '#334155',
+          margin: '0 0 60px',
+          maxWidth: 900,
+        }}>
+          Mid-career resumes highlight your professional growth, measurable achievements, and evolving expertise. Our templates help you present a compelling case for advancement or new opportunities.
+        </p>
       </div>
 
-      {/* Features Section */}
+      {/* Key Features */}
       <div style={{
         padding: '0 96px 60px',
       }}>
@@ -349,7 +332,7 @@ export function ModernTemplatePage() {
                   width: 56,
                   height: 56,
                   borderRadius: 14,
-                  background: '#EEF2FF',
+                  background: '#ECFDF5',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -370,7 +353,7 @@ export function ModernTemplatePage() {
                     color: '#475569',
                     margin: 0,
                   }}>
-                    This feature helps you create a professional and polished resume that stands out to recruiters and hiring managers in today's competitive job market.
+                    This feature helps you showcase your professional growth and measurable impact.
                   </p>
                 </div>
               </div>
@@ -379,51 +362,7 @@ export function ModernTemplatePage() {
         </div>
       </div>
 
-      {/* Sample Resumes Section */}
-      <div style={{
-        padding: '0 96px 60px',
-      }}>
-        <h2 style={{
-          fontSize: 40,
-          fontWeight: 700,
-          margin: '0 0 32px',
-          color: '#0f172a',
-        }}>
-          Sample Resumes
-        </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 30,
-        }}>
-          {sampleResumes.map((sampleResume, index) => (
-            <div key={index}>
-              <div style={{
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-                background: '#fff',
-                overflow: 'hidden',
-                aspectRatio: '8.5/11',
-                position: 'relative',
-                height: 500,
-              }}>
-                <div style={{
-                  transform: 'scale(0.45)',
-                  transformOrigin: 'top left',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '222%',
-                  height: '222%',
-                }}>
-                  <ModernTemplate resume={sampleResume} custom={sampleCustoms[index]} />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Use Cases Section */}
+      {/* Perfect For */}
       <div style={{
         padding: '0 96px 60px',
       }}>
@@ -455,7 +394,7 @@ export function ModernTemplatePage() {
                 width: 44,
                 height: 44,
                 borderRadius: '50%',
-                background: '#EEF2FF',
+                background: '#ECFDF5',
                 color: '#0f172a',
                 display: 'flex',
                 alignItems: 'center',
@@ -475,7 +414,7 @@ export function ModernTemplatePage() {
         </div>
       </div>
 
-      {/* Tips Section */}
+      {/* Pro Tips */}
       <div style={{
         padding: '0 96px 80px',
       }}>
@@ -507,7 +446,7 @@ export function ModernTemplatePage() {
                 width: 32,
                 height: 32,
                 borderRadius: '50%',
-                background: '#0f172a',
+                background: '#10B981',
                 color: '#fff',
                 display: 'flex',
                 alignItems: 'center',
@@ -593,6 +532,53 @@ export function ModernTemplatePage() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div style={{
+        padding: '0 96px 80px',
+      }}>
+        <div style={{
+          background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
+          borderRadius: 20,
+          padding: '60px 48px',
+          textAlign: 'center',
+        }}>
+          <h2 style={{
+            fontSize: 36,
+            fontWeight: 700,
+            margin: '0 0 16px',
+            color: '#0f172a',
+          }}>
+            Ready to Get Started?
+          </h2>
+          <p style={{
+            fontSize: 16,
+            color: '#475569',
+            maxWidth: 600,
+            margin: '0 auto 32px',
+            lineHeight: 1.6,
+          }}>
+            Create your Mid Career resume now and showcase your professional achievements.
+          </p>
+          <a
+            href="/builder"
+            style={{
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '16px 36px',
+              fontSize: 18,
+              fontWeight: 600,
+              color: '#fff',
+              background: '#0f172a',
+              borderRadius: 8,
+            }}
+          >
+            Create My Resume <ArrowRight size={20} />
+          </a>
         </div>
       </div>
 

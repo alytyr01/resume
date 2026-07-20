@@ -88,7 +88,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
               onMouseEnter={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'block')}
               onMouseLeave={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'none')}
             >
-              <a href="/examples" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <a href="/career-levels" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
                 Resume Examples <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
