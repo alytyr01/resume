@@ -22,28 +22,28 @@ export function PremiumTemplate({ resume, custom }: Props) {
     switch (id) {
       case 'summary':
         return summary ? (
-          <p style={{ fontSize: 15, lineHeight: 1.65, color: '#4B5563', margin: 0 }}>{summary}</p>
+          <p style={{ fontSize: custom.fontSize, lineHeight: custom.lineSpacing, color: '#4B5563', margin: 0 }}>{summary}</p>
         ) : null;
 
       case 'skills':
         return skills.length > 0 ? (
-          <div style={{ fontSize: 15, lineHeight: 1.65, color: '#4B5563' }}>
+          <div style={{ fontSize: custom.fontSize, lineHeight: custom.lineSpacing, color: '#4B5563' }}>
             {skills.map((s) => s.name).join(', ')}
           </div>
         ) : null;
 
       case 'projects':
         return projects.length > 0 ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: custom.sectionSpacing - 8 }}>
             {projects.map((proj) => (
               <div key={proj.id}>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                  <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>{proj.name}</span>
-                  {proj.tech && <span style={{ fontSize: 13, color: '#6B7280' }}>{proj.tech}</span>}
+                  <span style={{ fontSize: custom.fontSize, fontWeight: 600, color: '#111827' }}>{proj.name}</span>
+                  {proj.tech && <span style={{ fontSize: custom.fontSize - 2, color: '#6B7280' }}>{proj.tech}</span>}
                 </div>
-                <p style={{ fontSize: 14, color: '#4B5563', margin: '4px 0 6px', lineHeight: 1.65 }}>{proj.description}</p>
+                <p style={{ fontSize: custom.fontSize - 1, color: '#4B5563', margin: '4px 0 6px', lineHeight: custom.lineSpacing }}>{proj.description}</p>
                 {proj.link && (
-                  <div style={{ fontSize: 14, color: '#2563EB' }}>
+                  <div style={{ fontSize: custom.fontSize - 1, color: '#2563EB' }}>
                     <a href={`https://${proj.link}`} target="_blank" rel="noopener noreferrer"
                       style={{ color: '#2563EB', textDecoration: 'none', transition: 'text-decoration 150ms ease' }}
                       onMouseEnter={(e) => (e.currentTarget.style.textDecoration = 'underline')}
@@ -59,21 +59,21 @@ export function PremiumTemplate({ resume, custom }: Props) {
 
       case 'experience':
         return experience.length > 0 ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: custom.sectionSpacing - 10 }}>
             {experience.map((exp) => (
               <div key={exp.id}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div>
-                    <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>{exp.position}</span>
-                    <span style={{ fontSize: 14, color: '#6B7280' }}> — {exp.company}</span>
+                    <span style={{ fontSize: custom.fontSize, fontWeight: 600, color: '#111827' }}>{exp.position}</span>
+                    <span style={{ fontSize: custom.fontSize - 1, color: '#6B7280' }}> — {exp.company}</span>
                   </div>
-                  <span style={{ fontSize: 13, color: '#6B7280', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontSize: custom.fontSize - 2, color: '#6B7280', whiteSpace: 'nowrap' }}>
                     {exp.startDate} — {exp.current ? 'Present' : exp.endDate}
                   </span>
                 </div>
-                {exp.location && <div style={{ fontSize: 13, color: '#6B7280', margin: '2px 0 4px' }}>{exp.location}</div>}
+                {exp.location && <div style={{ fontSize: custom.fontSize - 2, color: '#6B7280', margin: '2px 0 4px' }}>{exp.location}</div>}
                 {exp.description && (
-                  <div style={{ fontSize: 14, color: '#4B5563', lineHeight: 1.65, margin: '4px 0 0', whiteSpace: 'pre-wrap' }}>{exp.description}</div>
+                  <div style={{ fontSize: custom.fontSize - 1, color: '#4B5563', lineHeight: custom.lineSpacing, margin: '4px 0 0', whiteSpace: 'pre-wrap' }}>{exp.description}</div>
                 )}
               </div>
             ))}
@@ -82,17 +82,17 @@ export function PremiumTemplate({ resume, custom }: Props) {
 
       case 'education':
         return education.length > 0 ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: custom.sectionSpacing - 16 }}>
             {education.map((edu) => (
               <div key={edu.id}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                   <div>
-                    <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>{edu.school}</span>
-                    <span style={{ fontSize: 14, color: '#6B7280' }}> — {edu.degree} in {edu.field}</span>
+                    <span style={{ fontSize: custom.fontSize, fontWeight: 600, color: '#111827' }}>{edu.school}</span>
+                    <span style={{ fontSize: custom.fontSize - 1, color: '#6B7280' }}> — {edu.degree} in {edu.field}</span>
                   </div>
-                  <span style={{ fontSize: 13, color: '#6B7280' }}>{edu.year}</span>
+                  <span style={{ fontSize: custom.fontSize - 2, color: '#6B7280' }}>{edu.year}</span>
                 </div>
-                {edu.description && <p style={{ fontSize: 14, color: '#4B5563', margin: '4px 0 0', lineHeight: 1.65 }}>{edu.description}</p>}
+                {edu.description && <p style={{ fontSize: custom.fontSize - 1, color: '#4B5563', margin: '4px 0 0', lineHeight: custom.lineSpacing }}>{edu.description}</p>}
               </div>
             ))}
           </div>
@@ -100,9 +100,9 @@ export function PremiumTemplate({ resume, custom }: Props) {
 
       case 'certifications':
         return certifications.length > 0 ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: custom.sectionSpacing - 20 }}>
             {certifications.map((cert) => (
-              <div key={cert.id} style={{ fontSize: 14, color: '#4B5563' }}>
+              <div key={cert.id} style={{ fontSize: custom.fontSize - 1, color: '#4B5563' }}>
                 <span style={{ fontWeight: 500 }}>{cert.name}</span> — {cert.issuer}
                 <span style={{ color: '#6B7280' }}> ({cert.date})</span>
               </div>
@@ -112,14 +112,14 @@ export function PremiumTemplate({ resume, custom }: Props) {
 
       case 'languages':
         return languages.length > 0 ? (
-          <div style={{ fontSize: 14, color: '#4B5563' }}>
+          <div style={{ fontSize: custom.fontSize - 1, color: '#4B5563' }}>
             {languages.map((l) => `${l.name} (${l.proficiency})`).join(', ')}
           </div>
         ) : null;
 
       case 'references':
         return references.length > 0 ? (
-          <div style={{ fontSize: 14, color: '#4B5563' }}>
+          <div style={{ fontSize: custom.fontSize - 1, color: '#4B5563' }}>
             {references.map((ref) => (
               <div key={ref.id} style={{ marginBottom: 4 }}>
                 <span style={{ fontWeight: 500 }}>{ref.name}</span>
@@ -134,15 +134,15 @@ export function PremiumTemplate({ resume, custom }: Props) {
         const cs = resume.customSections.find((c) => c.id === id);
         if (!cs) return null;
         return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: custom.sectionSpacing - 16 }}>
             {cs.items.map((item) => (
               <div key={item.id}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <span style={{ fontSize: 15, fontWeight: 600, color: '#111827' }}>{item.title}</span>
-                  {item.date && <span style={{ fontSize: 13, color: '#6B7280' }}>{item.date}</span>}
+                  <span style={{ fontSize: custom.fontSize, fontWeight: 600, color: '#111827' }}>{item.title}</span>
+                  {item.date && <span style={{ fontSize: custom.fontSize - 2, color: '#6B7280' }}>{item.date}</span>}
                 </div>
-                {item.subtitle && <div style={{ fontSize: 14, color: '#6B7280', margin: '2px 0' }}>{item.subtitle}</div>}
-                {item.description && <p style={{ fontSize: 14, color: '#4B5563', margin: '4px 0 0', lineHeight: 1.65 }}>{item.description}</p>}
+                {item.subtitle && <div style={{ fontSize: custom.fontSize - 1, color: '#6B7280', margin: '2px 0' }}>{item.subtitle}</div>}
+                {item.description && <p style={{ fontSize: custom.fontSize - 1, color: '#4B5563', margin: '4px 0 0', lineHeight: custom.lineSpacing }}>{item.description}</p>}
               </div>
             ))}
           </div>
@@ -155,14 +155,14 @@ export function PremiumTemplate({ resume, custom }: Props) {
       fontFamily: custom.fontFamily || 'Inter',
       maxWidth: 820,
       margin: '0 auto',
-      padding: '48px',
+      padding: '32px',
       background: '#FFFFFF',
       color: '#111827',
     }}>
       {/* Header */}
-      <div style={{ marginBottom: 36 }}>
+      <div style={{ marginBottom: custom.sectionSpacing }}>
         <h1 style={{
-          fontSize: 40,
+          fontSize: custom.fontSize + 6,
           fontWeight: 700,
           letterSpacing: '-0.03em',
           margin: 0,
@@ -172,10 +172,10 @@ export function PremiumTemplate({ resume, custom }: Props) {
           {personal.fullName || 'Your Name'}
         </h1>
         <p style={{
-          fontSize: 18,
+          fontSize: custom.fontSize + 1,
           fontWeight: 500,
           color: '#4B5563',
-          margin: '6px 0 14px',
+          margin: '4px 0 8px',
         }}>
           {personal.jobTitle || 'Job Title'}
         </p>
@@ -183,7 +183,7 @@ export function PremiumTemplate({ resume, custom }: Props) {
           display: 'flex',
           flexWrap: 'wrap',
           gap: 0,
-          fontSize: 14,
+          fontSize: custom.fontSize - 1,
           color: '#6B7280',
         }}>
           {[
@@ -218,15 +218,15 @@ export function PremiumTemplate({ resume, custom }: Props) {
         if (!content) return null;
 
         return (
-          <div key={sectionId} style={{ marginBottom: 36 }}>
+          <div key={sectionId} style={{ marginBottom: custom.sectionSpacing }}>
             <div style={{
               fontSize: 13,
               fontWeight: 700,
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               color: '#6B7280',
-              marginBottom: 12,
-              paddingBottom: 8,
+              marginBottom: 8,
+              paddingBottom: 6,
               borderBottom: '1px solid #E5E7EB',
             }}>
               {sectionLabels[sectionId] || sectionMeta.title}
@@ -243,15 +243,15 @@ export function PremiumTemplate({ resume, custom }: Props) {
         const content = renderSection(cs.id);
         if (!content) return null;
         return (
-          <div key={cs.id} style={{ marginBottom: 36 }}>
+          <div key={cs.id} style={{ marginBottom: custom.sectionSpacing }}>
             <div style={{
               fontSize: 13,
               fontWeight: 700,
               letterSpacing: '0.16em',
               textTransform: 'uppercase',
               color: '#6B7280',
-              marginBottom: 12,
-              paddingBottom: 8,
+              marginBottom: 8,
+              paddingBottom: 6,
               borderBottom: '1px solid #E5E7EB',
             }}>
               {meta.title}
