@@ -234,7 +234,7 @@ export function MinimalTemplatePage() {
             position: 'relative',
           }}>
             <img
-              src="/images/resume1.webp"
+              src="/images/minimal-resume.webp"
               alt="Minimal Resume Template"
               style={{
                 width: '100%',

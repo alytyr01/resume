@@ -234,7 +234,7 @@ export function ATSTemplatePage() {
             position: 'relative',
           }}>
             <img
-              src="/images/resume1.webp"
+              src="/images/ats-resume.webp"
               alt="ATS Resume Template"
               style={{
                 width: '100%',

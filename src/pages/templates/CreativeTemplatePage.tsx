@@ -234,7 +234,7 @@ export function CreativeTemplatePage() {
             position: 'relative',
           }}>
             <img
-              src="/images/resume1.webp"
+              src="/images/creative-resume.webp"
               alt="Creative Resume Template"
               style={{
                 width: '100%',

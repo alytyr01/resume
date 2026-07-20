@@ -234,7 +234,7 @@ export function ProfessionalTemplatePage() {
             position: 'relative',
           }}>
             <img
-              src="/images/resume1.webp"
+              src="/images/professional-resume.webp"
               alt="Professional Resume Template"
               style={{
                 width: '100%',

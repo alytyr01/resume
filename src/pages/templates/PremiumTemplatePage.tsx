@@ -234,7 +234,7 @@ export function PremiumTemplatePage() {
             position: 'relative',
           }}>
             <img
-              src="/images/resume1.webp"
+              src="/images/premium-resume.avif"
               alt="Premium Resume Template"
               style={{
                 width: '100%',
