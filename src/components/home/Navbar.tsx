@@ -32,25 +32,23 @@ export function Navbar({ dropdowns }: NavbarProps) {
         justifyContent: 'space-between',
         alignItems: 'center',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-          <a href="/" style={{ textDecoration: 'none' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <img
-                src="/images/logo.png"
-                alt="CVora"
-                style={{ width: 64, height: 64, borderRadius: 16, objectFit: 'contain' }}
-              />
-            </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
+          <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+            <img
+              src="/images/logo.png"
+              alt="CVora"
+              style={{ width: 64, height: 64, borderRadius: 16, objectFit: 'contain' }}
+            />
           </a>
-          <div style={{ width: 1, height: 24, background: '#E2E8F0' }} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          <div style={{ width: 1, height: 28, background: '#E2E8F0' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
             <div
               style={{ position: 'relative' }}
               onMouseEnter={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'block')}
               onMouseLeave={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'none')}
             >
-              <a href="/templates" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
-                Resume Templates <ChevronDown style={{ width: 18, height: 18 }} />
+              <a href="/templates" style={{ textDecoration: 'none', fontSize: 22, fontWeight: 600, color: '#475569', display: 'flex', alignItems: 'center', gap: 4, letterSpacing: '-0.01em' }}>
+                Resume Templates <ChevronDown style={{ width: 20, height: 20 }} />
               </a>
               <div
                 id="templates-dropdown"
