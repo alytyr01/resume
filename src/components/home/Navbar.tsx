@@ -18,8 +18,10 @@ interface NavbarProps {
 export function Navbar({ dropdowns }: NavbarProps) {
   return (
     <nav style={{
-      position: 'sticky',
+      position: 'fixed',
       top: 0,
+      left: 0,
+      right: 0,
       zIndex: 50,
       background: 'rgba(255,255,255,0.8)',
       backdropFilter: 'blur(12px)',
@@ -126,6 +128,9 @@ export function Navbar({ dropdowns }: NavbarProps) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <a href="/builder" style={{ textDecoration: 'none' }}>
             <Button
+              variant="outline"
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
               style={{
                 fontSize: 20,
                 padding: '10px 20px',

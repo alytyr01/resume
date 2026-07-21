@@ -85,6 +85,7 @@ export function HomePage() {
       color: '#111827',
       minHeight: '100vh',
       overflowX: 'hidden',
+      paddingTop: 100,
     }}>
       <Navbar dropdowns={dropdowns} />
       <HeroSection onStartHover={setStartHover} startHover={startHover} />
@@ -92,7 +93,7 @@ export function HomePage() {
       {/* Create a resume section - left aligned to logo edge, right aligned to Get Started button */}
       <div style={{ ...sectionStyle, background: '#fff' }}>
         <div style={innerStyle}>
-          <h2 style={{ ...headingStyle, textAlign: 'left', fontSize: 40, marginBottom: 24 }}>Create a resume to land your next job</h2>
+          <h2 style={{ ...headingStyle, textAlign: 'left', fontSize: 48, marginBottom: 24 }}>Create a resume to land your next job</h2>
           <p style={{ ...bodyTextStyle, marginBottom: 48, maxWidth: 900 }}>
             We have developed a resume builder based on feedback from thousands of users, recruiter expertise, stellar template design and the best hiring practices. The goal is simple: help you land that dream job interview! Get an advantage in the modern professional environment.
           </p>
