@@ -4,6 +4,7 @@ import { Button, Select, Input, Modal } from '@/components/ui';
 import { templateInfo } from '@/components/templates';
 import { Download, Printer, RotateCcw } from 'lucide-react';
 import type { TemplateId } from '@/types/resume';
+import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
 
 const fonts = [
   { value: 'Inter', label: 'Inter' },
@@ -16,94 +17,160 @@ const fonts = [
   { value: 'system-ui', label: 'System UI' },
 ];
 
+// PDF styles
+const pdfStyles = StyleSheet.create({
+  page: {
+    flexDirection: 'column',
+    backgroundColor: '#ffffff',
+    padding: 20,
+    fontFamily: 'Helvetica',
+  },
+  section: {
+    marginBottom: 15,
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#0f172a',
+  },
+  title: {
+    fontSize: 14,
+    marginBottom: 10,
+    color: '#64748b',
+  },
+  heading: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 5,
+    color: '#0f172a',
+    borderBottom: '1px solid #e2e8f0',
+    paddingBottom: 3,
+  },
+  text: {
+    fontSize: 11,
+    lineHeight: 1.5,
+    color: '#334155',
+    marginBottom: 3,
+  },
+  boldText: {
+    fontSize: 11,
+    fontWeight: 'bold',
+    color: '#0f172a',
+    marginBottom: 2,
+  },
+  item: {
+    marginBottom: 8,
+  },
+});
+
+// PDF Document Component
+function ResumePDF({ resume, customization }: { resume: any; customization: any }) {
+  return (
+    <Document>
+      <Page size="A4" style={pdfStyles}>
+        <View>
+          {/* Header / Personal Info */}
+          <View style={pdfStyles.section}>
+            <Text style={pdfStyles.name}>{resume.personal.fullName || 'Your Name'}</Text>
+            <Text style={pdfStyles.title}>{resume.personal.jobTitle || 'Professional'}</Text>
+            <Text style={pdfStyles.text}>
+              {[resume.personal.email, resume.personal.phone, resume.personal.location]
+                .filter(Boolean)
+                .join(' | ')}
+            </Text>
+          </View>
+
+          {/* Summary */}
+          {resume.summary && (
+            <View style={pdfStyles.section}>
+              <Text style={pdfStyles.heading}>Summary</Text>
+              <Text style={pdfStyles.text}>{resume.summary}</Text>
+            </View>
+          )}
+
+          {/* Experience */}
+          {resume.experience && resume.experience.length > 0 && (
+            <View style={pdfStyles.section}>
+              <Text style={pdfStyles.heading}>Experience</Text>
+              {resume.experience.map((exp: any, idx: number) => (
+                <View key={idx} style={pdfStyles.item}>
+                  <Text style={pdfStyles.boldText}>
+                    {exp.position} at {exp.company}
+                  </Text>
+                  <Text style={pdfStyles.text}>
+                    {exp.startDate} - {exp.current ? 'Present' : exp.endDate}
+                    {exp.location ? ` | ${exp.location}` : ''}
+                  </Text>
+                  {exp.description && <Text style={pdfStyles.text}>{exp.description}</Text>}
+                </View>
+              ))}
+            </View>
+          )}
+
+          {/* Education */}
+          {resume.education && resume.education.length > 0 && (
+            <View style={pdfStyles.section}>
+              <Text style={pdfStyles.heading}>Education</Text>
+              {resume.education.map((edu: any, idx: number) => (
+                <View key={idx} style={pdfStyles.item}>
+                  <Text style={pdfStyles.boldText}>
+                    {edu.school} - {edu.degree}
+                  </Text>
+                  <Text style={pdfStyles.text}>
+                    {edu.field && `${edu.field}, `}{edu.year}
+                    {edu.location ? ` | ${edu.location}` : ''}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          )}
+
+          {/* Skills */}
+          {resume.skills && resume.skills.length > 0 && (
+            <View style={pdfStyles.section}>
+              <Text style={pdfStyles.heading}>Skills</Text>
+              <Text style={pdfStyles.text}>
+                {resume.skills
+                  .filter((skill: any) => skill.name)
+                  .map((skill: any) => skill.name)
+                  .join(', ')}
+              </Text>
+            </View>
+          )}
+        </View>
+      </Page>
+    </Document>
+  );
+}
+
 export function SettingsPanel() {
   const customization = useResumeStore((s) => s.customization);
   const updateCustomization = useResumeStore((s) => s.updateCustomization);
   const resetResume = useResumeStore((s) => s.resetResume);
+  const resume = useResumeStore((s) => s.resume);
   const isOpen = useUIStore((s) => s.isSettingsOpen);
   const setOpen = useUIStore((s) => s.setSettingsOpen);
 
   const handlePrint = () => window.print();
 
-  const handleExportPDF = () => {
-    const previewContainer = document.getElementById('preview-scroll-container');
-    if (!previewContainer) {
+  const handleExportPDF = async () => {
+    try {
+      const blob = await pdf(<ResumePDF resume={resume} customization={customization} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `resume-${resume.personal.fullName || 'download'}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+      // Fallback to print dialog
       window.print();
-      return;
     }
-
-    // Clone the resume preview content
-    const resumeContent = previewContainer.querySelector('[style*="transform: scale"]') || previewContainer.firstElementChild;
-    if (!resumeContent) {
-      window.print();
-      return;
-    }
-
-    const clonedContent = resumeContent.cloneNode(true) as HTMLElement;
-    
-    // Create a new window for printing
-    const printWindow = window.open('', '_blank', 'width=800,height=600');
-    if (!printWindow) {
-      window.print();
-      return;
-    }
-
-    const resume = useResumeStore.getState().resume;
-    const fullName = resume.personal.fullName || 'Resume';
-
-    printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Resume - ${fullName}</title>
-          <style>
-            @page { margin: 0; size: A4; }
-            * { box-sizing: border-box; margin: 0; padding: 0; }
-            body { 
-              font-family: ${customization.fontFamily}, sans-serif; 
-              background: white; 
-              padding: 0; 
-              margin: 0;
-            }
-            .resume-content {
-              width: 210mm;
-              min-height: 297mm;
-              background: white;
-              margin: 0 auto;
-              padding: 0;
-            }
-            @media print {
-              body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            }
-          </style>
-        </head>
-        <body>
-          <div class="resume-content" id="resume-print-area"></div>
-          <script>
-            setTimeout(() => {
-              window.print();
-              setTimeout(() => window.close(), 500);
-            }, 300);
-          </script>
-        </body>
-      </html>
-    `);
-
-    printWindow.document.close();
-
-    // Wait for the window to load, then inject the content
-    printWindow.onload = () => {
-      const printArea = printWindow.document.getElementById('resume-print-area');
-      if (printArea && clonedContent) {
-        // Clean up the cloned content styles
-        clonedContent.style.transform = 'none';
-        clonedContent.style.maxWidth = '210mm';
-        clonedContent.style.margin = '0 auto';
-        clonedContent.style.padding = '0';
-        
-        printArea.appendChild(clonedContent);
-      }
-    };
   };
 
   const labelStyle: React.CSSProperties = {
