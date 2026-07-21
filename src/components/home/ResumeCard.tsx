@@ -23,7 +23,7 @@ export function ResumeCard({ templateId, width, height }: ResumeCardProps) {
     setShowTooltip(false);
   };
 
-  const imageSrc = templateId === 'creative' ? '/images/creative-resume.webp' : null;
+  const imageSrc = templateId === 'professional' ? '/images/resume2.png' : '/images/resume1.webp';
 
   return (
     <div
@@ -45,19 +45,17 @@ export function ResumeCard({ templateId, width, height }: ResumeCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {imageSrc && (
-        <img
-          src={imageSrc}
-          alt={`${templateId} template`}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            borderRadius: 16,
-            display: 'block',
-          }}
-        />
-      )}
+      <img
+        src={imageSrc}
+        alt={`${templateId} template`}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          borderRadius: 16,
+          display: 'block',
+        }}
+      />
 
 
       {showTooltip && (
