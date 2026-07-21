@@ -1,7 +1,7 @@
 import { Navbar, Footer } from '@/components/home';
 import { ModernTemplate } from '@/components/templates/ModernTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, Sparkles } from 'lucide-react';
+import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, Sparkles, GraduationCap, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -293,8 +293,8 @@ export function TemplatePage() {
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
-          { href: '/career-levels/entry', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-          { href: '/career-levels/mid', icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+          { href: '/career-levels/entry', icon: <GraduationCap style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+          { href: '/career-levels/mid', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
           { href: '/career-levels/executive', icon: <Star style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />

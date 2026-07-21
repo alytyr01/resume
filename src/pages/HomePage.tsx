@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, ArrowRight, BookOpen, Users, Edit3, Layers, FileOutput, Search, ThumbsUp, Zap, Globe, Download } from 'lucide-react';
+import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, ArrowRight, BookOpen, Users, Edit3, Layers, FileOutput, Search, ThumbsUp, Zap, Globe, Download, GraduationCap, TrendingUp } from 'lucide-react';
 import { Navbar, HeroSection, Footer } from '@/components/home';
 
 const dropdowns = {
@@ -12,8 +12,8 @@ const dropdowns = {
     { href: '/templates/premium', icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
   ],
   examples: [
-    { href: '/career-levels/entry', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-    { href: '/career-levels/mid', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+    { href: '/career-levels/entry', icon: <GraduationCap style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+    { href: '/career-levels/mid', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
     { href: '/career-levels/executive', icon: <Star style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
   ],
 };

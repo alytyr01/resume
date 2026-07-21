@@ -1,7 +1,7 @@
-import { Navbar, Footer } from '@/components/home';
+﻿import { Navbar, Footer } from '@/components/home';
 import { PremiumTemplate } from '@/components/templates/PremiumTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, Star, Palette, FileText, Briefcase, Sparkles, Crown } from 'lucide-react';
+import { Layout, Star, Palette, FileText, Briefcase, Sparkles, Crown, GraduationCap, TrendingUp, Target, User, Award } from 'lucide-react';
 import { useState } from 'react';
 
 export function PremiumTemplatePage() {
@@ -94,17 +94,17 @@ export function PremiumTemplatePage() {
     }}>
       <Navbar dropdowns={{
         templates: [
-          { href: `/templates/modern`, icon: <Sparkles style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
-          { href: `/templates/minimal`, icon: <Palette style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Minimal', description: 'Simple, elegant layout' },
+          { href: `/templates/modern`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
+          { href: `/templates/minimal`, icon: <FileText style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Minimal', description: 'Simple, elegant layout' },
           { href: `/templates/professional`, icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Professional', description: 'Corporate, formal style' },
-          { href: `/templates/ats`, icon: <FileText style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'ATS', description: 'Optimized for screening' },
-          { href: `/templates/creative`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Creative', description: 'Bold, eye-catching look' },
+          { href: `/templates/ats`, icon: <Target style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'ATS', description: 'Optimized for screening' },
+          { href: `/templates/creative`, icon: <Palette style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Creative', description: 'Bold, eye-catching look' },
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
-          { href: '/career-levels/entry', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
-          { href: '/career-levels/mid', icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
-          { href: '/career-levels/executive', icon: <Star style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
+          { href: '/career-levels/entry', icon: <User style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Entry Level', description: 'Recent graduates' },
+          { href: '/career-levels/mid', icon: <TrendingUp style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Mid Career', description: '5+ years experience' },
+          { href: '/career-levels/executive', icon: <Award style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />
       
@@ -351,7 +351,7 @@ export function PremiumTemplatePage() {
                 justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                {index === 0 && <Sparkles style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 0 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 1 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 2 && <Palette style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 3 && <Briefcase style={{ width: 28, height: 28, color: '#0f172a' }} />}

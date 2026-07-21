@@ -1,7 +1,7 @@
-import { Navbar, Footer } from '@/components/home';
+﻿import { Navbar, Footer } from '@/components/home';
 import { ATSTemplate } from '@/components/templates/ATSTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, Sparkles, Palette, Briefcase, FileText, Crown, User, TrendingUp, Award } from 'lucide-react';
+import { Layout, Sparkles, Palette, Briefcase, FileText, Crown, Target, User, TrendingUp, Award } from 'lucide-react';
 import { useState } from 'react';
 
 export function ATSTemplatePage() {
@@ -94,11 +94,11 @@ export function ATSTemplatePage() {
     }}>
       <Navbar dropdowns={{
         templates: [
-          { href: `/templates/modern`, icon: <Sparkles style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
-          { href: `/templates/minimal`, icon: <Palette style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Minimal', description: 'Simple, elegant layout' },
+          { href: `/templates/modern`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
+          { href: `/templates/minimal`, icon: <FileText style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Minimal', description: 'Simple, elegant layout' },
           { href: `/templates/professional`, icon: <Briefcase style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Professional', description: 'Corporate, formal style' },
-          { href: `/templates/ats`, icon: <FileText style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'ATS', description: 'Optimized for screening' },
-          { href: `/templates/creative`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Creative', description: 'Bold, eye-catching look' },
+          { href: `/templates/ats`, icon: <Target style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'ATS', description: 'Optimized for screening' },
+          { href: `/templates/creative`, icon: <Palette style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Creative', description: 'Bold, eye-catching look' },
           { href: `/templates/premium`, icon: <Crown style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Premium', description: 'Most popular choice' },
         ],
         examples: [
@@ -351,7 +351,7 @@ export function ATSTemplatePage() {
                 justifyContent: 'center',
                 flexShrink: 0,
               }}>
-                {index === 0 && <Sparkles style={{ width: 28, height: 28, color: '#0f172a' }} />}
+                {index === 0 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 1 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 2 && <Palette style={{ width: 28, height: 28, color: '#0f172a' }} />}
                 {index === 3 && <Briefcase style={{ width: 28, height: 28, color: '#0f172a' }} />}
