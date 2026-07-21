@@ -107,66 +107,66 @@ export function SettingsPanel() {
           </div>
         </div>
 
-        {/* Styling */}
-        <div>
-          <h3 style={sectionTitleStyle}>Styling</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
-            <div>
-              <label style={labelStyle}>Primary Color</label>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <input
-                  type="color"
-                  value={customization.primaryColor}
-                  onChange={(e) => updateCustomization({ primaryColor: e.target.value, accentColor: e.target.value })}
-                  style={{
-                    height: 36,
-                    width: 36,
-                    borderRadius: 8,
-                    border: '1px solid #E2E8F0',
-                    cursor: 'pointer',
-                    padding: 0,
-                  }}
-                />
-                <Input
-                  value={customization.primaryColor}
-                  onChange={(e) => updateCustomization({ primaryColor: e.target.value })}
-                  style={{ flex: 1 }}
-                />
-              </div>
-            </div>
-            <Select
-              label="Font Family"
-              options={fonts}
-              value={customization.fontFamily}
-              onChange={(e) => updateCustomization({ fontFamily: e.target.value })}
-            />
-            <Input
-              label="Font Size (px)"
-              type="number"
-              min={10}
-              max={20}
-              value={customization.fontSize}
-              onChange={(e) => updateCustomization({ fontSize: Number(e.target.value) })}
-            />
-            <Input
-              label="Line Spacing"
-              type="number"
-              min={1}
-              max={2.5}
-              step={0.1}
-              value={customization.lineSpacing}
-              onChange={(e) => updateCustomization({ lineSpacing: Number(e.target.value) })}
-            />
-            <Input
-              label="Section Spacing (px)"
-              type="number"
-              min={8}
-              max={40}
-              value={customization.sectionSpacing}
-              onChange={(e) => updateCustomization({ sectionSpacing: Number(e.target.value) })}
-            />
-          </div>
-        </div>
+         {/* Styling */}
+         <div>
+           <h3 style={sectionTitleStyle}>Styling</h3>
+           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
+             <div>
+               <label style={labelStyle}>Primary Color</label>
+               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                 <input
+                   type="color"
+                   value={customization.primaryColor}
+                   onChange={(e) => updateCustomization({ primaryColor: e.target.value, accentColor: e.target.value })}
+                   style={{
+                     height: 36,
+                     width: 36,
+                     borderRadius: 8,
+                     border: '1px solid #E2E8F0',
+                     cursor: 'pointer',
+                     padding: 0,
+                   }}
+                 />
+                 <Input
+                   value={customization.primaryColor}
+                   onChange={(e) => updateCustomization({ primaryColor: e.target.value })}
+                   style={{ flex: 1 }}
+                 />
+               </div>
+             </div>
+             <Select
+               label="Font Family"
+               options={fonts}
+               value={customization.fontFamily}
+               onChange={(e) => updateCustomization({ fontFamily: e.target.value })}
+             />
+             <Input
+               label="Font Size (px)"
+               type="number"
+               min={10}
+               max={20}
+               value={customization.fontSize}
+               onChange={(e) => updateCustomization({ fontSize: Number(e.target.value) })}
+             />
+             <Input
+               label="Line Spacing"
+               type="number"
+               min={1}
+               max={2.5}
+               step={0.1}
+               value={customization.lineSpacing}
+               onChange={(e) => updateCustomization({ lineSpacing: Number(e.target.value) })}
+             />
+             <Input
+               label="Section Spacing (px)"
+               type="number"
+               min={8}
+               max={40}
+               value={customization.sectionSpacing}
+               onChange={(e) => updateCustomization({ sectionSpacing: Number(e.target.value) })}
+             />
+           </div>
+         </div>
 
         {/* Actions */}
         <div>

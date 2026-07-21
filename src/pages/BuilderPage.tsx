@@ -3,7 +3,7 @@ import { useUIStore } from '@/store/uiStore';
 import { SectionPanel } from '@/components/builder/SectionPanel';
 import { ResumePreview } from '@/components/preview/ResumePreview';
 import { SettingsPanel } from '@/components/settings/SettingsPanel';
-import { FileText, Edit3, Settings, Maximize2, Minimize2 } from 'lucide-react';
+import { FileText, Edit3, Settings, Maximize2, Minimize2, ZoomIn } from 'lucide-react';
 
 export function BuilderPage() {
   const isFullscreen = useUIStore((s) => s.isPreviewFullscreen);
@@ -12,6 +12,13 @@ export function BuilderPage() {
   const activeMobileView = useUIStore((s) => s.activeMobileView);
   const setActiveMobileView = useUIStore((s) => s.setActiveMobileView);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const [previewScale, setPreviewScale] = useState(0.6);
+
+  const isMobile = windowWidth < 640;
+  const leftPanelWidth = isFullscreen ? '0%' : isMobile ? '100%' : '45%';
+  const rightPanelWidth = isFullscreen ? '100%' : isMobile ? '100%' : '55%';
+  const showLeft = !isFullscreen && (isMobile ? activeMobileView === 'form' : true);
+  const showRight = isMobile ? activeMobileView === 'preview' : true;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -19,13 +26,18 @@ export function BuilderPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const isMobile = windowWidth < 640;
-
-  const leftPanelWidth = isFullscreen ? '0%' : isMobile ? '100%' : '45%';
-  const rightPanelWidth = isFullscreen ? '100%' : isMobile ? '100%' : '55%';
-
-  const showLeft = !isFullscreen && (isMobile ? activeMobileView === 'form' : true);
-  const showRight = isMobile ? activeMobileView === 'preview' : true;
+  useEffect(() => {
+    const container = document.getElementById('preview-scroll-container');
+    if (!container) return;
+    const handleWheel = (e: WheelEvent) => {
+      if (e.ctrlKey) {
+        e.preventDefault();
+        setPreviewScale(s => Math.min(Math.max(s + (e.deltaY > 0 ? -0.1 : 0.1), 0.4), 1.4));
+      }
+    };
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    return () => container.removeEventListener('wheel', handleWheel);
+  }, [showRight]);
 
   return (
     <div style={{
@@ -104,6 +116,23 @@ export function BuilderPage() {
             </div>
           )}
           <button
+            onClick={() => setPreviewScale(s => Math.min(s + 0.1, 1.2))}
+            title="Zoom in"
+            style={{
+              padding: '6px',
+              borderRadius: 8,
+              border: '1px solid #E2E8F0',
+              background: '#fff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#64748b',
+            }}
+          >
+            <ZoomIn size={16} />
+          </button>
+          <button
             onClick={toggleFullscreen}
             title={isFullscreen ? 'Split view' : 'Full preview'}
             style={{
@@ -163,19 +192,21 @@ export function BuilderPage() {
 
         {/* Right panel - Preview */}
         {showRight && (
-          <div style={{
-            width: rightPanelWidth,
-            overflowY: 'auto',
-            background: '#F1F5F9',
-            flex: 1,
-          }}>
+          <div 
+            id="preview-scroll-container"
+            style={{
+              width: rightPanelWidth,
+              overflowY: 'auto',
+              background: '#F1F5F9',
+              flex: 1,
+            }}>
             <div style={{
               display: 'flex',
               justifyContent: 'center',
               padding: '24px 16px',
             }}>
               <div style={{
-                transform: 'scale(0.6)',
+                transform: `scale(${previewScale})`,
                 transformOrigin: 'top center',
               }}
               className="sm:scale-[0.7] lg:scale-[0.8]"

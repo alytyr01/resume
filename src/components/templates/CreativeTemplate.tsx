@@ -12,9 +12,13 @@ export function CreativeTemplate({ resume, custom }: Props) {
       {/* Left sidebar */}
       <div style={{ width: '35%', background: `linear-gradient(180deg, ${pColor}, ${pColor}dd)`, color: '#fff', padding: '32px 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, fontWeight: 700 }}>
-            {personal.fullName ? personal.fullName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() : 'YN'}
-          </div>
+          {personal.photo ? (
+            <img src={personal.photo} alt="Profile" style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', margin: '0 auto 12px', display: 'block', border: '2px solid rgba(255,255,255,0.3)' }} />
+          ) : (
+            <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, fontWeight: 700 }}>
+              {personal.fullName ? personal.fullName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() : 'YN'}
+            </div>
+          )}
           <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0 }}>{personal.fullName || 'Your Name'}</h1>
           <p style={{ fontSize: 12, opacity: 0.85, margin: '4px 0 0' }}>{personal.jobTitle || 'Job Title'}</p>
         </div>
