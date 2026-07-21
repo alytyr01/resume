@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useUIStore } from '@/store/uiStore';
 import { useResumeStore } from '@/store/resumeStore';
@@ -50,6 +50,55 @@ export function BuilderPage() {
     container.addEventListener('wheel', handleWheel, { passive: false });
     return () => container.removeEventListener('wheel', handleWheel);
   }, [showRight]);
+
+  const previewScaleRef = useRef(previewScale);
+  useEffect(() => {
+    previewScaleRef.current = previewScale;
+  }, [previewScale]);
+
+  // Pinch-to-zoom for mobile
+  useEffect(() => {
+    const previewContainer = document.getElementById('preview-scroll-container');
+    if (!previewContainer) return;
+    let initialDistance = 0;
+    let lastScale = previewScale;
+    let lastDistance = 0;
+
+    const getDistance = (touches: TouchList) => {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        initialDistance = getDistance(e.touches);
+        lastScale = previewScaleRef.current;
+        lastDistance = initialDistance;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const currentDistance = getDistance(e.touches);
+        if (lastDistance > 0) {
+          const scaleFactor = currentDistance / Math.max(lastDistance, 1);
+          const newScale = Math.min(Math.max(lastScale * scaleFactor, 0.4), 1.4);
+          setPreviewScale(newScale);
+          lastScale = newScale;
+        }
+        lastDistance = currentDistance;
+      }
+    };
+
+    previewContainer.addEventListener('touchstart', handleTouchStart, { passive: false });
+    previewContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    return () => {
+      previewContainer.removeEventListener('touchstart', handleTouchStart);
+      previewContainer.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
 
   return (
     <div style={{
