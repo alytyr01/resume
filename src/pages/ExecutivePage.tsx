@@ -195,7 +195,7 @@ export function ExecutivePage() {
                   cursor: 'pointer',
                 }}
               >
-                Import Resume
+                Book Demo
               </a>
             </div>
 

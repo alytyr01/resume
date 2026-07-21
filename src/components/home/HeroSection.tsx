@@ -94,7 +94,7 @@ export function HeroSection({ onStartHover, startHover, isVisible }: HeroSection
               onMouseEnter={() => onStartHover(true)}
               onMouseLeave={() => onStartHover(false)}
             >
-              Start Free Trial
+              Create my resume
             </a>
             <a
               href="/builder"
@@ -174,13 +174,13 @@ export function HeroSection({ onStartHover, startHover, isVisible }: HeroSection
                 fontWeight: 700,
                 color: '#0f172a',
                 letterSpacing: '-0.02em',
-              }}>Free</div>
+              }}>Start for Free</div>
               <div style={{
                 fontSize: 13,
                 color: '#94A3B8',
                 fontWeight: 500,
                 marginTop: 2,
-              }}>No Sign-Up</div>
+              }}>No Credit Card</div>
             </div>
           </div>
         </div>

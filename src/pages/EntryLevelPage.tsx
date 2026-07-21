@@ -195,7 +195,7 @@ export function EntryLevelPage() {
                   cursor: 'pointer',
                 }}
               >
-                Import Resume
+                Book Demo
               </a>
             </div>
 

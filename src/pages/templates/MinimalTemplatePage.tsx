@@ -160,7 +160,7 @@ export function MinimalTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=minimal"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',

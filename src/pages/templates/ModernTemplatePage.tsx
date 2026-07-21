@@ -163,7 +163,7 @@ export function ModernTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=modern"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',

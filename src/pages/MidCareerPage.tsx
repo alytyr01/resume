@@ -195,7 +195,7 @@ export function MidCareerPage() {
                   cursor: 'pointer',
                 }}
               >
-                Import Resume
+                Book Demo
               </a>
             </div>
 

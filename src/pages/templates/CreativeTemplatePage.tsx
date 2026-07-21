@@ -160,7 +160,7 @@ export function CreativeTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=creative"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',

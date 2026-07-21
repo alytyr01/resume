@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useUIStore } from '@/store/uiStore';
+import { useResumeStore } from '@/store/resumeStore';
 import { SectionPanel } from '@/components/builder/SectionPanel';
 import { ResumePreview } from '@/components/preview/ResumePreview';
 import { SettingsPanel } from '@/components/settings/SettingsPanel';
@@ -11,14 +13,25 @@ export function BuilderPage() {
   const setSettingsOpen = useUIStore((s) => s.setSettingsOpen);
   const activeMobileView = useUIStore((s) => s.activeMobileView);
   const setActiveMobileView = useUIStore((s) => s.setActiveMobileView);
+  const updateCustomization = useResumeStore((s) => s.updateCustomization);
+  const customization = useResumeStore((s) => s.customization);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [previewScale, setPreviewScale] = useState(0.6);
+  const [searchParams] = useSearchParams();
 
   const isMobile = windowWidth < 640;
   const leftPanelWidth = isFullscreen ? '0%' : isMobile ? '100%' : '45%';
   const rightPanelWidth = isFullscreen ? '100%' : isMobile ? '100%' : '55%';
   const showLeft = !isFullscreen && (isMobile ? activeMobileView === 'form' : true);
   const showRight = isMobile ? activeMobileView === 'preview' : true;
+
+  // Read template from query params and update customization
+  useEffect(() => {
+    const templateParam = searchParams.get('template');
+    if (templateParam && ['modern', 'minimal', 'professional', 'ats', 'creative', 'premium'].includes(templateParam)) {
+      updateCustomization({ templateId: templateParam as any });
+    }
+  }, [searchParams, updateCustomization]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -47,7 +60,6 @@ export function BuilderPage() {
       background: '#F8F9FA',
       color: '#111827',
       fontFamily: 'sans-serif',
-      paddingTop: 100,
     }}>
       {/* Top bar */}
       <header style={{

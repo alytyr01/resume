@@ -160,7 +160,7 @@ export function ATSTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=ats"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',

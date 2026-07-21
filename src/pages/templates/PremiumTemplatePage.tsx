@@ -160,7 +160,7 @@ export function PremiumTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=premium"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',

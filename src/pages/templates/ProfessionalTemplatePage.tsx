@@ -160,7 +160,7 @@ export function ProfessionalTemplatePage() {
                 gap: 12,
               }}>
                 <a
-                  href="/builder"
+                  href="/builder?template=professional"
                   style={{
                     textDecoration: 'none',
                     display: 'inline-flex',
