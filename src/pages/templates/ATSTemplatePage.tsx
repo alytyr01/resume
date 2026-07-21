@@ -1,7 +1,7 @@
 ﻿import { Navbar, Footer } from '@/components/home';
 import { ATSTemplate } from '@/components/templates/ATSTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, Sparkles, Palette, Briefcase, FileText, Crown, Target, User, TrendingUp, Award } from 'lucide-react';
+import { Layout, Palette, Briefcase, FileText, Crown, Target, User, TrendingUp, Award } from 'lucide-react';
 import { useState } from 'react';
 
 export function ATSTemplatePage() {

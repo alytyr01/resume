@@ -1,7 +1,7 @@
 ﻿import { Navbar, Footer } from '@/components/home';
 import { PremiumTemplate } from '@/components/templates/PremiumTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
-import { Layout, Star, Palette, FileText, Briefcase, Sparkles, Crown, GraduationCap, TrendingUp, Target, User, Award } from 'lucide-react';
+import { Layout, Palette, FileText, Briefcase, Crown, TrendingUp, Target, User, Award } from 'lucide-react';
 import { useState } from 'react';
 
 export function PremiumTemplatePage() {
