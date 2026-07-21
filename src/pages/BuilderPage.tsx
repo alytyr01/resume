@@ -272,7 +272,7 @@ export function BuilderPage() {
         )}
 
         {/* Right panel - Preview */}
-        {showRight && (
+        {(showRight || isMobile) && (
           <div 
             id="preview-scroll-container"
             style={{
@@ -280,6 +280,7 @@ export function BuilderPage() {
               overflowY: 'auto',
               background: '#F1F5F9',
               flex: 1,
+              display: showRight ? undefined : 'none',
             }}>
             <div
               id="resume-scale-wrapper"
