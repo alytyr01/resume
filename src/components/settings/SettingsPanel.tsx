@@ -26,7 +26,84 @@ export function SettingsPanel() {
   const handlePrint = () => window.print();
 
   const handleExportPDF = () => {
-    window.print();
+    const previewContainer = document.getElementById('preview-scroll-container');
+    if (!previewContainer) {
+      window.print();
+      return;
+    }
+
+    // Clone the resume preview content
+    const resumeContent = previewContainer.querySelector('[style*="transform: scale"]') || previewContainer.firstElementChild;
+    if (!resumeContent) {
+      window.print();
+      return;
+    }
+
+    const clonedContent = resumeContent.cloneNode(true) as HTMLElement;
+    
+    // Create a new window for printing
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    if (!printWindow) {
+      window.print();
+      return;
+    }
+
+    const resume = useResumeStore.getState().resume;
+    const fullName = resume.personal.fullName || 'Resume';
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Resume - ${fullName}</title>
+          <style>
+            @page { margin: 0; size: A4; }
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { 
+              font-family: ${customization.fontFamily}, sans-serif; 
+              background: white; 
+              padding: 0; 
+              margin: 0;
+            }
+            .resume-content {
+              width: 210mm;
+              min-height: 297mm;
+              background: white;
+              margin: 0 auto;
+              padding: 0;
+            }
+            @media print {
+              body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="resume-content" id="resume-print-area"></div>
+          <script>
+            setTimeout(() => {
+              window.print();
+              setTimeout(() => window.close(), 500);
+            }, 300);
+          </script>
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+
+    // Wait for the window to load, then inject the content
+    printWindow.onload = () => {
+      const printArea = printWindow.document.getElementById('resume-print-area');
+      if (printArea && clonedContent) {
+        // Clean up the cloned content styles
+        clonedContent.style.transform = 'none';
+        clonedContent.style.maxWidth = '210mm';
+        clonedContent.style.margin = '0 auto';
+        clonedContent.style.padding = '0';
+        
+        printArea.appendChild(clonedContent);
+      }
+    };
   };
 
   const labelStyle: React.CSSProperties = {
