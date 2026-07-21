@@ -122,7 +122,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 </div>
               </div>
             </div>
-            <a href="/faq" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>FAQ <ChevronDown style={{ width: 18, height: 18 }} /></a>
+            <a href="/contact" style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>Contact Us</a>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>

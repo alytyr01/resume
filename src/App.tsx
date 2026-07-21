@@ -12,6 +12,7 @@ import { PremiumTemplatePage } from '@/pages/templates/PremiumTemplatePage';
 import { EntryLevelPage } from '@/pages/EntryLevelPage';
 import { MidCareerPage } from '@/pages/MidCareerPage';
 import { ExecutivePage } from '@/pages/ExecutivePage';
+import { ContactPage } from '@/pages/ContactPage';
 import { useThemeStore } from '@/store/themeStore';
 
 function ThemeInitializer({ children }: { children: React.ReactNode }) {
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/career-levels/entry" element={<EntryLevelPage />} />
           <Route path="/career-levels/mid" element={<MidCareerPage />} />
           <Route path="/career-levels/executive" element={<ExecutivePage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </ThemeInitializer>
     </BrowserRouter>
