@@ -34,28 +34,31 @@ export function Navbar({ dropdowns }: NavbarProps) {
       WebkitBackdropFilter: 'blur(12px)',
       borderBottom: '1px solid #F3F4F6',
     }}>
-      <div style={{
-        padding: '20px 96px',
+      <div className="navbar-inner" style={{
+        padding: '12px 16px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        maxWidth: '100%',
+        overflow: 'hidden',
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 48px)' }}>
           <a href="/" onClick={(e) => { e.preventDefault(); delayNavigation('/'); }} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
             <img
               src="/images/logo.png"
               alt="CVora"
+              className="navbar-logo"
               style={{ width: 64, height: 64, borderRadius: 16, objectFit: 'contain' }}
             />
           </a>
-          <div style={{ width: 1, height: 28, background: '#E2E8F0' }} />
-          <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
+          <div className="navbar-divider" style={{ width: 1, height: 28, background: '#E2E8F0' }} />
+          <div className="navbar-navlinks" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 36px)' }}>
             <div
               style={{ position: 'relative' }}
               onMouseEnter={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'block')}
               onMouseLeave={() => document.getElementById('templates-dropdown')?.style && (document.getElementById('templates-dropdown')!.style.display = 'none')}
             >
-              <a href="/templates" onClick={(e) => { e.preventDefault(); delayNavigation('/templates'); }} style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <a href="/templates" onClick={(e) => { e.preventDefault(); delayNavigation('/templates'); }} style={{ textDecoration: 'none', fontSize: 'clamp(13px, 1.5vw, 20px)', fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
                 Resume Templates <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
@@ -94,7 +97,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
               onMouseEnter={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'block')}
               onMouseLeave={() => document.getElementById('examples-dropdown')?.style && (document.getElementById('examples-dropdown')!.style.display = 'none')}
             >
-              <a href="/career-levels" onClick={(e) => { e.preventDefault(); delayNavigation('/career-levels'); }} style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <a href="/career-levels" onClick={(e) => { e.preventDefault(); delayNavigation('/career-levels'); }} style={{ textDecoration: 'none', fontSize: 'clamp(13px, 1.5vw, 20px)', fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>
                 Resume Examples <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
@@ -128,16 +131,17 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 </div>
               </div>
             </div>
-            <a href="/contact" onClick={(e) => { e.preventDefault(); delayNavigation('/contact'); }} style={{ textDecoration: 'none', fontSize: 20, fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>Contact Us</a>
+            <a href="/contact" onClick={(e) => { e.preventDefault(); delayNavigation('/contact'); }} style={{ textDecoration: 'none', fontSize: 'clamp(13px, 1.5vw, 20px)', fontWeight: 500, color: '#475569', display: 'flex', alignItems: 'center', gap: 4 }}>Contact Us</a>
           </div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(6px, 1vw, 12px)' }}>
           <a href="/builder" onClick={(e) => { e.preventDefault(); delayNavigation('/builder'); }} style={{ textDecoration: 'none' }}>
             <Button
+              className="navbar-cta-btn"
               style={{
-                fontSize: 20,
-                padding: '10px 24px',
-                height: 44,
+                fontSize: 'clamp(13px, 1.5vw, 20px)',
+                padding: '8px 14px',
+                height: 'clamp(32px, 4vw, 44px)',
                 borderRadius: 8,
                 fontWeight: 600,
                 lineHeight: 1,
@@ -145,20 +149,21 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 background: '#0f172a',
                 border: 'none',
                 boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
+                whiteSpace: 'nowrap',
               }}
             >
               Get Started
             </Button>
           </a>
-          <a href="/builder" onClick={(e) => { e.preventDefault(); delayNavigation('/builder'); }} style={{ textDecoration: 'none', opacity: 0.5, pointerEvents: 'none' }}>
+          <a href="/builder" onClick={(e) => { e.preventDefault(); delayNavigation('/builder'); }} className="navbar-cta-btn-signin" style={{ textDecoration: 'none', opacity: 0.5, pointerEvents: 'none' }}>
             <Button
               variant="outline"
               onMouseEnter={() => {}}
               onMouseLeave={() => {}}
               style={{
-                fontSize: 20,
-                padding: '10px 20px',
-                height: 44,
+                fontSize: 'clamp(13px, 1.5vw, 20px)',
+                padding: '8px 14px',
+                height: 'clamp(32px, 4vw, 44px)',
                 borderRadius: 8,
                 fontWeight: 500,
                 lineHeight: 1,
@@ -166,6 +171,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 background: 'transparent',
                 border: '1.5px solid #0f172a',
                 color: '#0f172a',
+                whiteSpace: 'nowrap',
               }}
             >
               Sign In

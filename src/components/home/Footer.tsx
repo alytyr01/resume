@@ -4,10 +4,17 @@ export function Footer() {
       borderTop: '1px solid #F1F5F9',
       background: '#FAFAFA',
     }}>
-      <div style={{
-        padding: '60px 96px 32px',
+      <div className="footer-inner" style={{
+        padding: '40px 16px 32px',
       }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 40 }}>
+        <div className="footer-content" style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          marginBottom: 40,
+          flexWrap: 'wrap',
+          gap: 32,
+        }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: 24 }}>
               <a href="/">
@@ -46,30 +53,34 @@ export function Footer() {
               </a>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 80 }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div style={{ fontSize: 22, fontWeight: 600, color: '#0f172a', marginBottom: 14 }}>Templates</div>
-              <a href="/templates/modern" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Modern</a>
-              <a href="/templates/minimal" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Minimal</a>
-              <a href="/templates/professional" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Professional</a>
-              <a href="/templates/ats" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>ATS</a>
-              <a href="/templates/creative" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Creative</a>
-              <a href="/templates/premium" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Premium</a>
+          <div className="footer-links" style={{
+            display: 'flex',
+            gap: 'clamp(20px, 4vw, 80px)',
+            flexWrap: 'wrap',
+          }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 1.5vw, 20px)' }}>
+              <div style={{ fontSize: 'clamp(15px, 1.8vw, 22px)', fontWeight: 600, color: '#0f172a', marginBottom: 'clamp(6px, 1vw, 14px)' }}>Templates</div>
+              <a href="/templates/modern" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Modern</a>
+              <a href="/templates/minimal" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Minimal</a>
+              <a href="/templates/professional" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Professional</a>
+              <a href="/templates/ats" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>ATS</a>
+              <a href="/templates/creative" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Creative</a>
+              <a href="/templates/premium" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Premium</a>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div style={{ fontSize: 22, fontWeight: 600, color: '#0f172a', marginBottom: 14 }}>Tools</div>
-              <a href="/builder" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Resume Builder</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 1.5vw, 20px)' }}>
+              <div style={{ fontSize: 'clamp(15px, 1.8vw, 22px)', fontWeight: 600, color: '#0f172a', marginBottom: 'clamp(6px, 1vw, 14px)' }}>Tools</div>
+              <a href="/builder" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Resume Builder</a>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div style={{ fontSize: 22, fontWeight: 600, color: '#0f172a', marginBottom: 14 }}>Examples</div>
-              <a href="/templates" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Resume Examples</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 1.5vw, 20px)' }}>
+              <div style={{ fontSize: 'clamp(15px, 1.8vw, 22px)', fontWeight: 600, color: '#0f172a', marginBottom: 'clamp(6px, 1vw, 14px)' }}>Examples</div>
+              <a href="/templates" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Resume Examples</a>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-              <div style={{ fontSize: 22, fontWeight: 600, color: '#0f172a', marginBottom: 14 }}>Company</div>
-              <a href="/about" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>About Us</a>
-              <a href="/contact" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Contact Us</a>
-              <a href="/privacy" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Privacy Policy</a>
-              <a href="/terms" style={{ fontSize: 20, color: '#475569', textDecoration: 'none' }}>Terms of Service</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 1.5vw, 20px)' }}>
+              <div style={{ fontSize: 'clamp(15px, 1.8vw, 22px)', fontWeight: 600, color: '#0f172a', marginBottom: 'clamp(6px, 1vw, 14px)' }}>Company</div>
+              <a href="/about" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>About Us</a>
+              <a href="/contact" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Contact Us</a>
+              <a href="/privacy" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Privacy Policy</a>
+              <a href="/terms" style={{ fontSize: 'clamp(13px, 1.5vw, 20px)', color: '#475569', textDecoration: 'none' }}>Terms of Service</a>
             </div>
           </div>
         </div>
@@ -77,7 +88,7 @@ export function Footer() {
           borderTop: '1px solid #E2E8F0',
           paddingTop: 24,
         }}>
-          <div style={{ fontSize: 14, color: '#94A3B8' }}>
+          <div style={{ fontSize: 'clamp(11px, 1.2vw, 14px)', color: '#94A3B8' }}>
             © 2026 CVora. All rights reserved.
           </div>
         </div>
