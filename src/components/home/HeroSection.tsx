@@ -41,15 +41,10 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
         @media (max-width: 640px) {
           .hero-cta {
             flex-direction: column !important;
-            min-height: 180px !important;
-            gap: 16px !important;
           }
           .hero-cta a {
             flex: 1 !important;
             width: 100% !important;
-            padding-top: 24px !important;
-            padding-bottom: 24px !important;
-            font-size: 18px !important;
           }
         }
       `}</style>
@@ -123,7 +118,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  padding: 'clamp(20px, 2.5vw, 24px) clamp(24px, 3vw, 40px)',
+                  padding: 'clamp(18px, 3vw, 22px) clamp(24px, 3vw, 40px)',
                   fontSize: 'clamp(14px, 1.5vw, 17px)',
                   fontWeight: 600,
                   color: '#fff',
@@ -150,7 +145,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  padding: 'clamp(20px, 2.5vw, 24px) clamp(24px, 3vw, 36px)',
+                  padding: 'clamp(18px, 3vw, 22px) clamp(24px, 3vw, 36px)',
                   fontSize: 'clamp(14px, 1.5vw, 17px)',
                   fontWeight: 500,
                   color: '#0f172a',
