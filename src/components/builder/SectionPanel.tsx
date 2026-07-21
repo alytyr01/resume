@@ -1,6 +1,6 @@
 import { useResumeStore } from '@/store/resumeStore';
 import { useUIStore } from '@/store/uiStore';
-import { Card, CardHeader, CardTitle, CardContent, Button, Switch } from '@/components/ui';
+import { Card, CardTitle, CardContent, Button } from '@/components/ui';
 import { PersonalInfoForm } from '@/components/forms/PersonalInfoForm';
 import { SummaryForm } from '@/components/forms/SummaryForm';
 import { ExperienceForm } from '@/components/forms/ExperienceForm';
@@ -43,22 +43,57 @@ function SortableSection({ id, index }: { id: string; index: number }) {
   };
 
   return (
-    <div ref={setNodeRef} style={style} className={isDragging ? 'opacity-50' : ''}>
+    <div ref={setNodeRef} style={{ ...style, opacity: isDragging ? 0.5 : 1 }}>
       <Card>
-        <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 dark:border-slate-800">
-          <div className="flex items-center gap-2">
-            <button {...attributes} {...listeners} className="cursor-grab text-slate-400 hover:text-slate-600">
-              <GripVertical className="h-4 w-4" />
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '12px 16px',
+            borderBottom: '1px solid #F1F5F9',
+            background: '#F8FAFC',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <button {...attributes} {...listeners} style={{
+                cursor: 'grab',
+                color: '#475569',
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                display: 'flex',
+              }}>
+                <GripVertical size={16} />
+              </button>
+              <CardTitle style={{ fontSize: 14, color: '#0f172a' }}>{section.title}</CardTitle>
+            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <button
+              onClick={() => toggleVisibility(id)}
+              title={section.visible ? 'Hide' : 'Show'}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 4,
+                display: 'flex',
+                color: section.visible ? '#334155' : '#94A3B8',
+              }}
+            >
+              {section.visible ? <Eye size={16} /> : <EyeOff size={16} />}
             </button>
-            <CardTitle className="text-sm">{section.title}</CardTitle>
-          </div>
-          <div className="flex items-center gap-1">
-            <Button variant="ghost" size="icon" onClick={() => toggleVisibility(id)} title={section.visible ? 'Hide' : 'Show'}>
-              {section.visible ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4 text-slate-400" />}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => toggleCollapse(id)}>
-              {section.collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </Button>
+            <button
+              onClick={() => toggleCollapse(id)}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 4,
+                display: 'flex',
+                color: '#334155',
+              }}
+            >
+              {section.collapsed ? <ChevronRight size={16} /> : <ChevronDown size={16} />}
+            </button>
           </div>
         </div>
         <AnimatePresence initial={false}>
@@ -69,7 +104,7 @@ function SortableSection({ id, index }: { id: string; index: number }) {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <CardContent className="pt-4">{renderForm()}</CardContent>
+              <CardContent style={{ paddingTop: 16 }}>{renderForm()}</CardContent>
             </motion.div>
           )}
         </AnimatePresence>
@@ -97,7 +132,7 @@ export function SectionPanel() {
   }
 
   return (
-    <div className="space-y-4">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} modifiers={[restrictToVerticalAxis]}>
         <SortableContext items={sections.map((s) => s.id)} strategy={verticalListSortingStrategy}>
           {sections.map((section, i) => (
@@ -105,8 +140,8 @@ export function SectionPanel() {
           ))}
         </SortableContext>
       </DndContext>
-      <Button variant="outline" size="sm" onClick={addCustomSection} className="w-full">
-        <Plus className="mr-1 h-4 w-4" /> Add Custom Section
+      <Button variant="outline" size="sm" onClick={addCustomSection} style={{ width: '100%' }}>
+        <Plus size={16} style={{ marginRight: 4 }} /> Add Custom Section
       </Button>
     </div>
   );

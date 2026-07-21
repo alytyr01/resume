@@ -13,11 +13,11 @@ function ProjectItem({ id }: { id: string }) {
   const style = { transform: CSS.Transform.toString(transform), transition };
 
   return (
-    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50 ${isDragging ? 'opacity-50' : ''}`}>
+    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 ${isDragging ? 'opacity-50' : ''}`}>
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <button {...attributes} {...listeners} className="cursor-grab text-slate-400"><GripVertical className="h-4 w-4" /></button>
-          <span className="text-sm font-medium text-slate-500">Project</span>
+          <button {...attributes} {...listeners} className="cursor-grab text-slate-500 hover:text-slate-700"><GripVertical className="h-4 w-4" /></button>
+          <span className="text-sm font-medium text-slate-600">Project</span>
         </div>
         <div className="flex gap-1">
           <Button variant="ghost" size="icon" onClick={() => duplicate(id)}><Copy className="h-4 w-4" /></Button>

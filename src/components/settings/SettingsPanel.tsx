@@ -1,9 +1,8 @@
 import { useResumeStore } from '@/store/resumeStore';
 import { useUIStore } from '@/store/uiStore';
-import { useThemeStore } from '@/store/themeStore';
 import { Button, Select, Input, Modal } from '@/components/ui';
 import { templateInfo } from '@/components/templates';
-import { Download, Upload, Printer, FileJson, RotateCcw, Sun, Moon, Monitor } from 'lucide-react';
+import { Download, Upload, Printer, FileJson, RotateCcw } from 'lucide-react';
 import type { TemplateId } from '@/types/resume';
 
 const fonts = [
@@ -25,8 +24,6 @@ export function SettingsPanel() {
   const resetResume = useResumeStore((s) => s.resetResume);
   const isOpen = useUIStore((s) => s.isSettingsOpen);
   const setOpen = useUIStore((s) => s.setSettingsOpen);
-  const themeMode = useThemeStore((s) => s.mode);
-  const setThemeMode = useThemeStore((s) => s.setMode);
 
   const handleExportJSON = () => {
     const blob = new Blob([JSON.stringify(resume, null, 2)], { type: 'application/json' });
@@ -60,64 +57,81 @@ export function SettingsPanel() {
   const handlePrint = () => window.print();
 
   const handleExportPDF = () => {
-    // Use browser print to PDF
     window.print();
   };
 
-  return (
-    <Modal open={isOpen} onClose={() => setOpen(false)} title="Settings & Customization" className="max-w-2xl">
-      <div className="space-y-6">
-        {/* Theme */}
-        <div>
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Theme</h3>
-          <div className="flex gap-2">
-            <Button variant={themeMode === 'light' ? 'default' : 'outline'} size="sm" onClick={() => setThemeMode('light')}>
-              <Sun className="h-4 w-4 mr-1" /> Light
-            </Button>
-            <Button variant={themeMode === 'dark' ? 'default' : 'outline'} size="sm" onClick={() => setThemeMode('dark')}>
-              <Moon className="h-4 w-4 mr-1" /> Dark
-            </Button>
-            <Button variant={themeMode === 'system' ? 'default' : 'outline'} size="sm" onClick={() => setThemeMode('system')}>
-              <Monitor className="h-4 w-4 mr-1" /> System
-            </Button>
-          </div>
-        </div>
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontSize: 12,
+    fontWeight: 500,
+    color: '#334155',
+    marginBottom: 4,
+  };
 
+  const sectionTitleStyle: React.CSSProperties = {
+    fontSize: 14,
+    fontWeight: 600,
+    color: '#0f172a',
+    marginBottom: 12,
+    paddingBottom: 6,
+    borderBottom: '1px solid #F1F5F9',
+  };
+
+  return (
+    <Modal open={isOpen} onClose={() => setOpen(false)} title="Settings & Customization">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
         {/* Template */}
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Template</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <h3 style={sectionTitleStyle}>Template</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 6 }}>
             {templateInfo.map((t) => (
               <button
                 key={t.id}
                 onClick={() => updateCustomization({ templateId: t.id as TemplateId })}
-                className={`rounded-xl border-2 p-3 text-left transition-all ${
-                  customization.templateId === t.id
-                    ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                    : 'border-slate-200 hover:border-slate-300 dark:border-slate-700 dark:hover:border-slate-600'
-                }`}
+                style={{
+                  borderRadius: 8,
+                  border: `2px solid ${customization.templateId === t.id ? '#0f172a' : '#E2E8F0'}`,
+                  padding: 8,
+                  textAlign: 'left',
+                  cursor: 'pointer',
+                  background: customization.templateId === t.id ? '#F8FAFC' : '#fff',
+                  transition: 'border-color 0.2s',
+                  fontFamily: 'sans-serif',
+                  color: '#0f172a',
+                }}
               >
-                <div className="text-sm font-medium text-slate-900 dark:text-slate-100">{t.name}</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t.description}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#0f172a', marginBottom: 1 }}>{t.name}</div>
+                <div style={{ fontSize: 11, color: '#475569' }}>{t.description}</div>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Customization */}
+        {/* Styling */}
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Styling</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <h3 style={sectionTitleStyle}>Styling</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
             <div>
-              <label className="text-sm font-medium text-slate-700 dark:text-slate-300 block mb-1">Primary Color</label>
-              <div className="flex items-center gap-2">
+              <label style={labelStyle}>Primary Color</label>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <input
                   type="color"
                   value={customization.primaryColor}
                   onChange={(e) => updateCustomization({ primaryColor: e.target.value, accentColor: e.target.value })}
-                  className="h-9 w-9 rounded-lg border border-slate-200 cursor-pointer"
+                  style={{
+                    height: 36,
+                    width: 36,
+                    borderRadius: 8,
+                    border: '1px solid #E2E8F0',
+                    cursor: 'pointer',
+                    padding: 0,
+                  }}
                 />
-                <Input value={customization.primaryColor} onChange={(e) => updateCustomization({ primaryColor: e.target.value })} className="flex-1" />
+                <Input
+                  value={customization.primaryColor}
+                  onChange={(e) => updateCustomization({ primaryColor: e.target.value })}
+                  style={{ flex: 1 }}
+                />
               </div>
             </div>
             <Select
@@ -126,30 +140,52 @@ export function SettingsPanel() {
               value={customization.fontFamily}
               onChange={(e) => updateCustomization({ fontFamily: e.target.value })}
             />
-            <Input label="Font Size (px)" type="number" min={10} max={20} value={customization.fontSize} onChange={(e) => updateCustomization({ fontSize: Number(e.target.value) })} />
-            <Input label="Line Spacing" type="number" min={1} max={2.5} step={0.1} value={customization.lineSpacing} onChange={(e) => updateCustomization({ lineSpacing: Number(e.target.value) })} />
-            <Input label="Section Spacing (px)" type="number" min={8} max={40} value={customization.sectionSpacing} onChange={(e) => updateCustomization({ sectionSpacing: Number(e.target.value) })} />
+            <Input
+              label="Font Size (px)"
+              type="number"
+              min={10}
+              max={20}
+              value={customization.fontSize}
+              onChange={(e) => updateCustomization({ fontSize: Number(e.target.value) })}
+            />
+            <Input
+              label="Line Spacing"
+              type="number"
+              min={1}
+              max={2.5}
+              step={0.1}
+              value={customization.lineSpacing}
+              onChange={(e) => updateCustomization({ lineSpacing: Number(e.target.value) })}
+            />
+            <Input
+              label="Section Spacing (px)"
+              type="number"
+              min={8}
+              max={40}
+              value={customization.sectionSpacing}
+              onChange={(e) => updateCustomization({ sectionSpacing: Number(e.target.value) })}
+            />
           </div>
         </div>
 
         {/* Actions */}
         <div>
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-3">Actions</h3>
-          <div className="flex flex-wrap gap-2">
-            <Button variant="outline" size="sm" onClick={handleExportPDF}>
-              <Download className="h-4 w-4 mr-1" /> Export PDF
+          <h3 style={sectionTitleStyle}>Actions</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            <Button variant="outline" size="sm" onClick={handleExportPDF} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+              <Download size={14} style={{ marginRight: 3 }} /> Export PDF
             </Button>
-            <Button variant="outline" size="sm" onClick={handlePrint}>
-              <Printer className="h-4 w-4 mr-1" /> Print
+            <Button variant="outline" size="sm" onClick={handlePrint} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+              <Printer size={14} style={{ marginRight: 3 }} /> Print
             </Button>
-            <Button variant="outline" size="sm" onClick={handleExportJSON}>
-              <FileJson className="h-4 w-4 mr-1" /> Export JSON
+            <Button variant="outline" size="sm" onClick={handleExportJSON} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+              <FileJson size={14} style={{ marginRight: 3 }} /> Export JSON
             </Button>
-            <Button variant="outline" size="sm" onClick={handleImportJSON}>
-              <Upload className="h-4 w-4 mr-1" /> Import JSON
+            <Button variant="outline" size="sm" onClick={handleImportJSON} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+              <Upload size={14} style={{ marginRight: 3 }} /> Import JSON
             </Button>
-            <Button variant="outline" size="sm" onClick={resetResume}>
-              <RotateCcw className="h-4 w-4 mr-1" /> Reset
+            <Button variant="outline" size="sm" onClick={resetResume} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+              <RotateCcw size={14} style={{ marginRight: 3 }} /> Reset
             </Button>
           </div>
         </div>

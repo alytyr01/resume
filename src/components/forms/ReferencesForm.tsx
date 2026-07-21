@@ -10,7 +10,7 @@ export function ReferencesForm() {
   return (
     <div className="space-y-3">
       {items.map((item) => (
-        <div key={item.id} className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50">
+        <div key={item.id} className="rounded-xl border border-slate-200 bg-white p-4">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Name" value={item.name} onChange={(e) => update(item.id, { name: e.target.value })} placeholder="James Park" />
             <Input label="Company" value={item.company} onChange={(e) => update(item.id, { company: e.target.value })} placeholder="Nimbus Technologies" />

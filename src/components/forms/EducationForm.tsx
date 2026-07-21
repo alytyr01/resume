@@ -13,13 +13,13 @@ function EducationItem({ id, index }: { id: string; index: number }) {
   const style = { transform: CSS.Transform.toString(transform), transition };
 
   return (
-    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50 ${isDragging ? 'opacity-50 shadow-md' : ''}`}>
+    <div ref={setNodeRef} style={style} className={`rounded-xl border border-slate-200 bg-white p-4 ${isDragging ? 'opacity-50 shadow-md' : ''}`}>
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <button {...attributes} {...listeners} className="cursor-grab text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+          <button {...attributes} {...listeners} className="cursor-grab text-slate-500 hover:text-slate-700">
             <GripVertical className="h-4 w-4" />
           </button>
-          <span className="text-sm font-medium text-slate-500 dark:text-slate-400">Education #{index + 1}</span>
+          <span className="text-sm font-medium text-slate-600">Education #{index + 1}</span>
         </div>
         <div className="flex items-center gap-1">
           <Button variant="ghost" size="icon" onClick={() => duplicate(id)} title="Duplicate"><Copy className="h-4 w-4" /></Button>

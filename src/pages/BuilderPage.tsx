@@ -1,9 +1,9 @@
+import { useState, useEffect } from 'react';
 import { useUIStore } from '@/store/uiStore';
 import { SectionPanel } from '@/components/builder/SectionPanel';
 import { ResumePreview } from '@/components/preview/ResumePreview';
 import { SettingsPanel } from '@/components/settings/SettingsPanel';
-import { Button } from '@/components/ui';
-import { Settings, Maximize2, Minimize2, FileText, Edit3 } from 'lucide-react';
+import { FileText, Edit3, Settings, Maximize2, Minimize2, ArrowLeft } from 'lucide-react';
 
 export function BuilderPage() {
   const isFullscreen = useUIStore((s) => s.isPreviewFullscreen);
@@ -11,59 +11,182 @@ export function BuilderPage() {
   const setSettingsOpen = useUIStore((s) => s.setSettingsOpen);
   const activeMobileView = useUIStore((s) => s.activeMobileView);
   const setActiveMobileView = useUIStore((s) => s.setActiveMobileView);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 640;
+
+  const leftPanelWidth = isFullscreen ? '0%' : isMobile ? '100%' : '45%';
+  const rightPanelWidth = isFullscreen ? '100%' : isMobile ? '100%' : '55%';
+
+  const showLeft = !isFullscreen && (isMobile ? activeMobileView === 'form' : true);
+  const showRight = isMobile ? activeMobileView === 'preview' : true;
 
   return (
-    <div className="h-screen flex flex-col bg-slate-50 dark:bg-slate-950">
+    <div style={{
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      background: '#F8F9FA',
+      color: '#111827',
+      fontFamily: 'sans-serif',
+    }}>
       {/* Top bar */}
-      <header className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2 dark:border-slate-800 dark:bg-slate-900">
-        <div className="flex items-center gap-3">
-          <a href="/" className="flex items-center gap-2 text-lg font-bold text-indigo-600">
-            <FileText className="h-5 w-5" />
-            <span className="hidden sm:inline">Resume Builder</span>
+      <header style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '10px 24px',
+        background: '#fff',
+        borderBottom: '1px solid #E2E8F0',
+        flexShrink: 0,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <a
+            href="/"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8,
+              fontSize: 17,
+              fontWeight: 700,
+              color: '#0f172a',
+              textDecoration: 'none',
+            }}
+          >
+            <ArrowLeft size={18} color="#64748b" />
+            <FileText size={18} color="#64748b" />
+            <span>Resume Builder</span>
           </a>
         </div>
-        <div className="flex items-center gap-2">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           {/* Mobile view toggle */}
-          <div className="flex sm:hidden rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <button
-              onClick={() => setActiveMobileView('form')}
-              className={`px-3 py-1.5 text-xs font-medium ${activeMobileView === 'form' ? 'bg-indigo-600 text-white' : 'text-slate-600 dark:text-slate-400'}`}
-            >
-              <Edit3 className="h-4 w-4" />
-            </button>
-            <button
-              onClick={() => setActiveMobileView('preview')}
-              className={`px-3 py-1.5 text-xs font-medium ${activeMobileView === 'preview' ? 'bg-indigo-600 text-white' : 'text-slate-600 dark:text-slate-400'}`}
-            >
-              <FileText className="h-4 w-4" />
-            </button>
-          </div>
-          <Button variant="ghost" size="icon" onClick={toggleFullscreen} title={isFullscreen ? 'Split view' : 'Full preview'}>
-            {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
-          </Button>
-          <Button variant="ghost" size="icon" onClick={() => setSettingsOpen(true)} title="Settings">
-            <Settings className="h-4 w-4" />
-          </Button>
+          {isMobile && (
+            <div style={{
+              display: 'flex',
+              borderRadius: 8,
+              border: '1px solid #E2E8F0',
+              overflow: 'hidden',
+            }}>
+              <button
+                onClick={() => setActiveMobileView('form')}
+                style={{
+                  padding: '6px 12px',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'sans-serif',
+                  background: activeMobileView === 'form' ? '#0f172a' : '#fff',
+                  color: activeMobileView === 'form' ? '#fff' : '#64748b',
+                }}
+              >
+                <Edit3 size={15} />
+              </button>
+              <button
+                onClick={() => setActiveMobileView('preview')}
+                style={{
+                  padding: '6px 12px',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'sans-serif',
+                  background: activeMobileView === 'preview' ? '#0f172a' : '#fff',
+                  color: activeMobileView === 'preview' ? '#fff' : '#64748b',
+                }}
+              >
+                <FileText size={15} />
+              </button>
+            </div>
+          )}
+          <button
+            onClick={toggleFullscreen}
+            title={isFullscreen ? 'Split view' : 'Full preview'}
+            style={{
+              padding: '6px',
+              borderRadius: 8,
+              border: '1px solid #E2E8F0',
+              background: '#fff',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#64748b',
+            }}
+          >
+            {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+          </button>
+          <button
+            onClick={() => setSettingsOpen(true)}
+            title="Settings"
+            style={{
+              padding: '6px',
+              borderRadius: 8,
+              border: '1px solid #E2E8F0',
+              background: '#0f172a',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+            }}
+          >
+            <Settings size={16} />
+          </button>
         </div>
       </header>
 
       {/* Main content */}
-      <div className="flex flex-1 overflow-hidden">
+      <div style={{
+        display: 'flex',
+        flex: 1,
+        overflow: 'hidden',
+      }}>
         {/* Left panel - Form */}
-        <div className={`${isFullscreen ? 'hidden' : 'w-full sm:w-1/2 lg:w-[45%]'} ${activeMobileView === 'preview' ? 'hidden sm:block' : 'block'} overflow-y-auto border-r border-slate-200 dark:border-slate-800`}>
-          <div className="p-4 sm:p-6">
-            <SectionPanel />
-          </div>
-        </div>
-
-        {/* Right panel - Preview */}
-        <div className={`${isFullscreen ? 'w-full' : 'w-full sm:w-1/2 lg:w-[55%]'} ${activeMobileView === 'form' ? 'hidden sm:block' : 'block'} overflow-y-auto bg-slate-100 dark:bg-slate-900`}>
-          <div className="flex justify-center p-4 sm:p-8">
-            <div className="scale-[0.6] sm:scale-[0.7] lg:scale-[0.8] origin-top">
-              <ResumePreview />
+        {showLeft && (
+          <div style={{
+            width: leftPanelWidth,
+            overflowY: 'auto',
+            borderRight: isFullscreen ? 'none' : '1px solid #E2E8F0',
+            background: '#fff',
+            flexShrink: 0,
+          }}>
+            <div style={{ padding: '20px 24px' }}>
+              <SectionPanel />
             </div>
           </div>
-        </div>
+        )}
+
+        {/* Right panel - Preview */}
+        {showRight && (
+          <div style={{
+            width: rightPanelWidth,
+            overflowY: 'auto',
+            background: '#F1F5F9',
+            flex: 1,
+          }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              padding: '24px 16px',
+            }}>
+              <div style={{
+                transform: 'scale(0.6)',
+                transformOrigin: 'top center',
+              }}
+              className="sm:scale-[0.7] lg:scale-[0.8]"
+              >
+                <ResumePreview />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <SettingsPanel />

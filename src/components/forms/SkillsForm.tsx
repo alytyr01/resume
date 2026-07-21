@@ -12,12 +12,12 @@ function SkillItem({ id }: { id: string }) {
   const style = { transform: CSS.Transform.toString(transform), transition };
 
   return (
-    <div ref={setNodeRef} style={style} className={`flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-800/50 ${isDragging ? 'opacity-50' : ''}`}>
-      <button {...attributes} {...listeners} className="cursor-grab text-slate-400"><GripVertical className="h-4 w-4" /></button>
+    <div ref={setNodeRef} style={style} className={`flex items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 ${isDragging ? 'opacity-50' : ''}`}>
+      <button {...attributes} {...listeners} className="cursor-grab text-slate-500"><GripVertical className="h-4 w-4" /></button>
       <Input value={item.name} onChange={(e) => update(id, { name: e.target.value })} placeholder="Skill name" className="flex-1" />
       <div className="flex w-32 items-center gap-2">
-        <input type="range" min={0} max={100} value={item.level} onChange={(e) => update(id, { level: Number(e.target.value) })} className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-indigo-600 dark:bg-slate-600" />
-        <span className="w-8 text-xs font-medium text-slate-500">{item.level}%</span>
+        <input type="range" min={0} max={100} value={item.level} onChange={(e) => update(id, { level: Number(e.target.value) })} className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-slate-200 accent-indigo-600" />
+        <span className="w-8 text-xs font-medium text-slate-600">{item.level}%</span>
       </div>
       <Button variant="ghost" size="icon" onClick={() => remove(id)}><Trash2 className="h-4 w-4 text-red-500" /></Button>
     </div>

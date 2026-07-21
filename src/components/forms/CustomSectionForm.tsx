@@ -17,7 +17,7 @@ export function CustomSectionForm({ sectionId }: { sectionId: string }) {
         <Button variant="ghost" size="icon" onClick={() => removeSection(sectionId)}><Trash2 className="h-4 w-4 text-red-500" /></Button>
       </div>
       {section.items.map((entry) => (
-        <div key={entry.id} className="rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800/50">
+        <div key={entry.id} className="rounded-xl border border-slate-200 bg-white p-4">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <Input label="Title" value={entry.title} onChange={(e) => updateEntry(sectionId, entry.id, { title: e.target.value })} placeholder="Title" />
             <Input label="Subtitle" value={entry.subtitle} onChange={(e) => updateEntry(sectionId, entry.id, { subtitle: e.target.value })} placeholder="Subtitle" />
