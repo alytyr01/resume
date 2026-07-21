@@ -2,7 +2,7 @@ import { useResumeStore } from '@/store/resumeStore';
 import { useUIStore } from '@/store/uiStore';
 import { Button, Select, Input, Modal } from '@/components/ui';
 import { templateInfo } from '@/components/templates';
-import { Download, Upload, Printer, FileJson, RotateCcw } from 'lucide-react';
+import { Download, Printer, RotateCcw } from 'lucide-react';
 import type { TemplateId } from '@/types/resume';
 
 const fonts = [
@@ -24,35 +24,6 @@ export function SettingsPanel() {
   const resetResume = useResumeStore((s) => s.resetResume);
   const isOpen = useUIStore((s) => s.isSettingsOpen);
   const setOpen = useUIStore((s) => s.setSettingsOpen);
-
-  const handleExportJSON = () => {
-    const blob = new Blob([JSON.stringify(resume, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'resume.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleImportJSON = () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.json';
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        try {
-          const data = JSON.parse(ev.target?.result as string);
-          importResume(data);
-        } catch { alert('Invalid JSON file'); }
-      };
-      reader.readAsText(file);
-    };
-    input.click();
-  };
 
   const handlePrint = () => window.print();
 
@@ -168,27 +139,21 @@ export function SettingsPanel() {
            </div>
          </div>
 
-        {/* Actions */}
-        <div>
-          <h3 style={sectionTitleStyle}>Actions</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            <Button variant="outline" size="sm" onClick={handleExportPDF} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
-              <Download size={14} style={{ marginRight: 3 }} /> Export PDF
-            </Button>
-            <Button variant="outline" size="sm" onClick={handlePrint} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
-              <Printer size={14} style={{ marginRight: 3 }} /> Print
-            </Button>
-            <Button variant="outline" size="sm" onClick={handleExportJSON} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
-              <FileJson size={14} style={{ marginRight: 3 }} /> Export JSON
-            </Button>
-            <Button variant="outline" size="sm" onClick={handleImportJSON} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
-              <Upload size={14} style={{ marginRight: 3 }} /> Import JSON
-            </Button>
-            <Button variant="outline" size="sm" onClick={resetResume} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
-              <RotateCcw size={14} style={{ marginRight: 3 }} /> Reset
-            </Button>
-          </div>
-        </div>
+         {/* Actions */}
+         <div>
+           <h3 style={sectionTitleStyle}>Actions</h3>
+           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+             <Button variant="outline" size="sm" onClick={handleExportPDF} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+               <Download size={14} style={{ marginRight: 3 }} /> Download PDF
+             </Button>
+             <Button variant="outline" size="sm" onClick={handlePrint} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+               <Printer size={14} style={{ marginRight: 3 }} /> Print
+             </Button>
+             <Button variant="outline" size="sm" onClick={resetResume} style={{ fontSize: 12, padding: '4px 8px', height: 28, color: '#0f172a', borderColor: '#cbd5e1' }}>
+               <RotateCcw size={14} style={{ marginRight: 3 }} /> Reset
+             </Button>
+           </div>
+         </div>
       </div>
     </Modal>
   );
