@@ -280,15 +280,13 @@ body {
     justify-content: flex-end !important;
     align-items: flex-start !important;
   }
-  .hero-card-main { }
-  .hero-card-secondary { }
 }
 @media (min-width: 640px) and (max-width: 1023px) {
-  .hero-cards-col { display: flex !important; }
+  .hero-cards-col { display: flex !important; margin-bottom: 180px !important; }
   .hero-section { padding: 40px 24px 0 !important; }
 }
 @media (max-width: 639px) {
-  .hero-cards-col { display: flex !important; margin-bottom: 200px !important; }
+  .hero-cards-col { display: flex !important; margin-bottom: 240px !important; }
   .hero-section { padding: 40px 16px 0 !important; min-height: auto !important; }
 }
 

@@ -46,7 +46,7 @@ export function HomePage() {
       </div>
 
       {/* Create a resume section */}
-      <section className="home-section" style={{ background: '#fff' }}>
+      <section className="home-section" style={{ background: '#fff', marginTop: 'clamp(24px, 5vw, 40px)' }}>
         <div style={{ width: '100%' }}>
           <h2 style={{ fontSize: 'clamp(24px, 5vw, 48px)', fontWeight: 700, color: '#0f172a', marginBottom: 16, lineHeight: 1.3, textAlign: 'left' }}>
             Create a resume to land your next job

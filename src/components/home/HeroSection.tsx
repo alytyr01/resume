@@ -1,5 +1,6 @@
-import { Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { ResumeCard } from './ResumeCard';
+import { Star } from 'lucide-react';
 
 const delayNavigation = (href: string) => {
   setTimeout(() => {
@@ -13,6 +14,27 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
+  const [cardScale, setCardScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 375) {
+        setCardScale(0.85);
+      } else if (width < 640) {
+        setCardScale(0.9);
+      } else if (width < 768) {
+        setCardScale(0.95);
+      } else {
+        setCardScale(1);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="hero-section" style={{
       padding: '60px 16px 0',
@@ -25,62 +47,6 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
         marginLeft: 'auto',
         flexDirection: 'column',
       }}>
-        <style>{`
-          @media (min-width: 768px) {
-            .hero-layout {
-              flex-direction: row !important;
-              gap: 40px;
-            }
-            .hero-text-col {
-              flex: 0 1 50% !important;
-              max-width: 50% !important;
-            }
-            .hero-cards-col {
-              flex: 1 !important;
-              marginTop: 0 !important;
-            }
-          }
-          @media (max-width: 767px) {
-            .hero-layout {
-              flex-direction: column !important;
-            }
-            .hero-cards-col {
-              marginTop: 32px !important;
-              width: 100% !important;
-            }
-            .hero-cards-container {
-              width: 100% !important;
-              height: auto !important;
-              min-height: 0 !important;
-            }
-            .hero-card-main,
-            .hero-card-secondary {
-              transform: scale(0.8) !important;
-              transform-origin: top center !important;
-            }
-            .hero-card-secondary {
-              top: 100px !important;
-            }
-            .hero-badge-free {
-              left: 0 !important;
-              bottom: 10px !important;
-              font-size: 12px !important;
-              padding: 6px 12px !important;
-            }
-            .hero-badge-template {
-              right: 0 !important;
-              bottom: -30px !important;
-              font-size: 12px !important;
-              padding: 6px 12px !important;
-            }
-            .hero-badge-accepted {
-              top: -60px !important;
-              right: 0 !important;
-              font-size: 14px !important;
-              padding: 6px 12px !important;
-            }
-          }
-        `}</style>
         {/* Left Column - Text */}
         <div className="hero-text-col" style={{
           flex: '0 1 100%',
@@ -257,7 +223,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Right Column - Two overlapping cards (below text on mobile, side on desktop) */}
+        {/* Right Column - Cards */}
         <div className="hero-cards-col" style={{
           flex: 1,
           minWidth: 0,
@@ -265,47 +231,58 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'visible',
-          marginTop: 32,
+          marginTop: 48,
           width: '100%',
         }}>
-          <div className="hero-cards-container" style={{
+          <div style={{
             position: 'relative',
-            width: 'min(520px, 100%)',
-            height: 'min(620px, 80vw)',
+            width: '100%',
+            maxWidth: '520px',
+            height: 'auto',
+            minHeight: `${600 * cardScale}px`,
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
+            gap: `${32 * cardScale}px`,
+            transform: `scale(${cardScale})`,
+            transformOrigin: 'top center',
+            marginBottom: `${-((600 - 200) * (1 - cardScale))}px`,
           }}>
-            <div style={{ position: 'absolute', left: 0, top: 0, zIndex: 1 }}>
-              <div className="hero-card-main">
-                <ResumeCard templateId="modern" width={400} height={560} />
-              </div>
+            {/* First Card */}
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}>
+              <ResumeCard templateId="modern" width={400 * cardScale} height={560 * cardScale} />
               <div style={{
                 position: 'absolute',
-                bottom: 20,
-                left: -30,
+                bottom: -16,
+                left: 0,
                 background: 'rgba(255,255,255,0.95)',
                 backdropFilter: 'blur(8px)',
                 color: '#0f172a',
-                padding: '10px 18px',
+                padding: '8px 16px',
                 borderRadius: '0px 8px 0px 8px',
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: 700,
                 zIndex: 10,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                 letterSpacing: '-0.01em',
                 borderTop: '2px solid #94A3B8',
                 borderRight: '2px solid #94A3B8',
-                borderBottom: 'none',
-                borderLeft: 'none',
               }}>
                 Free
               </div>
             </div>
-            <div style={{ position: 'absolute', right: 0, top: 140, zIndex: 2 }}>
-              <div className="hero-card-secondary">
-                <ResumeCard templateId="professional" width={280} height={392} />
-              </div>
+
+            {/* Second Card */}
+            <div style={{
+              position: 'absolute',
+              right: `${20 * cardScale}px`,
+              top: `${140 * cardScale}px`,
+            }}>
+              <ResumeCard templateId="professional" width={280 * cardScale} height={392 * cardScale} />
               <div style={{
                 position: 'absolute',
                 bottom: -40,
@@ -313,29 +290,27 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
                 background: 'rgba(255,255,255,0.95)',
                 backdropFilter: 'blur(8px)',
                 color: '#0f172a',
-                padding: '10px 18px',
+                padding: '8px 16px',
                 borderRadius: '8px 0px 8px 0px',
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: 700,
                 zIndex: 10,
                 boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                 letterSpacing: '-0.01em',
                 borderTop: '2px solid #94A3B8',
                 borderLeft: '2px solid #94A3B8',
-                borderBottom: 'none',
-                borderRight: 'none',
               }}>
                 Template
               </div>
               <div style={{
                 position: 'absolute',
-                top: -80,
-                right: -10,
+                top: -60,
+                right: 0,
                 background: '#334155',
                 color: '#fff',
-                padding: '10px 18px',
+                padding: '8px 16px',
                 borderRadius: '8px 8px 0px 8px',
-                fontSize: 17,
+                fontSize: 15,
                 fontWeight: 700,
                 animation: 'fadeSlideIn 0.5s ease-out, bounce 2s ease-in-out infinite',
                 zIndex: 10,
@@ -345,7 +320,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
                 gap: 8,
                 letterSpacing: '-0.01em',
               }}>
-                <Star style={{ width: 18, height: 18 }} />
+                <Star style={{ width: 16, height: 16 }} />
                 Accepted
               </div>
             </div>
