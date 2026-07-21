@@ -10,11 +10,6 @@ export function ModernTemplate({ resume, custom }: Props) {
   const visibleSections = sections.filter((s) => s.visible);
   const pColor = custom.primaryColor;
 
-  const sectionStyle = (id: string) => {
-    const s = sections.find((x) => x.id === id);
-    return s?.collapsed ? { display: 'none' } : {};
-  };
-
   return (
     <div style={{ fontFamily: custom.fontFamily || 'Inter', fontSize: custom.fontSize, lineHeight: custom.lineSpacing, color: '#1e293b' }}>
       {/* Header */}

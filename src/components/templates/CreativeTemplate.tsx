@@ -3,7 +3,7 @@ import type { ResumeData, Customization } from '@/types/resume';
 interface Props { resume: ResumeData; custom: Customization; }
 
 export function CreativeTemplate({ resume, custom }: Props) {
-  const { personal, summary, experience, education, skills, projects, certifications, languages, references, sections } = resume;
+  const { personal, summary, experience, education, skills, projects, certifications, languages, sections } = resume;
   const visibleSections = sections.filter((s) => s.visible);
   const pColor = custom.primaryColor;
 

@@ -1,5 +1,4 @@
 import { useResumeStore } from '@/store/resumeStore';
-import { useUIStore } from '@/store/uiStore';
 import { Card, CardTitle, CardContent, Button } from '@/components/ui';
 import { PersonalInfoForm } from '@/components/forms/PersonalInfoForm';
 import { SummaryForm } from '@/components/forms/SummaryForm';
@@ -19,7 +18,7 @@ import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, type D
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
-function SortableSection({ id, index }: { id: string; index: number }) {
+function SortableSection({ id }: { id: string }) {
   const section = useResumeStore((s) => s.resume.sections.find((sec) => sec.id === id))!;
   const toggleCollapse = useResumeStore((s) => s.toggleSectionCollapse);
   const toggleVisibility = useResumeStore((s) => s.toggleSectionVisibility);
@@ -135,8 +134,8 @@ export function SectionPanel() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} modifiers={[restrictToVerticalAxis]}>
         <SortableContext items={sections.map((s) => s.id)} strategy={verticalListSortingStrategy}>
-          {sections.map((section, i) => (
-            <SortableSection key={section.id} id={section.id} index={i} />
+          {sections.map((section) => (
+            <SortableSection key={section.id} id={section.id} />
           ))}
         </SortableContext>
       </DndContext>

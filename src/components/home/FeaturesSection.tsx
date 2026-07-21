@@ -1,5 +1,3 @@
-import { Eye, Download, Shield, BarChart3, Sparkles, Star } from 'lucide-react';
-
 interface Feature {
   icon: React.ElementType;
   title: string;

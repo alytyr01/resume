@@ -59,7 +59,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
         justifyContent: 'space-between',
         alignItems: 'center',
         maxWidth: '100%',
-        overflow: 'hidden',
+        overflow: 'visible',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 48px)' }}>
           <a href="/" onClick={(e) => { e.preventDefault(); delayNavigation('/'); }} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>

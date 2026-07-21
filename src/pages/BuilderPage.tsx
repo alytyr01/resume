@@ -14,7 +14,6 @@ export function BuilderPage() {
   const activeMobileView = useUIStore((s) => s.activeMobileView);
   const setActiveMobileView = useUIStore((s) => s.setActiveMobileView);
   const updateCustomization = useResumeStore((s) => s.updateCustomization);
-  const customization = useResumeStore((s) => s.customization);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [previewScale, setPreviewScale] = useState(0.6);
   const [searchParams] = useSearchParams();

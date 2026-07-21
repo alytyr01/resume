@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { ChevronDown, FileText, Star, BarChart3, Sparkles, Shield, Download, Eye } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { ResumeCard } from './ResumeCard';
 
 const delayNavigation = (href: string) => {
@@ -15,7 +12,7 @@ interface HeroSectionProps {
   startHover: boolean;
 }
 
-export function HeroSection({ onStartHover, startHover, isVisible }: HeroSectionProps & { isVisible?: boolean }) {
+export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
   return (
     <div className="hero-section" style={{
       padding: '60px 16px 0',

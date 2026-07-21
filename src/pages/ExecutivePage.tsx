@@ -1,5 +1,5 @@
 import { Navbar, Footer } from '@/components/home';
-import { Crown, ArrowRight, Star, Sparkles, Layout, Palette, Briefcase, FileText, GraduationCap, Mail, Award, TrendingUp, Rocket, Shield } from 'lucide-react';
+import { Crown, Sparkles, Layout, Palette, Briefcase, FileText, GraduationCap, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { ModernTemplate } from '@/components/templates/ModernTemplate';
 import { MinimalTemplate } from '@/components/templates/MinimalTemplate';

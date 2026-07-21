@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, ChevronDown, Eye, Download, Shield, BarChart3, Sparkles, ArrowRight, CheckCircle, BookOpen, Users, Edit3, Layers, FileOutput, Search, ThumbsUp, Zap, Globe } from 'lucide-react';
+import { Layout, FileText, Briefcase, Target, Palette, Crown, Star, ArrowRight, BookOpen, Users, Edit3, Layers, FileOutput, Search, ThumbsUp, Zap, Globe, Download } from 'lucide-react';
 import { Navbar, HeroSection, Footer } from '@/components/home';
-import type { Customization } from '@/types/resume';
 
 const dropdowns = {
   templates: [

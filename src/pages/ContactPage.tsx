@@ -2,7 +2,6 @@ import { Navbar, Footer } from '@/components/home';
 import { Crown, Sparkles, Layout, Palette, Briefcase, FileText, GraduationCap, Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { Modal } from '@/components/ui/Modal';
 
 interface FormData {
   firstName: string;
