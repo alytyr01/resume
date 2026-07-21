@@ -19,7 +19,6 @@ export async function printResume() {
     clone.style.top = 'auto';
     clone.style.padding = '0';
     clone.style.margin = '0 auto';
-    clone.style.display = 'block';
     clone.style.visibility = 'visible';
     clone.style.minHeight = '297mm';
     clone.style.height = 'auto';
