@@ -242,6 +242,7 @@ export function PremiumTemplatePage() {
               src="/images/resume1.webp"
               alt=""
               aria-hidden="true"
+              className="hero-bg-image"
               style={{
                 position: 'absolute',
                 top: '60px',
@@ -255,6 +256,7 @@ export function PremiumTemplatePage() {
             <img
               src="/images/premium-resume.avif"
               alt="Premium Resume Template"
+              className="hero-main-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -315,7 +317,7 @@ export function PremiumTemplatePage() {
           .feature-text { font-size: 14px !important; }
         }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
            .page-wrapper { padding-top: 64px !important; }
            .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
            .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
@@ -341,7 +343,7 @@ export function PremiumTemplatePage() {
            .tip-text { font-size: 14px !important; }
          }
 
-         @media (max-width: 480px) {
+        @media (max-width: 480px) {
            .page-wrapper { padding-top: 56px !important; }
            .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
            .hero-content { padding: 0 0 0 16px !important; }
@@ -353,6 +355,7 @@ export function PremiumTemplatePage() {
            .section-padding { padding: 0 16px 40px !important; }
            .about-section { padding: 40px 16px 0 !important; }
            .section-title { font-size: 24px !important; }
+           .features-grid { grid-template-columns: 1fr !important; }
            .samples-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: 1fr !important; }
            .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }

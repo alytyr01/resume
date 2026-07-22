@@ -1,4 +1,4 @@
-﻿import { Navbar, Footer } from '@/components/home';
+import { Navbar, Footer } from '@/components/home';
 import { CreativeTemplate } from '@/components/templates/CreativeTemplate';
 import { createPlaceholderResume } from '@/data/placeholderResume';
 import { Layout, Palette, Briefcase, FileText, Crown, Target, User, TrendingUp, Award } from 'lucide-react';
@@ -13,75 +13,76 @@ export function CreativeTemplatePage() {
     createPlaceholderResume()
   ];
   const sampleCustoms = [
-    { templateId: 'creative', primaryColor: '#7C3AED', accentColor: '#EC4899', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'creative', primaryColor: '#EC4899', accentColor: '#F59E0B', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'creative', primaryColor: '#10B981', accentColor: '#3B82F6', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
-    { templateId: 'creative', primaryColor: '#F59E0B', accentColor: '#EF4444', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
+    { templateId: 'creative', primaryColor: '#f43f5e', accentColor: '#f43f5e', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
+    { templateId: 'creative', primaryColor: '#8b5cf6', accentColor: '#8b5cf6', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
+    { templateId: 'creative', primaryColor: '#06b6d4', accentColor: '#06b6d4', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
+    { templateId: 'creative', primaryColor: '#f59e0b', accentColor: '#f59e0b', fontFamily: 'Poppins', fontSize: 14, lineSpacing: 1.5, sectionSpacing: 28 } as const,
   ];
-
-  const heroDescription1 = 'Bold, eye-catching look for designers, artists, and creative professionals. Showcases your unique personality and style.';
-  const heroDescription2 = 'Featuring bold visual design and unique layout, this template helps you stand out while maintaining professionalism that recruiters appreciate.';
 
   const aboutSection = {
     heading: 'About Creative Resume Templates',
     paragraphs: [
-      'Creative resume templates are designed to make a bold, eye-catching impression for designers, artists, and creative professionals. These templates showcase your unique personality and style while maintaining professionalism.',
-      'The creative template features bold visual design, unique layouts, and distinctive typography that help you stand out from the crowd. It balances creativity with readability, ensuring your resume captures attention while effectively communicating your qualifications.',
-      'Creative templates are perfect for design, marketing, advertising, photography, and other creative industries where visual presentation matters. They allow you to demonstrate your design sensibility and attention to detail through the resume itself.'
+      'Creative resume templates are designed to showcase your personality and uniqueness while maintaining professionalism. These templates feature bold layouts, vibrant color schemes, and eye-catching visual elements that help your application stand out in a crowded job market.',
+      'The creative template style breaks away from traditional resume formats by incorporating modern design elements, unique layouts, and strategic use of color and typography. Perfect for roles in design, marketing, advertising, and other fields where creativity is highly valued.',
+      'Creative templates signal to employers that you think outside the box and have a strong visual sense. However, it\'s important to balance creativity with readability - ensuring that your skills and experience remain the focal point of your resume.'
     ]
   };
+
+  const heroDescription1 = 'Bold, eye-catching design that showcases your creativity and personality. Perfect for roles in design, marketing, and creative industries.';
+  const heroDescription2 = 'Featuring vibrant colors, unique layouts, and modern design elements, this template helps you stand out while maintaining professionalism.';
 
   const faqs = [
     {
       question: 'What is a creative resume template?',
-      answer: 'A creative resume template features bold, distinctive visual design with unique layouts and typography. It is designed to showcase your personality and creativity while maintaining professionalism, perfect for creative industries.'
+      answer: 'A creative resume template features bold designs, unique layouts, and vibrant colors that help showcase your personality and creativity. These templates are specifically designed to stand out while maintaining professionalism.'
     },
     {
       question: 'When should I use a creative resume template?',
-      answer: 'Use creative templates for design, marketing, advertising, photography, videography, and other creative industries. They are also appropriate for startups, agencies, and companies that value innovation and creative thinking.'
+      answer: 'Creative templates work best for roles in design, marketing, advertising, media, and other industries where creativity is valued. They\'re perfect for positions like graphic designers, copywriters, marketing managers, and brand strategists.'
     },
     {
-      question: 'Are creative resumes ATS-friendly?',
-      answer: 'Some creative elements may not be ATS-friendly. If applying to large corporations with ATS systems, consider using a more traditional template. Creative templates work best when submitting directly to humans or for creative roles where design skills are valued.'
-    },
-    {
-      question: 'How can I make my creative resume stand out?',
-      answer: 'Use strategic color accents, unique but readable fonts, distinctive layouts, and visual hierarchy. Include links to your portfolio, use icons or graphics sparingly, and ensure the design reflects your personal brand while remaining professional.'
-    },
-    {
-      question: 'Should creative resumes include a photo?',
-      answer: 'For creative roles, a professional headshot or portfolio thumbnail can be appropriate, especially for client-facing positions. However, ensure the photo is high-quality and professionally taken, and consider cultural norms for the region.'
+      question: 'Are creative templates ATS-friendly?',
+      answer: 'Some creative templates may have formatting that ATS systems can\'t read. If applying to larger companies that use ATS software, consider a more traditional format or ensure your creative template maintains standard section headers and formatting.'
     },
     {
       question: 'What colors work best for creative resumes?',
-      answer: 'Bold but harmonious color schemes work best. Consider using a vibrant accent color against a neutral background. Popular choices include purple, teal, coral, or mustard yellow. Ensure sufficient contrast for readability.'
+      answer: 'Bold, vibrant colors like coral, purple, teal, or orange work well. Use 2-3 colors maximum - one primary color for accents and one secondary color for emphasis. Always maintain good contrast with text for readability.'
     },
+    {
+      question: 'Should I include a photo in my creative resume?',
+      answer: 'It depends on the industry and location. For creative roles in Europe and Asia, a professional photo can add a personal touch. In the US, it\'s generally not recommended to avoid potential bias. Choose based on your industry norms.'
+    },
+    {
+      question: 'How can I make my creative resume readable?',
+      answer: 'Balance creativity with clarity by using clear section headers, consistent fonts, and ample white space. Don\'t sacrifice readability for style - your resume must still be easily scannable by recruiters in 6-7 seconds.'
+    }
   ];
 
   const features = [
-    'Bold and distinctive visual design',
-    'Perfect for creative industries',
-    'Shows personality and creativity',
+    'Bold, eye-catching visual design',
+    'Vibrant color schemes and typography',
     'Unique layout that stands out',
-    'Great for designers and artists',
-    'Memorable presentation',
+    'Perfect for creative industries',
+    'Showcases personality and creativity',
+    'Modern and contemporary aesthetic',
   ];
 
   const useCases = [
-    'Graphic designers and illustrators',
+    'Graphic and web designers',
     'Marketing and advertising professionals',
-    'Web designers and developers',
-    'Photographers and videographers',
-    'Creative directors and artists',
+    'UX/UI designers and researchers',
+    'Content creators and writers',
+    'Brand managers and strategists',
+    'Social media specialists',
   ];
 
   const tips = [
-    'Showcase your portfolio alongside the resume',
-    'Use color strategically to highlight key sections',
-    'Include links to your online portfolio or Behance',
-    'Let your personality shine through the design',
     'Balance creativity with readability',
-    'Use unique but professional fonts',
+    'Use vibrant but professional colors',
+    'Choose modern, clean fonts',
+    'Include visual elements strategically',
+    'Ensure proper contrast for text',
+    'Test your resume on different devices',
   ];
 
   return (
@@ -110,7 +111,7 @@ export function CreativeTemplatePage() {
       
       {/* Hero Section */}
       <div className="hero-section" style={{
-        background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
+        background: 'linear-gradient(135deg, #FDF2F8 0%, #FEF3C7 100%)',
         padding: '80px 96px',
         marginBottom: 0,
         position: 'relative',
@@ -133,6 +134,7 @@ export function CreativeTemplatePage() {
             }}>
               Creative Resume Template
             </h1>
+            
             <p className="hero-desc" style={{
               fontSize: 18,
               lineHeight: 2,
@@ -221,11 +223,11 @@ export function CreativeTemplatePage() {
                   fontSize: 18,
                   fontWeight: 600,
                   color: '#0f172a',
-                }}>4.9</span>
+                }}>4.8</span>
                 <span className="rating-text" style={{
                   fontSize: 18,
                   color: '#64748b',
-                }}>(2.3k reviews)</span>
+                }}>(1.8k reviews)</span>
               </div>
             </div>
           </div>
@@ -239,22 +241,9 @@ export function CreativeTemplatePage() {
             overflow: 'hidden',
           }}>
             <img
-              src="/images/resume1.webp"
-              alt=""
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: '60px',
-                left: '-60px',
-                width: '110%',
-                height: 'auto',
-                opacity: 0.5,
-                zIndex: 0,
-              }}
-            />
-            <img
               src="/images/creative-resume.webp"
               alt="Creative Resume Template"
+              className="hero-main-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -263,25 +252,6 @@ export function CreativeTemplatePage() {
                 zIndex: 1,
               }}
             />
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: -12,
-              background: '#0f172a',
-              color: '#fff',
-              padding: '10px 16px',
-              borderTopRightRadius: 0,
-              borderBottomRightRadius: 12,
-              borderTopLeftRadius: 12,
-              borderBottomLeftRadius: 0,
-              fontSize: 14,
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              animation: 'bounce 2s ease-in-out infinite',
-              zIndex: 2,
-            }}>
-              creative
-            </div>
           </div>
         </div>
       </div>
@@ -315,12 +285,11 @@ export function CreativeTemplatePage() {
           .feature-text { font-size: 14px !important; }
         }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
            .page-wrapper { padding-top: 64px !important; }
            .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
            .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
            .hero-image { flex: 0 0 auto !important; margin-top: 40px; margin-left: auto !important; margin-right: auto !important; width: 220px !important; max-width: 220px !important; overflow: visible !important; border-radius: 14px !important; position: relative !important; }
-           .hero-image img[aria-hidden='true'] { position: absolute !important; left: -10px !important; top: auto !important; bottom: -20px !important; width: 55% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
            .hero-title { font-size: 40px !important; }
            .hero-desc { font-size: 15px !important; }
            .section-padding { padding: 0 16px 48px !important; }
@@ -341,18 +310,17 @@ export function CreativeTemplatePage() {
            .tip-text { font-size: 14px !important; }
          }
 
-         @media (max-width: 480px) {
+        @media (max-width: 480px) {
            .page-wrapper { padding-top: 56px !important; }
            .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
            .hero-content { padding: 0 0 0 16px !important; }
            .hero-image { flex: 1 1 100% !important; margin-left: auto !important; margin-right: auto !important; border-radius: 14px !important; max-width: 260px !important; width: 100% !important; position: relative !important; overflow: visible !important; }
-           .hero-image img[aria-hidden='true'] { position: absolute !important; left: -8px !important; top: auto !important; bottom: -16px !important; width: 50% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
-           .hero-image img:not([aria-hidden='true']) { position: relative !important; z-index: 1 !important; }
            .hero-title { font-size: 32px !important; }
            .hero-desc { font-size: 14px !important; }
            .section-padding { padding: 0 16px 40px !important; }
            .about-section { padding: 40px 16px 0 !important; }
            .section-title { font-size: 24px !important; }
+           .features-grid { grid-template-columns: 1fr !important; }
            .samples-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: 1fr !important; }
            .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
@@ -369,7 +337,10 @@ export function CreativeTemplatePage() {
          }
       `}</style>
 
-      <div className="about-section" style={{ padding: '60px 96px 0' }}>
+      {/* About Section */}
+      <div className="about-section" style={{
+        padding: '60px 96px 0',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,
@@ -390,7 +361,10 @@ export function CreativeTemplatePage() {
         ))}
       </div>
 
-      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
+      {/* Features Section */}
+      <div className="section-padding" style={{
+        padding: '0 96px 60px',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,
@@ -404,56 +378,64 @@ export function CreativeTemplatePage() {
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
         }}>
-          {features.map((feature, index) => (
-            <div key={index} className="feature-card" style={{
-              background: '#fff',
-              padding: 32,
-              borderRadius: 16,
-              border: '1px solid #E2E8F0',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: 20,
-            }}>
-              <div className="feature-icon" style={{
-                width: 56,
-                height: 56,
-                borderRadius: 14,
-                background: '#F3E8FF',
+          {features.map((feature, index) => {
+            const icons = [
+              <Palette key="icon1" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Layout key="icon2" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Palette key="icon3" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Briefcase key="icon4" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <FileText key="icon5" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+              <Crown key="icon6" style={{ width: 28, height: 28, color: '#0f172a' }} />,
+            ];
+            return (
+              <div key={index} className="feature-card" style={{
+                background: '#fff',
+                padding: 32,
+                borderRadius: 16,
+                border: '1px solid #E2E8F0',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
+                alignItems: 'flex-start',
+                gap: 20,
               }}>
-                {index === 0 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
-                {index === 1 && <Layout style={{ width: 28, height: 28, color: '#0f172a' }} />}
-                {index === 2 && <Palette style={{ width: 28, height: 28, color: '#0f172a' }} />}
-                {index === 3 && <Briefcase style={{ width: 28, height: 28, color: '#0f172a' }} />}
-                {index === 4 && <FileText style={{ width: 28, height: 28, color: '#0f172a' }} />}
-                {index === 5 && <Crown style={{ width: 28, height: 28, color: '#0f172a' }} />}
-              </div>
-              <div>
-                <div className="feature-title" style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: '#0f172a',
-                  marginBottom: 16,
-                }}>{feature}</div>
-                <p className="feature-text" style={{
-                  fontSize: 16,
-                  lineHeight: 1.7,
-                  color: '#475569',
-                  margin: 0,
+                <div className="feature-icon" style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: 14,
+                  background: '#FDF2F8',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
                 }}>
-                  This feature helps you showcase your creativity while maintaining a professional appearance that stands out to employers.
-                </p>
+                  {icons[index % icons.length]}
+                </div>
+                <div>
+                  <div className="feature-title" style={{
+                    fontSize: 22,
+                    fontWeight: 700,
+                    color: '#0f172a',
+                    marginBottom: 16,
+                  }}>{feature}</div>
+                  <p className="feature-text" style={{
+                    fontSize: 16,
+                    lineHeight: 1.7,
+                    color: '#475569',
+                    margin: 0,
+                  }}>
+                    This feature helps you create a professional and polished resume that stands out to recruiters and hiring managers.
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
-      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
+      {/* Sample Resumes Section */}
+      <div className="section-padding" style={{
+        padding: '0 96px 60px',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,
@@ -494,7 +476,10 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
+      {/* Use Cases Section */}
+      <div className="section-padding" style={{
+        padding: '0 96px 60px',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,
@@ -523,7 +508,7 @@ export function CreativeTemplatePage() {
                 width: 44,
                 height: 44,
                 borderRadius: '50%',
-                background: '#F3E8FF',
+                background: '#FDF2F8',
                 color: '#0f172a',
                 display: 'flex',
                 alignItems: 'center',
@@ -543,7 +528,10 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div className="section-padding" style={{ padding: '0 96px 80px' }}>
+      {/* Tips Section */}
+      <div className="section-padding" style={{
+        padding: '0 96px 80px',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,
@@ -591,7 +579,10 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
+      {/* FAQ Section */}
+      <div className="section-padding" style={{
+        padding: '0 96px 60px',
+      }}>
         <h2 className="section-title" style={{
           fontSize: 40,
           fontWeight: 700,

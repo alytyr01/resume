@@ -34,7 +34,7 @@ export function ModernTemplatePage() {
       answer: 'A modern resume template features clean lines, contemporary typography, and strategic use of accent colors. It emphasizes readability and visual hierarchy while maintaining a professional appearance that stands out to recruiters.'
     },
     {
-      question: 'Are modern resume templates customizable?',
+      question: 'Are modern templates customizable?',
       answer: 'Yes! Our modern templates are highly customizable. You can adjust accent colors, fonts, spacing, and layout to match your personal style while maintaining the modern aesthetic that helps you stand out.'
     },
     {
@@ -105,7 +105,7 @@ export function ModernTemplatePage() {
           { href: '/career-levels/executive', icon: <Award style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Executive', description: 'Senior leadership' },
         ],
       }} />
-      
+
       {/* Hero Section for Template */}
       <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
@@ -132,7 +132,7 @@ export function ModernTemplatePage() {
             }}>
               Modern Resume Template
             </h1>
-            
+
             <p className="hero-desc" style={{
               fontSize: 18,
               lineHeight: 2,
@@ -243,6 +243,7 @@ export function ModernTemplatePage() {
               src="/images/resume1.webp"
               alt=""
               aria-hidden="true"
+              className="hero-bg-image"
               style={{
                 position: 'absolute',
                 top: '60px',
@@ -256,6 +257,7 @@ export function ModernTemplatePage() {
             <img
               src="/images/modern-resume.png"
               alt="Modern Resume Template"
+              className="hero-main-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -316,7 +318,7 @@ export function ModernTemplatePage() {
           .feature-text { font-size: 14px !important; }
         }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
            .page-wrapper { padding-top: 64px !important; }
            .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
            .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
@@ -342,7 +344,7 @@ export function ModernTemplatePage() {
            .tip-text { font-size: 14px !important; }
          }
 
-         @media (max-width: 480px) {
+        @media (max-width: 480px) {
            .page-wrapper { padding-top: 56px !important; }
            .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
            .hero-content { padding: 0 0 0 16px !important; }
@@ -354,6 +356,7 @@ export function ModernTemplatePage() {
            .section-padding { padding: 0 16px 40px !important; }
            .about-section { padding: 40px 16px 0 !important; }
            .section-title { font-size: 24px !important; }
+           .features-grid { grid-template-columns: 1fr !important; }
            .samples-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: 1fr !important; }
            .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
@@ -369,30 +372,6 @@ export function ModernTemplatePage() {
            .tip-text { font-size: 13px !important; }
          }
       `}</style>
-
-      {/* About Section */}
-      <div className="about-section" style={{
-        padding: '60px 96px 0',
-      }}>
-        <h2 className="section-title" style={{
-          fontSize: 40,
-          fontWeight: 700,
-          margin: '0 0 32px',
-          color: '#0f172a',
-        }}>
-          {aboutSection.heading}
-        </h2>
-        {aboutSection.paragraphs.map((para, index) => (
-          <p key={index} style={{
-            fontSize: 18,
-            lineHeight: 1.8,
-            color: '#334155',
-            margin: index < 2 ? '0 0 20px' : '0 0 60px',
-          }}>
-            {para}
-          </p>
-        ))}
-      </div>
 
       {/* Features Section */}
       <div className="section-padding" style={{

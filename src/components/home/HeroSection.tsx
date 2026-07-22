@@ -47,6 +47,76 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
             width: 100% !important;
           }
         }
+        
+        /* Hero section responsive - two hero images centering */
+        @media (max-width: 768px) {
+          .hero-cards-col {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            height: auto !important;
+          }
+          .hero-cards-wrapper {
+            position: relative !important;
+            width: 280px !important;
+            height: 380px !important;
+            margin: 0 auto !important;
+          }
+          .hero-card-first {
+            position: absolute !important;
+            left: 50% !important;
+            top: 65% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 0 !important;
+            width: 240px !important;
+          }
+          .hero-card-second {
+            position: absolute !important;
+            left: 48% !important;
+            top: 35% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 1 !important;
+            width: 180px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-page-wrapper {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+          }
+          .hero-cards-col {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            height: 300px !important;
+            margin-top: 24px !important;
+            margin-bottom: 24px !important;
+          }
+          .hero-cards-wrapper {
+            position: relative !important;
+            width: 220px !important;
+            height: 300px !important;
+            margin: 0 auto !important;
+          }
+          .hero-card-first {
+            position: absolute !important;
+            left: 50% !important;
+            top: 65% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 0 !important;
+            width: 180px !important;
+          }
+          .hero-card-second {
+            position: absolute !important;
+            left: 48% !important;
+            top: 35% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 1 !important;
+            width: 140px !important;
+          }
+        }
       `}</style>
       <div className="hero-section" style={{
         padding: '60px 16px 0',
@@ -250,7 +320,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
             marginTop: 48,
             width: '100%',
           }}>
-            <div style={{
+            <div className="hero-cards-wrapper" style={{
               position: 'relative',
               width: '100%',
               maxWidth: '520px',
@@ -265,7 +335,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
               marginBottom: `${-((600 - 200) * (1 - cardScale))}px`,
             }}>
               {/* First Card */}
-              <div style={{
+              <div className="hero-card-first" style={{
                 position: 'absolute',
                 left: '50%',
                 transform: 'translateX(-50%)',
@@ -293,7 +363,7 @@ export function HeroSection({ onStartHover, startHover }: HeroSectionProps) {
               </div>
 
               {/* Second Card */}
-              <div style={{
+              <div className="hero-card-second" style={{
                 position: 'absolute',
                 right: `${20 * cardScale}px`,
                 top: `${140 * cardScale}px`,

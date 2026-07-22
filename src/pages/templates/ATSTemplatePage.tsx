@@ -242,6 +242,7 @@ export function ATSTemplatePage() {
               src="/images/resume1.webp"
               alt=""
               aria-hidden="true"
+              className="hero-bg-image"
               style={{
                 position: 'absolute',
                 top: '60px',
@@ -255,6 +256,7 @@ export function ATSTemplatePage() {
             <img
               src="/images/ats-resume.webp"
               alt="ATS Resume Template"
+              className="hero-main-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -316,57 +318,58 @@ export function ATSTemplatePage() {
         }
 
         @media (max-width: 768px) {
-          .page-wrapper { padding-top: 64px !important; }
-          .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
-          .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
-          .hero-image { flex: 0 0 auto !important; margin-top: 40px; margin-left: auto !important; margin-right: auto !important; width: 220px !important; max-width: 220px !important; overflow: visible !important; border-radius: 14px !important; position: relative !important; }
-          .hero-image img[aria-hidden='true'] { position: absolute !important; left: -10px !important; top: auto !important; bottom: -20px !important; width: 55% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
-          .hero-title { font-size: 40px !important; }
-          .hero-desc { font-size: 15px !important; }
-          .section-padding { padding: 0 16px 48px !important; }
-          .about-section { padding: 48px 16px 0 !important; }
-          .section-title { font-size: 28px !important; }
-          .features-grid { grid-template-columns: 1fr !important; }
-          .samples-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .usecases-grid { grid-template-columns: 1fr !important; }
-          .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .cta-button { padding: 14px 28px !important; font-size: 15px !important; }
-          .star-icon { width: 20px !important; height: 20px !important; }
-          .rating-text { font-size: 15px !important; }
-          .feature-card { padding: 20px !important; }
-          .feature-icon { width: 44px !important; height: 44px !important; }
-          .feature-icon svg { width: 22px !important; height: 22px !important; }
-          .feature-title { font-size: 17px !important; }
-          .use-case-text { font-size: 15px !important; }
-          .tip-text { font-size: 14px !important; }
-        }
+           .page-wrapper { padding-top: 64px !important; }
+           .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
+           .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
+           .hero-image { flex: 0 0 auto !important; margin-top: 40px; margin-left: auto !important; margin-right: auto !important; width: 220px !important; max-width: 220px !important; overflow: visible !important; border-radius: 14px !important; position: relative !important; }
+           .hero-image img[aria-hidden='true'] { position: absolute !important; left: -10px !important; top: auto !important; bottom: -20px !important; width: 55% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
+           .hero-title { font-size: 40px !important; }
+           .hero-desc { font-size: 15px !important; }
+           .section-padding { padding: 0 16px 48px !important; }
+           .about-section { padding: 48px 16px 0 !important; }
+           .section-title { font-size: 28px !important; }
+           .features-grid { grid-template-columns: 1fr !important; }
+           .samples-grid { grid-template-columns: repeat(2, 1fr) !important; }
+           .usecases-grid { grid-template-columns: 1fr !important; }
+           .tips-grid { grid-templateColumns: repeat(2, 1fr) !important; }
+           .cta-button { padding: 14px 28px !important; font-size: 15px !important; }
+           .star-icon { width: 20px !important; height: 20px !important; }
+           .rating-text { font-size: 15px !important; }
+           .feature-card { padding: 20px !important; }
+           .feature-icon { width: 44px !important; height: 44px !important; }
+           .feature-icon svg { width: 22px !important; height: 22px !important; }
+           .feature-title { font-size: 17px !important; }
+           .use-case-text { font-size: 15px !important; }
+           .tip-text { font-size: 14px !important; }
+         }
 
         @media (max-width: 480px) {
-          .page-wrapper { padding-top: 56px !important; }
-          .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
-          .hero-content { padding: 0 0 0 16px !important; }
-          .hero-image { flex: 1 1 100% !important; margin-left: auto !important; margin-right: auto !important; border-radius: 14px !important; max-width: 260px !important; width: 100% !important; position: relative !important; overflow: visible !important; }
-          .hero-image img[aria-hidden='true'] { position: absolute !important; left: -8px !important; top: auto !important; bottom: -16px !important; width: 50% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
-          .hero-image img:not([aria-hidden='true']) { position: relative !important; z-index: 1 !important; }
-          .hero-title { font-size: 32px !important; }
-          .hero-desc { font-size: 14px !important; }
-          .section-padding { padding: 0 16px 40px !important; }
-          .about-section { padding: 40px 16px 0 !important; }
-          .section-title { font-size: 24px !important; }
-          .samples-grid { grid-template-columns: 1fr !important; }
-          .tips-grid { grid-template-columns: 1fr !important; }
-          .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
-          .cta-buttons-row { flex-direction: column !important; gap: 12px !important; padding: 0 16px !important; margin: 0 -16px !important; }
-          .star-icon { width: 18px !important; height: 18px !important; }
-          .rating-text { font-size: 14px !important; }
-          .feature-card { padding: 16px !important; }
-          .feature-icon { width: 40px !important; height: 40px !important; }
-          .feature-icon svg { width: 20px !important; height: 20px !important; }
-          .feature-title { font-size: 16px !important; }
-          .feature-text { font-size: 13px !important; }
-          .use-case-text { font-size: 14px !important; }
-          .tip-text { font-size: 13px !important; }
-        }
+           .page-wrapper { padding-top: 56px !important; }
+           .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
+           .hero-content { padding: 0 0 0 16px !important; }
+           .hero-image { flex: 1 1 100% !important; margin-left: auto !important; margin-right: auto !important; border-radius: 14px !important; max-width: 260px !important; width: 100% !important; position: relative !important; overflow: visible !important; }
+           .hero-image img[aria-hidden='true'] { position: absolute !important; left: -8px !important; top: auto !important; bottom: -16px !important; width: 50% !important; height: auto !important; opacity: 0.5 !important; z-index: 0 !important; }
+           .hero-image img:not([aria-hidden='true']) { position: relative !important; z-index: 1 !important; }
+           .hero-title { font-size: 32px !important; }
+           .hero-title { font-size: 32px !important; }
+           .hero-desc { font-size: 14px !important; }
+           .section-padding { padding: 0 16px 40px !important; }
+           .about-section { padding: 40px 16px 0 !important; }
+           .section-title { font-size: 24px !important; }
+           .samples-grid { grid-template-columns: 1fr !important; }
+           .tips-grid { grid-template-columns: 1fr !important; }
+           .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
+           .cta-buttons-row { flex-direction: column !important; gap: 12px !important; padding: 0 16px !important; margin: 0 -16px !important; }
+           .star-icon { width: 18px !important; height: 18px !important; }
+           .rating-text { font-size: 14px !important; }
+           .feature-card { padding: 16px !important; }
+           .feature-icon { width: 40px !important; height: 40px !important; }
+           .feature-icon svg { width: 20px !important; height: 20px !important; }
+           .feature-title { font-size: 16px !important; }
+           .feature-text { font-size: 13px !important; }
+           .use-case-text { font-size: 14px !important; }
+           .tip-text { font-size: 13px !important; }
+         }
       `}</style>
 
       <div className="about-section" style={{ padding: '60px 96px 0' }}>

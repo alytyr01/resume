@@ -24,7 +24,7 @@ export function ProfessionalTemplatePage() {
     paragraphs: [
       'Professional resume templates feature a corporate, formal style designed for executive and senior-level positions. These templates convey authority, stability, and professionalism through traditional layout and conservative design elements.',
       'The professional template emphasizes experience, leadership, and career progression. It uses a structured layout with clear section headers, emphasizing results and impact. The conservative color scheme and formal typography project reliability and competence.',
-      'Professional templates are essential for finance, law, consulting, and corporate environments where formality and authority are valued. They work particularly well for senior positions where you need to demonstrate leadership and strategic impact.'
+      'Professional templates are essential for finance, law, consulting, and other corporate environments where formality and authority are valued. They work particularly well for senior positions where you need to demonstrate leadership and strategic impact.'
     ]
   };
 
@@ -242,6 +242,7 @@ export function ProfessionalTemplatePage() {
               src="/images/resume1.webp"
               alt=""
               aria-hidden="true"
+              className="hero-bg-image"
               style={{
                 position: 'absolute',
                 top: '60px',
@@ -255,6 +256,7 @@ export function ProfessionalTemplatePage() {
             <img
               src="/images/professional-resume.webp"
               alt="Professional Resume Template"
+              className="hero-main-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -315,7 +317,7 @@ export function ProfessionalTemplatePage() {
           .feature-text { font-size: 14px !important; }
         }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
            .page-wrapper { padding-top: 64px !important; }
            .hero-section { padding: 24px 16px 48px !important; overflow-x: hidden !important; }
            .hero-content { flex-direction: column !important; align-items: stretch !important; max-width: 100% !important; }
@@ -330,8 +332,7 @@ export function ProfessionalTemplatePage() {
            .samples-grid { grid-template-columns: repeat(2, 1fr) !important; }
            .usecases-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
-           .cta-button { padding: 14px 24px !important; font-size: 15px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
-           .cta-buttons-row { flex-direction: column !important; gap: 12px !important; }
+           .cta-button { padding: 14px 28px !important; font-size: 15px !important; }
            .star-icon { width: 20px !important; height: 20px !important; }
            .rating-text { font-size: 15px !important; }
            .feature-card { padding: 20px !important; }
@@ -342,7 +343,7 @@ export function ProfessionalTemplatePage() {
            .tip-text { font-size: 14px !important; }
          }
 
-         @media (max-width: 480px) {
+        @media (max-width: 480px) {
            .page-wrapper { padding-top: 56px !important; }
            .hero-section { padding: 20px 0 40px !important; margin-top: 8px !important; overflow-x: visible !important; }
            .hero-content { padding: 0 0 0 16px !important; }
@@ -354,10 +355,11 @@ export function ProfessionalTemplatePage() {
            .section-padding { padding: 0 16px 40px !important; }
            .about-section { padding: 40px 16px 0 !important; }
            .section-title { font-size: 24px !important; }
+           .features-grid { grid-template-columns: 1fr !important; }
            .samples-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: 1fr !important; }
-           .cta-button { padding: 14px 24px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
-           .cta-buttons-row { flex-direction: column !important; gap: 12px !important; }
+           .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
+           .cta-buttons-row { flex-direction: column !important; gap: 12px !important; padding: 0 16px !important; margin: 0 -16px !important; }
            .star-icon { width: 18px !important; height: 18px !important; }
            .rating-text { font-size: 14px !important; }
            .feature-card { padding: 16px !important; }
@@ -539,54 +541,6 @@ export function ProfessionalTemplatePage() {
                 lineHeight: 1.6,
                 fontWeight: 500,
               }}>{useCase}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="section-padding" style={{ padding: '0 96px 80px' }}>
-        <h2 className="section-title" style={{
-          fontSize: 40,
-          fontWeight: 700,
-          margin: '0 0 32px',
-          color: '#0f172a',
-        }}>
-          Pro Tips
-        </h2>
-        <div className="tips-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 24,
-        }}>
-          {tips.map((tip, index) => (
-            <div key={index} style={{
-              background: '#fff',
-              padding: 32,
-              borderRadius: 16,
-              border: '1px solid #E2E8F0',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: 16,
-            }}>
-              <span style={{
-                width: 32,
-                height: 32,
-                borderRadius: '50%',
-                background: '#0f172a',
-                color: '#fff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 16,
-                fontWeight: 700,
-                flexShrink: 0,
-              }}>{index + 1}</span>
-              <span className="tip-text" style={{
-                fontSize: 16,
-                lineHeight: 1.6,
-                color: '#475569',
-              }}>{tip}</span>
             </div>
           ))}
         </div>
