@@ -111,7 +111,7 @@ export function ATSTemplatePage() {
       {/* Hero Section */}
       <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%)',
-        padding: '80px 96px',
+        padding: '40px 96px',
         marginBottom: 0,
         position: 'relative',
         overflowX: 'hidden',
@@ -119,7 +119,7 @@ export function ATSTemplatePage() {
         <div className="hero-content" style={{
           display: 'flex',
           gap: 60,
-          alignItems: 'center',
+          alignItems: 'flex-start',
           maxWidth: '100%',
         }}>
           <div style={{ flex: 1, paddingRight: 20 }}>
@@ -303,7 +303,7 @@ export function ATSTemplatePage() {
         }
 
         @media (max-width: 1024px) {
-          .hero-section { padding: 60px 48px !important; }
+          .hero-section { padding: 40px 48px !important; }
           .section-padding { padding: 0 48px 60px !important; }
           .about-section { padding: 60px 48px 0 !important; }
           .hero-title { font-size: 48px !important; }
@@ -372,6 +372,7 @@ export function ATSTemplatePage() {
          }
       `}</style>
 
+      {/* About Section */}
       <div className="about-section" style={{ padding: '60px 96px 0' }}>
         <h2 className="section-title" style={{
           fontSize: 40,
@@ -393,6 +394,7 @@ export function ATSTemplatePage() {
         ))}
       </div>
 
+      {/* Features Section */}
       <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 className="section-title" style={{
           fontSize: 40,
@@ -456,6 +458,7 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
+      {/* Sample Resumes Section */}
       <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 className="section-title" style={{
           fontSize: 40,
@@ -497,6 +500,7 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
+      {/* Use Cases Section */}
       <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 className="section-title" style={{
           fontSize: 40,
@@ -546,6 +550,7 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
+      {/* Tips Section */}
       <div className="section-padding" style={{ padding: '0 96px 80px' }}>
         <h2 className="section-title" style={{
           fontSize: 40,
@@ -594,6 +599,7 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
+      {/* FAQ Section */}
       <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 className="section-title" style={{
           fontSize: 40,

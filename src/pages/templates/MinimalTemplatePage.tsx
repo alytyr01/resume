@@ -111,7 +111,7 @@ export function MinimalTemplatePage() {
       {/* Hero Section */}
       <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%)',
-        padding: '80px 96px',
+        padding: '40px 96px',
         marginBottom: 0,
         position: 'relative',
         overflowX: 'hidden',
@@ -119,7 +119,7 @@ export function MinimalTemplatePage() {
         <div className="hero-content" style={{
           display: 'flex',
           gap: 60,
-          alignItems: 'center',
+          alignItems: 'flex-start',
           maxWidth: '100%',
         }}>
           <div style={{ flex: 1, paddingRight: 20 }}>
@@ -301,7 +301,7 @@ export function MinimalTemplatePage() {
         }
 
         @media (max-width: 1024px) {
-          .hero-section { padding: 60px 48px !important; }
+          .hero-section { padding: 40px 48px !important; }
           .section-padding { padding: 0 48px 60px !important; }
           .about-section { padding: 60px 48px 0 !important; }
           .hero-title { font-size: 48px !important; }

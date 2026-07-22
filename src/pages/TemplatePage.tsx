@@ -302,7 +302,7 @@ export function TemplatePage() {
       {/* Hero Section for Template */}
       <div style={{
         background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
-        padding: '80px 96px',
+        padding: '40px 96px',
         marginBottom: 0,
         position: 'relative',
       }}>

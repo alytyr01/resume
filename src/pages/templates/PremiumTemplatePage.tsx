@@ -111,7 +111,7 @@ export function PremiumTemplatePage() {
       {/* Hero Section */}
       <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #F8F9FA 0%, #E2E8F0 100%)',
-        padding: '80px 96px',
+        padding: '40px 96px',
         marginBottom: 0,
         position: 'relative',
         overflowX: 'hidden',
@@ -119,7 +119,7 @@ export function PremiumTemplatePage() {
         <div className="hero-content" style={{
           display: 'flex',
           gap: 60,
-          alignItems: 'center',
+          alignItems: 'flex-start',
           maxWidth: '100%',
         }}>
           <div style={{ flex: 1, paddingRight: 20 }}>
@@ -303,7 +303,7 @@ export function PremiumTemplatePage() {
         }
 
         @media (max-width: 1024px) {
-          .hero-section { padding: 60px 48px !important; }
+          .hero-section { padding: 40px 48px !important; }
           .section-padding { padding: 0 48px 60px !important; }
           .about-section { padding: 60px 48px 0 !important; }
           .hero-title { font-size: 48px !important; }
@@ -355,7 +355,6 @@ export function PremiumTemplatePage() {
            .section-padding { padding: 0 16px 40px !important; }
            .about-section { padding: 40px 16px 0 !important; }
            .section-title { font-size: 24px !important; }
-           .features-grid { grid-template-columns: 1fr !important; }
            .samples-grid { grid-template-columns: 1fr !important; }
            .tips-grid { grid-template-columns: 1fr !important; }
            .cta-button { padding: 14px 16px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
@@ -448,7 +447,7 @@ export function PremiumTemplatePage() {
                   color: '#475569',
                   margin: 0,
                 }}>
-                  This feature ensures your resume stands out with sophisticated styling that makes a lasting impression on employers.
+                  This feature helps you create a resume that looks professional and polished, making a lasting impression on recruiters.
                 </p>
               </div>
             </div>
