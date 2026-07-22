@@ -7,6 +7,10 @@ import { ResumePreview } from '@/components/preview/ResumePreview';
 import { SettingsPanel } from '@/components/settings/SettingsPanel';
 import { FileText, Edit3, Settings, Maximize2, Minimize2, ZoomIn, ZoomOut } from 'lucide-react';
 
+const A4_WIDTH_MM = 210;
+const A4_HEIGHT_MM = 297;
+const MM_TO_PX = 3.7795; // 1mm = 3.7795px at 96dpi
+
 export function BuilderPage() {
   const isFullscreen = useUIStore((s) => s.isPreviewFullscreen);
   const toggleFullscreen = useUIStore((s) => s.togglePreviewFullscreen);
@@ -28,6 +32,10 @@ export function BuilderPage() {
   const rightPanelWidth = isFullscreen ? '100%' : isMobile ? '100%' : '55%';
   const showLeft = !isFullscreen && (isMobile ? activeMobileView === 'form' : true);
   const showRight = isMobile ? activeMobileView === 'preview' : true;
+
+  // Scaled A4 dimensions in pixels
+  const scaledWidthPx = A4_WIDTH_MM * MM_TO_PX * previewScale;
+  const scaledHeightPx = A4_HEIGHT_MM * MM_TO_PX * previewScale;
 
   // Read template from query params and update customization
   useEffect(() => {
@@ -279,7 +287,7 @@ export function BuilderPage() {
             id="preview-scroll-container"
             style={{
               width: rightPanelWidth,
-              overflowY: isMobile && !isFullscreen ? 'hidden' : 'auto',
+              overflowY: 'auto',
               background: '#F1F5F9',
               flex: 1,
               display: showRight ? undefined : 'none',
@@ -289,18 +297,20 @@ export function BuilderPage() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: isMobile && !isFullscreen ? 'flex-start' : undefined,
-                padding: isMobile && !isFullscreen ? '0' : '24px 16px',
+                alignItems: isMobile && !isFullscreen ? 'center' : undefined,
+                padding: isMobile && !isFullscreen ? '4px' : '24px 16px',
                 height: isMobile && !isFullscreen ? '100%' : undefined,
-                overflow: isMobile && !isFullscreen ? 'hidden' : undefined,
+                overflow: 'hidden',
               }}
             >
               <div
                 id="resume-scale-inner"
                 style={{
                   transform: `scale(${previewScale})`,
-                  transformOrigin: 'top center',
-                  margin: isMobile && !isFullscreen ? '0 auto' : undefined,
+                  transformOrigin: isMobile && !isFullscreen ? 'center center' : 'top center',
+                  width: isMobile && !isFullscreen ? `${scaledWidthPx}px` : undefined,
+                  height: isMobile && !isFullscreen ? `${scaledHeightPx}px` : undefined,
+                  flexShrink: 0,
                 }}
               >
                 <ResumePreview />

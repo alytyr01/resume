@@ -1,6 +1,6 @@
 import { Navbar, Footer } from '@/components/home';
 import { Crown, Sparkles, Layout, Palette, Briefcase, FileText, GraduationCap, Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 
 interface FormData {
@@ -126,9 +126,12 @@ export function ContactPage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const lastSubmitTime = useRef<number>(0);
   const formRef = useRef<HTMLDivElement>(null);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   // Security: Track time on page (basic bot detection)
   const [pageLoadTime] = useState<number>(Date.now());
+
+  const isMobile = windowWidth < 640;
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     // Limit input length at the input level
@@ -227,6 +230,12 @@ export function ContactPage() {
     setSubmitStatus('idle');
   };
 
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div style={{
       fontFamily: 'sans-serif',
@@ -281,11 +290,13 @@ export function ContactPage() {
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
           gap: 24,
           maxWidth: 1200,
           margin: '0 auto',
-        }}>
+        }}
+        className="contact-cards-grid"
+        >
           <div style={{
             background: '#F8F9FA',
             padding: 32,
@@ -397,8 +408,8 @@ export function ContactPage() {
       </div>
 
       {/* Contact Form Section */}
-      <div ref={formRef} style={{
-        padding: '60px 96px 80px',
+      <div ref={formRef} className="contact-form-section" style={{
+        padding: isMobile ? '40px 24px 60px' : '60px 96px 80px',
         background: '#F8F9FA',
       }}>
         <div style={{
@@ -426,9 +437,9 @@ export function ContactPage() {
           </p>
 
           <form onSubmit={handleSubmit} noValidate>
-            <div style={{
+            <div className="form-name-grid" style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
               gap: 20,
               marginBottom: 20,
             }}>
@@ -776,6 +787,25 @@ export function ContactPage() {
           100% {
             opacity: 1;
             transform: scale(1) translateY(0);
+          }
+        }
+        .contact-cards-grid {
+          grid-template-columns: 1fr !important;
+        }
+        .form-name-grid {
+          grid-template-columns: 1fr !important;
+        }
+        .contact-form-section {
+          padding-left: 24px !important;
+          padding-right: 24px !important;
+        }
+        @media (max-width: 640px) {
+          .contact-form-section {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+          .contact-form-section > div {
+            padding: 24px !important;
           }
         }
       `}</style>
