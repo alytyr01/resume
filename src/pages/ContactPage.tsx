@@ -295,15 +295,18 @@ export function ContactPage() {
           maxWidth: isMobile ? 400 : 1200,
           margin: '0 auto',
           width: '100%',
-        }}
-        className="contact-cards-grid"
-        >
+          alignItems: 'stretch',
+        }}>
           <div style={{
             background: '#F8F9FA',
             padding: 32,
             borderRadius: 16,
             border: '1px solid #E2E8F0',
             textAlign: 'center',
+            minHeight: 220,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             <div style={{
               width: 64,
@@ -340,6 +343,10 @@ export function ContactPage() {
             borderRadius: 16,
             border: '1px solid #E2E8F0',
             textAlign: 'center',
+            minHeight: 220,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             <div style={{
               width: 64,
@@ -376,6 +383,10 @@ export function ContactPage() {
             borderRadius: 16,
             border: '1px solid #E2E8F0',
             textAlign: 'center',
+            minHeight: 220,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}>
             <div style={{
               width: 64,
@@ -790,9 +801,6 @@ export function ContactPage() {
             transform: scale(1) translateY(0);
           }
         }
-        .contact-cards-grid {
-          grid-template-columns: 1fr !important;
-        }
         .form-name-grid {
           grid-template-columns: 1fr !important;
         }
@@ -801,11 +809,6 @@ export function ContactPage() {
           padding-right: 24px !important;
         }
         @media (max-width: 640px) {
-          .contact-cards-grid > div {
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-          }
           .contact-form-section {
             padding-left: 16px !important;
             padding-right: 16px !important;
