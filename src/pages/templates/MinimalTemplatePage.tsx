@@ -91,7 +91,7 @@ export function MinimalTemplatePage() {
       color: '#111827',
       minHeight: '100vh',
       paddingTop: 100,
-    }}>
+    }} className="page-wrapper">
       <Navbar dropdowns={{
         templates: [
           { href: `/templates/modern`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
@@ -155,7 +155,7 @@ export function MinimalTemplatePage() {
               flexDirection: 'column',
               gap: 28,
             }}>
-              <div style={{
+              <div className="cta-buttons-row" style={{
                 display: 'flex',
                 gap: 12,
               }}>
@@ -312,7 +312,8 @@ export function MinimalTemplatePage() {
         }
 
         @media (max-width: 768px) {
-          .hero-section { padding: 48px 24px !important; }
+          .page-wrapper { padding-top: 64px !important; }
+          .hero-section { padding: 24px 24px 48px !important; }
           .hero-content { flex-direction: column !important; }
           .hero-image { flex: 1 1 100% !important; margin-top: 40px; }
           .hero-title { font-size: 40px !important; }
@@ -336,7 +337,8 @@ export function MinimalTemplatePage() {
         }
 
         @media (max-width: 480px) {
-          .hero-section { padding: 32px 16px !important; }
+          .page-wrapper { padding-top: 56px !important; }
+          .hero-section { padding: 20px 16px 40px !important; margin-top: 8px !important; }
           .hero-title { font-size: 32px !important; }
           .hero-desc { font-size: 14px !important; }
           .section-padding { padding: 0 16px 40px !important; }
@@ -344,7 +346,8 @@ export function MinimalTemplatePage() {
           .section-title { font-size: 24px !important; }
           .samples-grid { grid-template-columns: 1fr !important; }
           .tips-grid { grid-template-columns: 1fr !important; }
-          .cta-button { padding: 12px 24px !important; font-size: 14px !important; }
+          .cta-button { padding: 14px 24px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
+          .cta-buttons-row { flex-direction: column !important; gap: 12px !important; }
           .star-icon { width: 18px !important; height: 18px !important; }
           .rating-text { font-size: 14px !important; }
           .feature-card { padding: 16px !important; }

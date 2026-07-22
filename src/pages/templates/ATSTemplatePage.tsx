@@ -91,7 +91,7 @@ export function ATSTemplatePage() {
       color: '#111827',
       minHeight: '100vh',
       paddingTop: 100,
-    }}>
+    }} className="page-wrapper">
       <Navbar dropdowns={{
         templates: [
           { href: `/templates/modern`, icon: <Layout style={{ width: 40, height: 40, color: '#64748b', marginTop: 2 }} />, title: 'Modern', description: 'Clean, modern design' },
@@ -155,7 +155,7 @@ export function ATSTemplatePage() {
               flexDirection: 'column',
               gap: 28,
             }}>
-              <div style={{
+              <div className="cta-buttons-row" style={{
                 display: 'flex',
                 gap: 12,
               }}>
@@ -312,7 +312,8 @@ export function ATSTemplatePage() {
         }
 
         @media (max-width: 768px) {
-          .hero-section { padding: 48px 24px !important; }
+          .page-wrapper { padding-top: 64px !important; }
+          .hero-section { padding: 24px 24px 48px !important; }
           .hero-content { flex-direction: column !important; }
           .hero-image { flex: 1 1 100% !important; margin-top: 40px; }
           .hero-title { font-size: 40px !important; }
@@ -336,7 +337,8 @@ export function ATSTemplatePage() {
         }
 
         @media (max-width: 480px) {
-          .hero-section { padding: 32px 16px !important; }
+          .page-wrapper { padding-top: 56px !important; }
+          .hero-section { padding: 20px 16px 40px !important; margin-top: 8px !important; }
           .hero-title { font-size: 32px !important; }
           .hero-desc { font-size: 14px !important; }
           .section-padding { padding: 0 16px 40px !important; }
@@ -344,7 +346,8 @@ export function ATSTemplatePage() {
           .section-title { font-size: 24px !important; }
           .samples-grid { grid-template-columns: 1fr !important; }
           .tips-grid { grid-template-columns: 1fr !important; }
-          .cta-button { padding: 12px 24px !important; font-size: 14px !important; }
+          .cta-button { padding: 14px 24px !important; font-size: 14px !important; width: 100% !important; justify-content: center !important; text-align: center !important; }
+          .cta-buttons-row { flex-direction: column !important; gap: 12px !important; }
           .star-icon { width: 18px !important; height: 18px !important; }
           .rating-text { font-size: 14px !important; }
           .feature-card { padding: 16px !important; }
@@ -393,7 +396,7 @@ export function ATSTemplatePage() {
           gap: 24,
         }}>
           {features.map((feature, index) => (
-            <div key={index} style={{
+            <div key={index} className="feature-card" style={{
               background: '#fff',
               padding: 32,
               borderRadius: 16,
@@ -403,7 +406,7 @@ export function ATSTemplatePage() {
               alignItems: 'flex-start',
               gap: 20,
             }}>
-              <div style={{
+              <div className="feature-icon" style={{
                 width: 56,
                 height: 56,
                 borderRadius: 14,
@@ -520,7 +523,7 @@ export function ATSTemplatePage() {
                 fontWeight: 700,
                 flexShrink: 0,
               }}>{index + 1}</span>
-              <span style={{
+              <span className="use-case-text" style={{
                 fontSize: 18,
                 color: '#334155',
                 lineHeight: 1.6,
@@ -569,7 +572,7 @@ export function ATSTemplatePage() {
                 fontWeight: 700,
                 flexShrink: 0,
               }}>{index + 1}</span>
-              <span style={{
+              <span className="tip-text" style={{
                 fontSize: 16,
                 lineHeight: 1.6,
                 color: '#475569',
