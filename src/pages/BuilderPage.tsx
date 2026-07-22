@@ -17,7 +17,9 @@ export function BuilderPage() {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [previewScale, setPreviewScale] = useState(() => {
     const initialWidth = typeof window !== 'undefined' ? window.innerWidth : 1200;
-    return initialWidth < 640 ? 0.35 : 0.6;
+    if (initialWidth < 480) return 0.22;
+    if (initialWidth < 640) return 0.28;
+    return 0.6;
   });
   const [searchParams] = useSearchParams();
 
@@ -47,7 +49,7 @@ export function BuilderPage() {
     const handleWheel = (e: WheelEvent) => {
       if (e.ctrlKey) {
         e.preventDefault();
-        setPreviewScale(s => Math.min(Math.max(s + (e.deltaY > 0 ? -0.1 : 0.1), 0.35), 1.4));
+        setPreviewScale(s => Math.min(Math.max(s + (e.deltaY > 0 ? -0.1 : 0.1), 0.18), 1.4));
       }
     };
     container.addEventListener('wheel', handleWheel, { passive: false });
@@ -180,7 +182,7 @@ export function BuilderPage() {
             </div>
           )}
           <button
-            onClick={() => setPreviewScale(s => Math.max(s - 0.1, 0.35))}
+            onClick={() => setPreviewScale(s => Math.max(s - 0.1, 0.18))}
             title="Zoom out"
             style={{
               padding: '6px',
@@ -277,7 +279,7 @@ export function BuilderPage() {
             id="preview-scroll-container"
             style={{
               width: rightPanelWidth,
-              overflowY: 'auto',
+              overflowY: isMobile && !isFullscreen ? 'hidden' : 'auto',
               background: '#F1F5F9',
               flex: 1,
               display: showRight ? undefined : 'none',
@@ -287,7 +289,10 @@ export function BuilderPage() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                padding: '24px 16px',
+                alignItems: isMobile && !isFullscreen ? 'flex-start' : undefined,
+                padding: isMobile && !isFullscreen ? '0' : '24px 16px',
+                height: isMobile && !isFullscreen ? '100%' : undefined,
+                overflow: isMobile && !isFullscreen ? 'hidden' : undefined,
               }}
             >
               <div
@@ -295,6 +300,7 @@ export function BuilderPage() {
                 style={{
                   transform: `scale(${previewScale})`,
                   transformOrigin: 'top center',
+                  margin: isMobile && !isFullscreen ? '0 auto' : undefined,
                 }}
               >
                 <ResumePreview />
