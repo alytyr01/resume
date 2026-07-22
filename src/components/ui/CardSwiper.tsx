@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+ import { useState, useRef } from 'react';
 import { getTemplate } from '@/components/templates';
 import { createPlaceholderResume } from '@/data/placeholderResume';
 import type { Customization, ResumeData } from '@/types/resume';
@@ -44,7 +44,7 @@ function CardContent({ data }: { data: CardData }) {
 }
 
 export function CardSwiper() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex] = useState(0);
   const [groups] = useState(() => [
     generateGroup(0),
     generateGroup(1),

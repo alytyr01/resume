@@ -12,6 +12,19 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) return 'vendor';
+            if (id.includes('react-router-dom')) return 'router';
+            if (id.includes('@supabase/supabase-js')) return 'supabase';
+            if (id.includes('zod') || id.includes('clsx') || id.includes('tailwind-merge')) return 'utils';
+          }
+          return undefined;
+        },
+      },
+    },
+    chunkSizeWarningLimit: 2000,
   },
 })

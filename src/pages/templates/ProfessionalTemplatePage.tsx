@@ -75,15 +75,6 @@ export function ProfessionalTemplatePage() {
     'Financial services professionals',
   ];
 
-  const tips = [
-    'Highlight leadership experience and achievements',
-    'Use a classic, professional font',
-    'Include executive summary at the top',
-    'Show career progression clearly',
-    'Emphasize results and impact',
-    'Keep formatting conservative and traditional',
-  ];
-
   return (
     <div style={{
       fontFamily: 'sans-serif',
