@@ -363,3 +363,57 @@ body {
     font-size: 18px;
   }
 }
+
+/* Template page responsive overrides */
+@media (max-width: 768px) {
+  .template-hero {
+    padding: 48px 24px !important;
+  }
+  .template-hero h1 {
+    font-size: clamp(32px, 7vw, 48px) !important;
+  }
+  .template-hero p {
+    font-size: clamp(14px, 2vw, 17px) !important;
+  }
+  .template-section {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .template-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .template-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .resume-sample-card {
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .template-hero {
+    padding: 32px 16px !important;
+  }
+  .template-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .template-hero-buttons {
+    flex-direction: column !important;
+  }
+  .template-hero-buttons a {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* Resume preview scaling on mobile */
+@media (max-width: 640px) {
+  #resume-preview-print {
+    width: 100% !important;
+    min-height: auto !important;
+  }
+  #resume-scale-wrapper {
+    padding: 12px 8px !important;
+  }
+}

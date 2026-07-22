@@ -109,13 +109,13 @@ export function CreativeTemplatePage() {
       }} />
       
       {/* Hero Section */}
-      <div style={{
+      <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)',
         padding: '80px 96px',
         marginBottom: 0,
         position: 'relative',
       }}>
-        <div style={{
+        <div className="hero-content" style={{
           display: 'flex',
           gap: 60,
           alignItems: 'flex-start',
@@ -226,7 +226,7 @@ export function CreativeTemplatePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="hero-image" style={{
             flex: '0 0 400px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
@@ -293,9 +293,35 @@ export function CreativeTemplatePage() {
         .faq-answer {
           transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
+
+        @media (max-width: 1024px) {
+          .hero-section { padding: 60px 48px !important; }
+          .section-padding { padding: 0 48px 60px !important; }
+          .about-section { padding: 60px 48px 0 !important; }
+        }
+
+        @media (max-width: 768px) {
+          .hero-section { padding: 48px 24px !important; }
+          .hero-content { flex-direction: column !important; }
+          .hero-image { flex: 1 1 100% !important; margin-top: 40px; }
+          .section-padding { padding: 0 24px 48px !important; }
+          .about-section { padding: 48px 24px 0 !important; }
+          .features-grid { grid-template-columns: 1fr !important; }
+          .samples-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .usecases-grid { grid-template-columns: 1fr !important; }
+          .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        @media (max-width: 480px) {
+          .hero-section { padding: 32px 16px !important; }
+          .section-padding { padding: 0 16px 40px !important; }
+          .about-section { padding: 40px 16px 0 !important; }
+          .samples-grid { grid-template-columns: 1fr !important; }
+          .tips-grid { grid-template-columns: 1fr !important; }
+        }
       `}</style>
 
-      <div style={{ padding: '60px 96px 0' }}>
+      <div className="about-section" style={{ padding: '60px 96px 0' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -316,7 +342,7 @@ export function CreativeTemplatePage() {
         ))}
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -325,7 +351,7 @@ export function CreativeTemplatePage() {
         }}>
           Key Features
         </h2>
-        <div style={{
+        <div className="features-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
@@ -379,7 +405,7 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -388,7 +414,7 @@ export function CreativeTemplatePage() {
         }}>
           Sample Resumes
         </h2>
-        <div style={{
+        <div className="samples-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 30,
@@ -420,7 +446,7 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -429,7 +455,7 @@ export function CreativeTemplatePage() {
         }}>
           Perfect For
         </h2>
-        <div style={{
+        <div className="usecases-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 20,
@@ -469,7 +495,7 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 80px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 80px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -478,7 +504,7 @@ export function CreativeTemplatePage() {
         }}>
           Pro Tips
         </h2>
-        <div style={{
+        <div className="tips-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
@@ -517,7 +543,7 @@ export function CreativeTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,

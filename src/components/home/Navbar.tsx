@@ -42,7 +42,42 @@ export function Navbar({ dropdowns }: NavbarProps) {
   }, []);
 
   return (
-    <nav style={{
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .navbar-desktop-dropdown {
+            display: none !important;
+          }
+          .navbar-navlinks {
+            display: none !important;
+          }
+          .navbar-desktop-actions {
+            display: none !important;
+          }
+          .navbar-hamburger {
+            display: flex !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mobile-template-item {
+            padding: 10px 8px !important;
+            gap: 10px !important;
+          }
+          .mobile-template-item svg {
+            width: 28px !important;
+            height: 28px !important;
+          }
+          .mobile-template-title {
+            font-size: 15px !important;
+            font-weight: 600 !important;
+          }
+          .mobile-template-desc {
+            font-size: 12px !important;
+          }
+        }
+      `}</style>
+      <nav style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -93,6 +128,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 Resume Templates <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
+                className="navbar-desktop-dropdown"
                 style={{
                   display: openDropdown === 'templates' ? 'block' : 'none',
                   position: 'absolute',
@@ -144,6 +180,7 @@ export function Navbar({ dropdowns }: NavbarProps) {
                 Resume Examples <ChevronDown style={{ width: 18, height: 18 }} />
               </a>
               <div
+                className="navbar-desktop-dropdown"
                 style={{
                   display: openDropdown === 'examples' ? 'block' : 'none',
                   position: 'absolute',
@@ -441,5 +478,6 @@ export function Navbar({ dropdowns }: NavbarProps) {
         </div>
       </div>
     </nav>
+    </>
   );
 }

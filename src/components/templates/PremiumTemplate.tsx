@@ -155,14 +155,14 @@ export function PremiumTemplate({ resume, custom }: Props) {
       fontFamily: custom.fontFamily || 'Inter',
       maxWidth: 820,
       margin: '0 auto',
-      padding: '32px',
+      padding: 'clamp(20px, 4vw, 32px)',
       background: '#FFFFFF',
       color: '#111827',
     }}>
       {/* Header */}
       <div style={{ marginBottom: custom.sectionSpacing }}>
         <h1 style={{
-          fontSize: custom.fontSize + 6,
+          fontSize: 'clamp(22px, 4vw, 28px)',
           fontWeight: 700,
           letterSpacing: '-0.03em',
           margin: 0,
@@ -172,18 +172,18 @@ export function PremiumTemplate({ resume, custom }: Props) {
           {personal.fullName || 'Your Name'}
         </h1>
         <p style={{
-          fontSize: custom.fontSize + 1,
+          fontSize: 'clamp(13px, 2vw, 15px)',
           fontWeight: 500,
           color: '#4B5563',
-          margin: '4px 0 8px',
+          margin: 'clamp(2px, 1vw, 4px) 0 clamp(6px, 1.5vw, 8px)',
         }}>
           {personal.jobTitle || 'Job Title'}
         </p>
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          gap: 0,
-          fontSize: custom.fontSize - 1,
+          gap: 'clamp(2px, 1vw, 4px)',
+          fontSize: 'clamp(11px, 1.5vw, 13px)',
           color: '#6B7280',
         }}>
           {[
@@ -194,7 +194,7 @@ export function PremiumTemplate({ resume, custom }: Props) {
             personal.phone,
             personal.location,
           ].filter(Boolean).map((item, i, arr) => (
-            <span key={i} style={{ display: 'flex', alignItems: 'center' }}>
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center' }}>
               <span style={{
                 color: item?.includes('@') || item?.includes('linkedin') || item?.includes('github') || item?.includes('.')
                   ? '#2563EB'
@@ -203,7 +203,7 @@ export function PremiumTemplate({ resume, custom }: Props) {
                 {item}
               </span>
               {i < arr.length - 1 && (
-                <span style={{ color: '#E5E7EB', margin: '0 8px' }}>/</span>
+                <span style={{ color: '#E5E7EB', margin: '0 clamp(4px, 1vw, 8px)' }}>/</span>
               )}
             </span>
           ))}
@@ -220,13 +220,13 @@ export function PremiumTemplate({ resume, custom }: Props) {
         return (
           <div key={sectionId} style={{ marginBottom: custom.sectionSpacing }}>
             <div style={{
-              fontSize: 13,
+              fontSize: 'clamp(11px, 1.8vw, 13px)',
               fontWeight: 700,
-              letterSpacing: '0.16em',
+              letterSpacing: 'clamp(0.1em, 2vw, 0.16em)',
               textTransform: 'uppercase',
               color: '#6B7280',
-              marginBottom: 8,
-              paddingBottom: 6,
+              marginBottom: 'clamp(6px, 1.5vw, 8px)',
+              paddingBottom: 'clamp(4px, 1vw, 6px)',
               borderBottom: '1px solid #E5E7EB',
             }}>
               {sectionLabels[sectionId] || sectionMeta.title}
@@ -245,13 +245,13 @@ export function PremiumTemplate({ resume, custom }: Props) {
         return (
           <div key={cs.id} style={{ marginBottom: custom.sectionSpacing }}>
             <div style={{
-              fontSize: 13,
+              fontSize: 'clamp(11px, 1.8vw, 13px)',
               fontWeight: 700,
-              letterSpacing: '0.16em',
+              letterSpacing: 'clamp(0.1em, 2vw, 0.16em)',
               textTransform: 'uppercase',
               color: '#6B7280',
-              marginBottom: 8,
-              paddingBottom: 6,
+              marginBottom: 'clamp(6px, 1.5vw, 8px)',
+              paddingBottom: 'clamp(4px, 1vw, 6px)',
               borderBottom: '1px solid #E5E7EB',
             }}>
               {meta.title}

@@ -109,20 +109,21 @@ export function ATSTemplatePage() {
       }} />
       
       {/* Hero Section */}
-      <div style={{
+      <div className="hero-section template-hero" style={{
         background: 'linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%)',
-        padding: '80px 96px',
+        padding: 'clamp(40px, 8vw, 80px) clamp(16px, 4vw, 96px)',
         marginBottom: 0,
         position: 'relative',
       }}>
-        <div style={{
+        <div className="hero-content" style={{
           display: 'flex',
-          gap: 60,
+          flexDirection: 'column',
+          gap: 'clamp(24px, 4vw, 60px)',
           alignItems: 'flex-start',
         }}>
-          <div style={{ flex: 1, paddingRight: 20 }}>
+          <div style={{ flex: 1, paddingRight: 0, width: '100%' }}>
             <h1 style={{
-              fontSize: 64,
+              fontSize: 'clamp(32px, 7vw, 64px)',
               fontWeight: 800,
               letterSpacing: '-0.03em',
               lineHeight: 1.2,
@@ -132,20 +133,20 @@ export function ATSTemplatePage() {
               ATS Resume Template
             </h1>
             <p style={{
-              fontSize: 18,
-              lineHeight: 2,
+              fontSize: 'clamp(15px, 2vw, 18px)',
+              lineHeight: 1.7,
               color: '#475569',
-              margin: '0 0 32px',
-              maxWidth: 800,
+              margin: '0 0 20px',
+              maxWidth: 'min(800px, 100%)',
             }}>
               {heroDescription1}
             </p>
             <p style={{
-              fontSize: 18,
-              lineHeight: 2,
+              fontSize: 'clamp(15px, 2vw, 18px)',
+              lineHeight: 1.7,
               color: '#475569',
-              margin: '0 0 40px',
-              maxWidth: 800,
+              margin: '0 0 32px',
+              maxWidth: 'min(800px, 100%)',
             }}>
               {heroDescription2}
             </p>
@@ -153,10 +154,11 @@ export function ATSTemplatePage() {
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 28,
+              gap: 24,
             }}>
-              <div style={{
+              <div className="template-hero-buttons" style={{
                 display: 'flex',
+                flexDirection: 'column',
                 gap: 12,
               }}>
                 <a
@@ -165,8 +167,9 @@ export function ATSTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '20px 40px',
-                    fontSize: 18,
+                    justifyContent: 'center',
+                    padding: 'clamp(14px, 3vw, 20px) clamp(20px, 3vw, 40px)',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
                     fontWeight: 600,
                     color: '#fff',
                     background: '#0f172a',
@@ -174,6 +177,7 @@ export function ATSTemplatePage() {
                     border: 'none',
                     cursor: 'pointer',
                     fontFamily: 'sans-serif',
+                    width: '100%',
                   }}
                 >
                   Use This Template
@@ -184,8 +188,9 @@ export function ATSTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '20px 40px',
-                    fontSize: 18,
+                    justifyContent: 'center',
+                    padding: 'clamp(14px, 3vw, 20px) clamp(20px, 3vw, 40px)',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
                     fontWeight: 500,
                     color: '#0f172a',
                     background: '#fff',
@@ -193,6 +198,7 @@ export function ATSTemplatePage() {
                     border: '1.5px solid #0f172a',
                     cursor: 'pointer',
                     fontFamily: 'sans-serif',
+                    width: '100%',
                   }}
                 >
                   Back to Templates
@@ -226,7 +232,7 @@ export function ATSTemplatePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="hero-image" style={{
             flex: '0 0 400px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
@@ -282,68 +288,65 @@ export function ATSTemplatePage() {
 
       <style>{`
         @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
-
-        .faq-answer {
-          transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-        }
+        .faq-answer { transition: max-height 0.3s ease-out, opacity 0.3s ease-out; }
+        .template-section { padding: 60px 96px; }
+        @media (max-width: 1024px) { .template-section { padding: 48px 48px 60px; } }
+        @media (max-width: 768px) { .template-section { padding: 32px 24px 48px; } }
+        @media (max-width: 480px) { .template-section { padding: 24px 16px 40px; } }
       `}</style>
 
-      <div style={{ padding: '60px 96px 0' }}>
+      <div className="template-section" style={{ background: '#fff' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           About ATS Resume Templates
         </h2>
         {aboutSection.paragraphs.map((para, index) => (
           <p key={index} style={{
-            fontSize: 18,
-            lineHeight: 1.8,
+            fontSize: 'clamp(15px, 1.8vw, 18px)',
+            lineHeight: 1.7,
             color: '#334155',
-            margin: index < 2 ? '0 0 20px' : '0 0 60px',
+            margin: index < 2 ? '0 0 16px' : '0 0 40px',
           }}>
             {para}
           </p>
         ))}
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="template-section" style={{ background: '#fff' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           Key Features
         </h2>
-        <div style={{
+        <div className="features-grid template-grid-3" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 24,
+          gap: 'clamp(12px, 2vw, 24px)',
         }}>
           {features.map((feature, index) => (
             <div key={index} style={{
               background: '#fff',
-              padding: 32,
+              padding: 'clamp(16px, 3vw, 32px)',
               borderRadius: 16,
               border: '1px solid #E2E8F0',
               boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
               display: 'flex',
               alignItems: 'flex-start',
-              gap: 20,
+              gap: 'clamp(12px, 2vw, 20px)',
             }}>
               <div style={{
-                width: 56,
-                height: 56,
+                width: 'clamp(40px, 6vw, 56px)',
+                height: 'clamp(40px, 6vw, 56px)',
                 borderRadius: 14,
                 background: '#F1F5F9',
                 display: 'flex',
@@ -360,13 +363,13 @@ export function ATSTemplatePage() {
               </div>
               <div>
                 <div style={{
-                  fontSize: 22,
+                  fontSize: 'clamp(16px, 2vw, 22px)',
                   fontWeight: 700,
                   color: '#0f172a',
-                  marginBottom: 16,
+                  marginBottom: 12,
                 }}>{feature}</div>
                 <p style={{
-                  fontSize: 16,
+                  fontSize: 'clamp(13px, 1.5vw, 16px)',
                   lineHeight: 1.7,
                   color: '#475569',
                   margin: 0,
@@ -379,29 +382,29 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="template-section" style={{ background: '#F8F9FA' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           Sample Resumes
         </h2>
-        <div style={{
+        <div className="samples-grid template-grid-2" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 30,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(12px, 2vw, 30px)',
         }}>
           {sampleResumes.map((sampleResume, index) => (
             <div key={index}>
-              <div style={{
+              <div className="resume-sample-card" style={{
                 boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                 background: '#fff',
                 overflow: 'hidden',
                 aspectRatio: '8.5/11',
                 position: 'relative',
-                height: 500,
+                height: 'clamp(300px, 50vw, 500px)',
               }}>
                 <div style={{
                   transform: 'scale(0.45)',
@@ -420,46 +423,46 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="template-section" style={{ background: '#fff' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           Perfect For
         </h2>
-        <div style={{
+        <div className="usecases-grid template-grid-2" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 20,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(12px, 2vw, 20px)',
         }}>
           {useCases.map((useCase, index) => (
             <div key={index} style={{
               background: '#fff',
-              padding: '24px 28px',
+              padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px)',
               borderRadius: 14,
               border: '1px solid #E2E8F0',
               display: 'flex',
               alignItems: 'center',
-              gap: 16,
+              gap: 'clamp(10px, 2vw, 16px)',
               boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
             }}>
               <span style={{
-                width: 44,
-                height: 44,
+                width: 'clamp(36px, 6vw, 44px)',
+                height: 'clamp(36px, 6vw, 44px)',
                 borderRadius: '50%',
                 background: '#F1F5F9',
                 color: '#0f172a',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 20,
+                fontSize: 'clamp(16px, 2vw, 20px)',
                 fontWeight: 700,
                 flexShrink: 0,
               }}>{index + 1}</span>
               <span style={{
-                fontSize: 18,
+                fontSize: 'clamp(14px, 1.8vw, 18px)',
                 color: '#334155',
                 lineHeight: 1.6,
                 fontWeight: 500,
@@ -469,46 +472,46 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 80px' }}>
+      <div className="template-section" style={{ background: '#F8F9FA' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           Pro Tips
         </h2>
-        <div style={{
+        <div className="tips-grid template-grid-3" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 24,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(12px, 2vw, 24px)',
         }}>
           {tips.map((tip, index) => (
             <div key={index} style={{
               background: '#fff',
-              padding: 32,
+              padding: 'clamp(16px, 3vw, 32px)',
               borderRadius: 16,
               border: '1px solid #E2E8F0',
               boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
               display: 'flex',
               alignItems: 'flex-start',
-              gap: 16,
+              gap: 'clamp(10px, 2vw, 16px)',
             }}>
               <span style={{
-                width: 32,
-                height: 32,
+                width: 'clamp(28px, 4vw, 32px)',
+                height: 'clamp(28px, 4vw, 32px)',
                 borderRadius: '50%',
                 background: '#0f172a',
                 color: '#fff',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 16,
+                fontSize: 'clamp(14px, 1.5vw, 16px)',
                 fontWeight: 700,
                 flexShrink: 0,
               }}>{index + 1}</span>
               <span style={{
-                fontSize: 16,
+                fontSize: 'clamp(13px, 1.5vw, 16px)',
                 lineHeight: 1.6,
                 color: '#475569',
               }}>{tip}</span>
@@ -517,11 +520,11 @@ export function ATSTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="template-section" style={{ background: '#fff' }}>
         <h2 style={{
-          fontSize: 40,
+          fontSize: 'clamp(24px, 5vw, 40px)',
           fontWeight: 700,
-          margin: '0 0 32px',
+          margin: '0 0 24px',
           color: '#0f172a',
         }}>
           Frequently Asked Questions
@@ -529,7 +532,7 @@ export function ATSTemplatePage() {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 16,
+          gap: 'clamp(8px, 1.5vw, 16px)',
         }}>
           {faqs.map((faq, index) => (
             <div key={index} style={{
@@ -542,8 +545,8 @@ export function ATSTemplatePage() {
               <div
                 onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 style={{
-                  padding: '24px 28px',
-                  fontSize: 18,
+                  padding: 'clamp(16px, 3vw, 24px) clamp(16px, 3vw, 28px)',
+                  fontSize: 'clamp(14px, 1.8vw, 18px)',
                   fontWeight: 600,
                   color: '#0f172a',
                   cursor: 'pointer',
@@ -553,30 +556,31 @@ export function ATSTemplatePage() {
                   userSelect: 'none',
                 }}
               >
-                <span>{faq.question}</span>
+                <span style={{ flex: 1, paddingRight: 10 }}>{faq.question}</span>
                 <span style={{
                   color: '#64748b',
-                  fontSize: 24,
+                  fontSize: 'clamp(18px, 2vw, 24px)',
                   lineHeight: 1,
                   display: 'inline-flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: 24,
-                  height: 24,
+                  width: 'clamp(20px, 3vw, 24px)',
+                  height: 'clamp(20px, 3vw, 24px)',
                   transition: 'transform 0.3s ease',
                   transform: openFaq === index ? 'rotate(45deg)' : 'rotate(0deg)',
+                  flexShrink: 0,
                 }}>+</span>
               </div>
               <div className="faq-answer" style={{
-                maxHeight: openFaq === index ? '200px' : '0',
+                maxHeight: openFaq === index ? '500px' : '0',
                 overflow: 'hidden',
                 opacity: openFaq === index ? 1 : 0,
               }}>
                 <p style={{
-                  fontSize: 16,
+                  fontSize: 'clamp(13px, 1.5vw, 16px)',
                   lineHeight: 1.7,
                   color: '#475569',
-                  margin: '0 24px 24px 24px',
+                  margin: '0 clamp(12px, 2vw, 24px) clamp(12px, 2vw, 24px)',
                 }}>{faq.answer}</p>
               </div>
             </div>

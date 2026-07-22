@@ -28,8 +28,6 @@ export function ProfessionalTemplatePage() {
     ]
   };
 
-  const heroDescription1 = 'Corporate, formal style designed for executive and senior-level positions. Conveys authority and professionalism.';
-  const heroDescription2 = 'Featuring traditional corporate layout and formal appearance, this template emphasizes experience and leadership for high-level positions.';
 
   const faqs = [
     {
@@ -109,54 +107,56 @@ export function ProfessionalTemplatePage() {
       }} />
       
       {/* Hero Section */}
-      <div style={{
-        background: 'linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%)',
-        padding: '80px 96px',
+      <div className="hero-section template-hero" style={{
+        background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
+        padding: 'clamp(40px, 8vw, 80px) clamp(16px, 4vw, 96px)',
         marginBottom: 0,
         position: 'relative',
       }}>
-        <div style={{
+        <div className="hero-content" style={{
           display: 'flex',
-          gap: 60,
+          flexDirection: 'column',
+          gap: 'clamp(24px, 4vw, 60px)',
           alignItems: 'flex-start',
         }}>
-          <div style={{ flex: 1, paddingRight: 20 }}>
+          <div style={{ flex: 1, paddingRight: 0, width: '100%' }}>
             <h1 style={{
-              fontSize: 64,
+              fontSize: 'clamp(32px, 7vw, 64px)',
               fontWeight: 800,
               letterSpacing: '-0.03em',
               lineHeight: 1.2,
               margin: '0 0 24px',
-              color: '#0f172a',
+              color: '#fff',
             }}>
               Professional Resume Template
             </h1>
             <p style={{
-              fontSize: 18,
-              lineHeight: 2,
-              color: '#475569',
-              margin: '0 0 32px',
-              maxWidth: 800,
+              fontSize: 'clamp(15px, 2vw, 18px)',
+              lineHeight: 1.7,
+              color: '#cbd5e1',
+              margin: '0 0 20px',
+              maxWidth: 'min(800px, 100%)',
             }}>
-              {heroDescription1}
+              Corporate, formal style designed for traditional industries and senior positions. Perfect for executives, managers, and professionals seeking to convey authority and credibility.
             </p>
             <p style={{
-              fontSize: 18,
-              lineHeight: 2,
-              color: '#475569',
-              margin: '0 0 40px',
-              maxWidth: 800,
+              fontSize: 'clamp(15px, 2vw, 18px)',
+              lineHeight: 1.7,
+              color: '#cbd5e1',
+              margin: '0 0 32px',
+              maxWidth: 'min(800px, 100%)',
             }}>
-              {heroDescription2}
+              Featuring a clean two-column header layout, professional typography, and structured sections that highlight your career progression and achievements in a format that resonates with corporate recruiters and hiring managers.
             </p>
 
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 28,
+              gap: 24,
             }}>
-              <div style={{
+              <div className="template-hero-buttons" style={{
                 display: 'flex',
+                flexDirection: 'column',
                 gap: 12,
               }}>
                 <a
@@ -165,8 +165,9 @@ export function ProfessionalTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '20px 40px',
-                    fontSize: 18,
+                    justifyContent: 'center',
+                    padding: 'clamp(14px, 3vw, 20px) clamp(20px, 3vw, 40px)',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
                     fontWeight: 600,
                     color: '#fff',
                     background: '#0f172a',
@@ -174,6 +175,7 @@ export function ProfessionalTemplatePage() {
                     border: 'none',
                     cursor: 'pointer',
                     fontFamily: 'sans-serif',
+                    width: '100%',
                   }}
                 >
                   Use This Template
@@ -184,8 +186,9 @@ export function ProfessionalTemplatePage() {
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    padding: '20px 40px',
-                    fontSize: 18,
+                    justifyContent: 'center',
+                    padding: 'clamp(14px, 3vw, 20px) clamp(20px, 3vw, 40px)',
+                    fontSize: 'clamp(14px, 1.5vw, 18px)',
                     fontWeight: 500,
                     color: '#0f172a',
                     background: '#fff',
@@ -193,6 +196,7 @@ export function ProfessionalTemplatePage() {
                     border: '1.5px solid #0f172a',
                     cursor: 'pointer',
                     fontFamily: 'sans-serif',
+                    width: '100%',
                   }}
                 >
                   Back to Templates
@@ -226,7 +230,7 @@ export function ProfessionalTemplatePage() {
             </div>
           </div>
 
-          <div style={{
+          <div className="hero-image" style={{
             flex: '0 0 400px',
             borderRadius: 14,
             boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
@@ -293,9 +297,35 @@ export function ProfessionalTemplatePage() {
         .faq-answer {
           transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
+
+        @media (max-width: 1024px) {
+          .hero-section { padding: 60px 48px !important; }
+          .section-padding { padding: 0 48px 60px !important; }
+          .about-section { padding: 60px 48px 0 !important; }
+        }
+
+        @media (max-width: 768px) {
+          .hero-section { padding: 48px 24px !important; }
+          .hero-content { flex-direction: column !important; }
+          .hero-image { flex: 1 1 100% !important; margin-top: 40px; }
+          .section-padding { padding: 0 24px 48px !important; }
+          .about-section { padding: 48px 24px 0 !important; }
+          .features-grid { grid-template-columns: 1fr !important; }
+          .samples-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .usecases-grid { grid-template-columns: 1fr !important; }
+          .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+
+        @media (max-width: 480px) {
+          .hero-section { padding: 32px 16px !important; }
+          .section-padding { padding: 0 16px 40px !important; }
+          .about-section { padding: 40px 16px 0 !important; }
+          .samples-grid { grid-template-columns: 1fr !important; }
+          .tips-grid { grid-template-columns: 1fr !important; }
+        }
       `}</style>
 
-      <div style={{ padding: '60px 96px 0' }}>
+      <div className="about-section" style={{ padding: '60px 96px 0' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -316,7 +346,7 @@ export function ProfessionalTemplatePage() {
         ))}
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -325,7 +355,7 @@ export function ProfessionalTemplatePage() {
         }}>
           Key Features
         </h2>
-        <div style={{
+        <div className="features-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
@@ -379,7 +409,7 @@ export function ProfessionalTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -388,7 +418,7 @@ export function ProfessionalTemplatePage() {
         }}>
           Sample Resumes
         </h2>
-        <div style={{
+        <div className="samples-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 30,
@@ -420,7 +450,7 @@ export function ProfessionalTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -429,7 +459,7 @@ export function ProfessionalTemplatePage() {
         }}>
           Perfect For
         </h2>
-        <div style={{
+        <div className="usecases-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 20,
@@ -469,7 +499,7 @@ export function ProfessionalTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 80px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 80px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
@@ -478,7 +508,7 @@ export function ProfessionalTemplatePage() {
         }}>
           Pro Tips
         </h2>
-        <div style={{
+        <div className="tips-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 24,
@@ -517,7 +547,7 @@ export function ProfessionalTemplatePage() {
         </div>
       </div>
 
-      <div style={{ padding: '0 96px 60px' }}>
+      <div className="section-padding" style={{ padding: '0 96px 60px' }}>
         <h2 style={{
           fontSize: 40,
           fontWeight: 700,
